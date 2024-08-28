@@ -58,9 +58,10 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(845, 663);
+            this.btnCancel.Location = new System.Drawing.Point(563, 431);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 35);
+            this.btnCancel.Size = new System.Drawing.Size(50, 23);
             this.btnCancel.TabIndex = 34;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -69,9 +70,10 @@
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(732, 663);
+            this.btnSave.Location = new System.Drawing.Point(488, 431);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 35);
+            this.btnSave.Size = new System.Drawing.Size(50, 23);
             this.btnSave.TabIndex = 33;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -80,71 +82,79 @@
             // txtMin
             // 
             this.txtMin.BackColor = System.Drawing.Color.White;
-            this.txtMin.Location = new System.Drawing.Point(289, 461);
+            this.txtMin.Location = new System.Drawing.Point(193, 300);
+            this.txtMin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMin.Name = "txtMin";
-            this.txtMin.Size = new System.Drawing.Size(79, 26);
+            this.txtMin.Size = new System.Drawing.Size(54, 20);
             this.txtMin.TabIndex = 5;
             this.txtMin.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtMax
             // 
             this.txtMax.BackColor = System.Drawing.Color.White;
-            this.txtMax.Location = new System.Drawing.Point(83, 458);
+            this.txtMax.Location = new System.Drawing.Point(55, 298);
+            this.txtMax.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMax.Name = "txtMax";
-            this.txtMax.Size = new System.Drawing.Size(84, 26);
+            this.txtMax.Size = new System.Drawing.Size(57, 20);
             this.txtMax.TabIndex = 4;
             this.txtMax.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtPrice
             // 
             this.txtPrice.BackColor = System.Drawing.Color.White;
-            this.txtPrice.Location = new System.Drawing.Point(128, 414);
+            this.txtPrice.Location = new System.Drawing.Point(85, 269);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(211, 26);
+            this.txtPrice.Size = new System.Drawing.Size(142, 20);
             this.txtPrice.TabIndex = 3;
             this.txtPrice.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtInStock
             // 
             this.txtInStock.BackColor = System.Drawing.Color.White;
-            this.txtInStock.Location = new System.Drawing.Point(128, 371);
+            this.txtInStock.Location = new System.Drawing.Point(85, 241);
+            this.txtInStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtInStock.Name = "txtInStock";
-            this.txtInStock.Size = new System.Drawing.Size(211, 26);
+            this.txtInStock.Size = new System.Drawing.Size(142, 20);
             this.txtInStock.TabIndex = 2;
             this.txtInStock.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtName
             // 
             this.txtName.BackColor = System.Drawing.Color.White;
-            this.txtName.Location = new System.Drawing.Point(128, 321);
+            this.txtName.Location = new System.Drawing.Point(85, 209);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(211, 26);
+            this.txtName.Size = new System.Drawing.Size(142, 20);
             this.txtName.TabIndex = 1;
             this.txtName.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtId
             // 
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(128, 280);
+            this.txtId.Location = new System.Drawing.Point(85, 182);
+            this.txtId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(211, 26);
+            this.txtId.Size = new System.Drawing.Size(142, 20);
             this.txtId.TabIndex = 26;
             // 
             // lblMin
             // 
             this.lblMin.AutoSize = true;
-            this.lblMin.Location = new System.Drawing.Point(222, 464);
+            this.lblMin.Location = new System.Drawing.Point(148, 302);
+            this.lblMin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMin.Name = "lblMin";
-            this.lblMin.Size = new System.Drawing.Size(34, 20);
+            this.lblMin.Size = new System.Drawing.Size(24, 13);
             this.lblMin.TabIndex = 25;
             this.lblMin.Text = "Min";
             // 
             // lblMax
             // 
             this.lblMax.AutoSize = true;
-            this.lblMax.Location = new System.Drawing.Point(14, 464);
+            this.lblMax.Location = new System.Drawing.Point(9, 302);
+            this.lblMax.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMax.Name = "lblMax";
-            this.lblMax.Size = new System.Drawing.Size(38, 20);
+            this.lblMax.Size = new System.Drawing.Size(27, 13);
             this.lblMax.TabIndex = 23;
             this.lblMax.Text = "Max";
             this.lblMax.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -152,9 +162,10 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(12, 414);
+            this.lblPrice.Location = new System.Drawing.Point(8, 269);
+            this.lblPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(89, 20);
+            this.lblPrice.Size = new System.Drawing.Size(63, 13);
             this.lblPrice.TabIndex = 22;
             this.lblPrice.Text = "Price / Cost";
             this.lblPrice.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -162,9 +173,10 @@
             // lblInStock
             // 
             this.lblInStock.AutoSize = true;
-            this.lblInStock.Location = new System.Drawing.Point(12, 371);
+            this.lblInStock.Location = new System.Drawing.Point(8, 241);
+            this.lblInStock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInStock.Name = "lblInStock";
-            this.lblInStock.Size = new System.Drawing.Size(74, 20);
+            this.lblInStock.Size = new System.Drawing.Size(51, 13);
             this.lblInStock.TabIndex = 21;
             this.lblInStock.Text = "Inventory";
             this.lblInStock.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -172,9 +184,10 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(12, 324);
+            this.lblName.Location = new System.Drawing.Point(8, 211);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(51, 20);
+            this.lblName.Size = new System.Drawing.Size(35, 13);
             this.lblName.TabIndex = 20;
             this.lblName.Text = "Name";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -182,9 +195,10 @@
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(12, 283);
+            this.lblID.Location = new System.Drawing.Point(8, 184);
+            this.lblID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(26, 20);
+            this.lblID.Size = new System.Drawing.Size(18, 13);
             this.lblID.TabIndex = 19;
             this.lblID.Text = "ID";
             this.lblID.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -195,16 +209,16 @@
             this.dtgAllParts.AllowUserToDeleteRows = false;
             this.dtgAllParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgAllParts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtgAllParts.Location = new System.Drawing.Point(393, 109);
+            this.dtgAllParts.Location = new System.Drawing.Point(262, 71);
+            this.dtgAllParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtgAllParts.MultiSelect = false;
             this.dtgAllParts.Name = "dtgAllParts";
             this.dtgAllParts.RowHeadersVisible = false;
             this.dtgAllParts.RowHeadersWidth = 62;
             this.dtgAllParts.RowTemplate.Height = 28;
             this.dtgAllParts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgAllParts.Size = new System.Drawing.Size(567, 197);
+            this.dtgAllParts.Size = new System.Drawing.Size(378, 128);
             this.dtgAllParts.TabIndex = 35;
-            //this.dtgAllParts.CellClick += new System.EventHandler(this.PartsDataGrid_CellClick);
             // 
             // dtgAssociatedParts
             // 
@@ -212,30 +226,34 @@
             this.dtgAssociatedParts.AllowUserToDeleteRows = false;
             this.dtgAssociatedParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgAssociatedParts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dtgAssociatedParts.Location = new System.Drawing.Point(393, 396);
+            this.dtgAssociatedParts.Location = new System.Drawing.Point(262, 257);
+            this.dtgAssociatedParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtgAssociatedParts.MultiSelect = false;
             this.dtgAssociatedParts.Name = "dtgAssociatedParts";
             this.dtgAssociatedParts.RowHeadersVisible = false;
             this.dtgAssociatedParts.RowHeadersWidth = 62;
             this.dtgAssociatedParts.RowTemplate.Height = 28;
             this.dtgAssociatedParts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgAssociatedParts.Size = new System.Drawing.Size(567, 197);
+            this.dtgAssociatedParts.Size = new System.Drawing.Size(378, 128);
             this.dtgAssociatedParts.TabIndex = 36;
             // 
             // lblFormTitle
             // 
             this.lblFormTitle.AutoSize = true;
-            this.lblFormTitle.Location = new System.Drawing.Point(35, 42);
+            this.lblFormTitle.Location = new System.Drawing.Point(23, 27);
+            this.lblFormTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFormTitle.Name = "lblFormTitle";
-            this.lblFormTitle.Size = new System.Drawing.Size(97, 20);
+            this.lblFormTitle.Size = new System.Drawing.Size(66, 13);
             this.lblFormTitle.TabIndex = 37;
             this.lblFormTitle.Text = "Add Product";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(692, 41);
+            this.btnSearch.Enabled = false;
+            this.btnSearch.Location = new System.Drawing.Point(461, 27);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 31);
+            this.btnSearch.Size = new System.Drawing.Size(50, 20);
             this.btnSearch.TabIndex = 38;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -244,34 +262,39 @@
             // 
             this.txtSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtSearch.Location = new System.Drawing.Point(788, 46);
+            this.txtSearch.Location = new System.Drawing.Point(525, 30);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(172, 26);
+            this.txtSearch.Size = new System.Drawing.Size(116, 20);
             this.txtSearch.TabIndex = 39;
             // 
             // lblAllParts
             // 
             this.lblAllParts.AutoSize = true;
-            this.lblAllParts.Location = new System.Drawing.Point(389, 76);
+            this.lblAllParts.Location = new System.Drawing.Point(259, 49);
+            this.lblAllParts.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAllParts.Name = "lblAllParts";
-            this.lblAllParts.Size = new System.Drawing.Size(141, 20);
+            this.lblAllParts.Size = new System.Drawing.Size(95, 13);
             this.lblAllParts.TabIndex = 40;
             this.lblAllParts.Text = "All candidate Parts";
             // 
             // lblProductParts
             // 
             this.lblProductParts.AutoSize = true;
-            this.lblProductParts.Location = new System.Drawing.Point(389, 367);
+            this.lblProductParts.Location = new System.Drawing.Point(259, 239);
+            this.lblProductParts.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProductParts.Name = "lblProductParts";
-            this.lblProductParts.Size = new System.Drawing.Size(247, 20);
+            this.lblProductParts.Size = new System.Drawing.Size(166, 13);
             this.lblProductParts.TabIndex = 41;
             this.lblProductParts.Text = "Parts Associated with the Product";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(845, 324);
+            this.btnAdd.Enabled = false;
+            this.btnAdd.Location = new System.Drawing.Point(563, 211);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 35);
+            this.btnAdd.Size = new System.Drawing.Size(50, 23);
             this.btnAdd.TabIndex = 42;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -279,9 +302,11 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(845, 611);
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Location = new System.Drawing.Point(563, 397);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 35);
+            this.btnDelete.Size = new System.Drawing.Size(50, 23);
             this.btnDelete.TabIndex = 43;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -289,9 +314,9 @@
             // 
             // AddProductForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1027, 733);
+            this.ClientSize = new System.Drawing.Size(685, 476);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblProductParts);
@@ -315,9 +340,11 @@
             this.Controls.Add(this.lblInStock);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblID);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AddProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Product";
+            this.Load += new System.EventHandler(this.AddProductForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgAllParts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAssociatedParts)).EndInit();
             this.ResumeLayout(false);

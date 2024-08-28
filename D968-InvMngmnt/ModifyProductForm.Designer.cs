@@ -344,6 +344,7 @@
             this.Name = "ModifyProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modify Product";
+            this.Load += new System.EventHandler(this.ModifyProductForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgAssociatedParts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAllParts)).EndInit();
             this.ResumeLayout(false);

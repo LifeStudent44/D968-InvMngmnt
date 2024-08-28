@@ -48,11 +48,31 @@ namespace D968_InvMngmnt
         }
         public void UpdateProduct(int id, Product modifiedProduct)
         {
-            this.Products[id] = modifiedProduct;
+            var product = LookupProduct(id);
+            if (product != null)
+            {
+                product.Name = modifiedProduct.Name;
+                product.InStock = modifiedProduct.InStock;
+                product.Price = modifiedProduct.Price;
+                product.Min = modifiedProduct.Min;
+                product.Max = modifiedProduct.Max;
+                foreach (var part in modifiedProduct.AssociatedParts)
+                {
+                    product.AddAssociatedPart(part);
+                }
+            }
         }
         public void UpdatePart(int id, Part modifiedPart)
         {
-            this.AllParts[id] = modifiedPart;
+            var part = LookupPart(id);
+            if(part != null)
+            {
+                part.Name = modifiedPart.Name;
+                part.InStock = modifiedPart.InStock;
+                part.Price = modifiedPart.Price;
+                part.Min = modifiedPart.Min;
+                part.Max = modifiedPart.Max;
+            }
         }
         public void AddPart(Part part)
         {

@@ -38,7 +38,8 @@ namespace D968_InvMngmnt
             this.inventory.AddPart(secondOutsourcedPart);
             this.inventory.AddPart(thirdOutsourcedPart);
 
-            PartsDatagrid.DataSource = inventory.AllParts;
+            dtgAllParts.DataSource = inventory.AllParts;
+            dtgAllParts.Rows[0].Selected = false;
 
             Product firstProduct = new Product("Product1", 11.11, 111, 1111, 11);
             Product secondProduct = new Product("Product2", 22.22, 222, 2222, 22);
@@ -54,7 +55,9 @@ namespace D968_InvMngmnt
             this.inventory.AddProduct(fourthProduct);
             this.inventory.AddProduct(fifthProduct);
 
-            ProductsDatagrid.DataSource = this.inventory.Products;
+            dtgProducts.DataSource = this.inventory.Products;
+            dtgProducts.Rows[0].Selected = false;
+            
         }
 
         private void btnProductAdd_Click(object sender, EventArgs e)
@@ -73,7 +76,7 @@ namespace D968_InvMngmnt
 
         private void btnProductModify_Click(object sender, EventArgs e)
         {
-            var selectedProduct = ProductsDatagrid.SelectedRows[0].DataBoundItem as Product;
+            var selectedProduct = dtgProducts.SelectedRows[0].DataBoundItem as Product;
             using (ModifyProductForm formModifyProduct = new ModifyProductForm(selectedProduct, this.inventory))
             {
                 var result = formModifyProduct.ShowDialog();
@@ -101,7 +104,7 @@ namespace D968_InvMngmnt
 
         private void btnPartModify_Click(object sender, EventArgs e)
         {
-            var selectedPart = PartsDatagrid.SelectedRows[0].DataBoundItem as Part;
+            var selectedPart = dtgAllParts.SelectedRows[0].DataBoundItem as Part;
             using (ModifyPartForm formModifyPart = new ModifyPartForm(selectedPart))
             {
                 var result = formModifyPart.ShowDialog();
@@ -120,19 +123,29 @@ namespace D968_InvMngmnt
 
         private void btnPartDelete_Click(object sender, EventArgs e)
         {
-            var selectedPart = PartsDatagrid.SelectedRows[0].DataBoundItem as Part;
+            var selectedPart = dtgAllParts.SelectedRows[0].DataBoundItem as Part;
             this.inventory.RemovePart(selectedPart.PartId);
         }
 
         private void btnProductDelete_Click(object sender, EventArgs e)
         {
-            var selectedProduct = ProductsDatagrid.SelectedRows[0].DataBoundItem as Product;
+            var selectedProduct = dtgProducts.SelectedRows[0].DataBoundItem as Product;
             this.inventory.RemoveProduct(selectedProduct.ProductId);
         }
 
         private void btnSearchParts_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtSearchParts_TextChanged(object sender, EventArgs e)
+        {
+            btnSearchParts.Enabled = true;
+        }
+
+        private void txtSearchProducts_TextChanged(object sender, EventArgs e)
+        {
+            btnSearchProducts.Enabled = true;
         }
     }
 }

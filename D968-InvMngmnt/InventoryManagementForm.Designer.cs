@@ -34,8 +34,8 @@ namespace D968_InvMngmnt
             this.lblPartsDetail = new System.Windows.Forms.Label();
             this.lblProductsDetail = new System.Windows.Forms.Label();
             this.lblPageTitle = new System.Windows.Forms.Label();
-            this.PartsDatagrid = new System.Windows.Forms.DataGridView();
-            this.ProductsDatagrid = new System.Windows.Forms.DataGridView();
+            this.dtgAllParts = new System.Windows.Forms.DataGridView();
+            this.dtgProducts = new System.Windows.Forms.DataGridView();
             this.btnPartAdd = new System.Windows.Forms.Button();
             this.btnPartModify = new System.Windows.Forms.Button();
             this.btnPartDelete = new System.Windows.Forms.Button();
@@ -43,31 +43,37 @@ namespace D968_InvMngmnt
             this.btnProductDelete = new System.Windows.Forms.Button();
             this.btnProductModify = new System.Windows.Forms.Button();
             this.btnProductAdd = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.PartsDatagrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductsDatagrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgAllParts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearchProducts
             // 
-            this.txtSearchProducts.Location = new System.Drawing.Point(1105, 110);
+            this.txtSearchProducts.Location = new System.Drawing.Point(737, 72);
+            this.txtSearchProducts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSearchProducts.Name = "txtSearchProducts";
-            this.txtSearchProducts.Size = new System.Drawing.Size(206, 26);
+            this.txtSearchProducts.Size = new System.Drawing.Size(139, 20);
             this.txtSearchProducts.TabIndex = 2;
+            this.txtSearchProducts.TextChanged += new System.EventHandler(this.txtSearchProducts_TextChanged);
             // 
             // btnSearchProducts
             // 
-            this.btnSearchProducts.Location = new System.Drawing.Point(967, 110);
+            this.btnSearchProducts.Enabled = false;
+            this.btnSearchProducts.Location = new System.Drawing.Point(645, 72);
+            this.btnSearchProducts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearchProducts.Name = "btnSearchProducts";
-            this.btnSearchProducts.Size = new System.Drawing.Size(92, 34);
+            this.btnSearchProducts.Size = new System.Drawing.Size(61, 22);
             this.btnSearchProducts.TabIndex = 1;
             this.btnSearchProducts.Text = "Search";
             this.btnSearchProducts.UseVisualStyleBackColor = true;
             // 
             // btnSearchParts
             // 
-            this.btnSearchParts.Location = new System.Drawing.Point(309, 110);
+            this.btnSearchParts.Enabled = false;
+            this.btnSearchParts.Location = new System.Drawing.Point(206, 72);
+            this.btnSearchParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearchParts.Name = "btnSearchParts";
-            this.btnSearchParts.Size = new System.Drawing.Size(92, 34);
+            this.btnSearchParts.Size = new System.Drawing.Size(61, 22);
             this.btnSearchParts.TabIndex = 3;
             this.btnSearchParts.Text = "Search";
             this.btnSearchParts.UseVisualStyleBackColor = true;
@@ -75,26 +81,30 @@ namespace D968_InvMngmnt
             // 
             // txtSearchParts
             // 
-            this.txtSearchParts.Location = new System.Drawing.Point(431, 110);
+            this.txtSearchParts.Location = new System.Drawing.Point(287, 72);
+            this.txtSearchParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSearchParts.Name = "txtSearchParts";
-            this.txtSearchParts.Size = new System.Drawing.Size(206, 26);
+            this.txtSearchParts.Size = new System.Drawing.Size(139, 20);
             this.txtSearchParts.TabIndex = 1;
+            this.txtSearchParts.TextChanged += new System.EventHandler(this.txtSearchParts_TextChanged);
             // 
             // lblPartsDetail
             // 
             this.lblPartsDetail.AutoSize = true;
-            this.lblPartsDetail.Location = new System.Drawing.Point(25, 213);
+            this.lblPartsDetail.Location = new System.Drawing.Point(17, 138);
+            this.lblPartsDetail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPartsDetail.Name = "lblPartsDetail";
-            this.lblPartsDetail.Size = new System.Drawing.Size(46, 20);
+            this.lblPartsDetail.Size = new System.Drawing.Size(31, 13);
             this.lblPartsDetail.TabIndex = 4;
             this.lblPartsDetail.Text = "Parts";
             // 
             // lblProductsDetail
             // 
             this.lblProductsDetail.AutoSize = true;
-            this.lblProductsDetail.Location = new System.Drawing.Point(701, 213);
+            this.lblProductsDetail.Location = new System.Drawing.Point(467, 138);
+            this.lblProductsDetail.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProductsDetail.Name = "lblProductsDetail";
-            this.lblProductsDetail.Size = new System.Drawing.Size(72, 20);
+            this.lblProductsDetail.Size = new System.Drawing.Size(49, 13);
             this.lblProductsDetail.TabIndex = 5;
             this.lblProductsDetail.Text = "Products";
             // 
@@ -102,49 +112,53 @@ namespace D968_InvMngmnt
             // 
             this.lblPageTitle.AutoSize = true;
             this.lblPageTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPageTitle.Location = new System.Drawing.Point(24, 26);
+            this.lblPageTitle.Location = new System.Drawing.Point(16, 17);
+            this.lblPageTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPageTitle.Name = "lblPageTitle";
-            this.lblPageTitle.Size = new System.Drawing.Size(340, 29);
+            this.lblPageTitle.Size = new System.Drawing.Size(229, 20);
             this.lblPageTitle.TabIndex = 6;
             this.lblPageTitle.Text = "Inventory Management System";
             // 
-            // PartsDatagrid
+            // dtgAllParts
             // 
-            this.PartsDatagrid.AllowUserToAddRows = false;
-            this.PartsDatagrid.AllowUserToDeleteRows = false;
-            this.PartsDatagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PartsDatagrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.PartsDatagrid.Location = new System.Drawing.Point(29, 246);
-            this.PartsDatagrid.MultiSelect = false;
-            this.PartsDatagrid.Name = "PartsDatagrid";
-            this.PartsDatagrid.RowHeadersVisible = false;
-            this.PartsDatagrid.RowHeadersWidth = 62;
-            this.PartsDatagrid.RowTemplate.Height = 28;
-            this.PartsDatagrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PartsDatagrid.Size = new System.Drawing.Size(608, 376);
-            this.PartsDatagrid.TabIndex = 3;
+            this.dtgAllParts.AllowUserToAddRows = false;
+            this.dtgAllParts.AllowUserToDeleteRows = false;
+            this.dtgAllParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgAllParts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtgAllParts.Location = new System.Drawing.Point(19, 160);
+            this.dtgAllParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgAllParts.MultiSelect = false;
+            this.dtgAllParts.Name = "dtgAllParts";
+            this.dtgAllParts.RowHeadersVisible = false;
+            this.dtgAllParts.RowHeadersWidth = 62;
+            this.dtgAllParts.RowTemplate.Height = 28;
+            this.dtgAllParts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgAllParts.Size = new System.Drawing.Size(405, 244);
+            this.dtgAllParts.TabIndex = 3;
             // 
-            // ProductsDatagrid
+            // dtgProducts
             // 
-            this.ProductsDatagrid.AllowUserToAddRows = false;
-            this.ProductsDatagrid.AllowUserToDeleteRows = false;
-            this.ProductsDatagrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ProductsDatagrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.ProductsDatagrid.Location = new System.Drawing.Point(705, 246);
-            this.ProductsDatagrid.MultiSelect = false;
-            this.ProductsDatagrid.Name = "ProductsDatagrid";
-            this.ProductsDatagrid.RowHeadersVisible = false;
-            this.ProductsDatagrid.RowHeadersWidth = 62;
-            this.ProductsDatagrid.RowTemplate.Height = 28;
-            this.ProductsDatagrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ProductsDatagrid.Size = new System.Drawing.Size(608, 376);
-            this.ProductsDatagrid.TabIndex = 4;
+            this.dtgProducts.AllowUserToAddRows = false;
+            this.dtgProducts.AllowUserToDeleteRows = false;
+            this.dtgProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgProducts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dtgProducts.Location = new System.Drawing.Point(470, 160);
+            this.dtgProducts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgProducts.MultiSelect = false;
+            this.dtgProducts.Name = "dtgProducts";
+            this.dtgProducts.RowHeadersVisible = false;
+            this.dtgProducts.RowHeadersWidth = 62;
+            this.dtgProducts.RowTemplate.Height = 28;
+            this.dtgProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgProducts.Size = new System.Drawing.Size(405, 244);
+            this.dtgProducts.TabIndex = 4;
             // 
             // btnPartAdd
             // 
-            this.btnPartAdd.Location = new System.Drawing.Point(348, 645);
+            this.btnPartAdd.Location = new System.Drawing.Point(232, 419);
+            this.btnPartAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPartAdd.Name = "btnPartAdd";
-            this.btnPartAdd.Size = new System.Drawing.Size(75, 42);
+            this.btnPartAdd.Size = new System.Drawing.Size(50, 27);
             this.btnPartAdd.TabIndex = 9;
             this.btnPartAdd.Text = "Add";
             this.btnPartAdd.UseVisualStyleBackColor = true;
@@ -152,9 +166,11 @@ namespace D968_InvMngmnt
             // 
             // btnPartModify
             // 
-            this.btnPartModify.Location = new System.Drawing.Point(457, 645);
+            this.btnPartModify.Enabled = false;
+            this.btnPartModify.Location = new System.Drawing.Point(305, 419);
+            this.btnPartModify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPartModify.Name = "btnPartModify";
-            this.btnPartModify.Size = new System.Drawing.Size(75, 42);
+            this.btnPartModify.Size = new System.Drawing.Size(50, 27);
             this.btnPartModify.TabIndex = 10;
             this.btnPartModify.Text = "Modify";
             this.btnPartModify.UseVisualStyleBackColor = true;
@@ -162,9 +178,11 @@ namespace D968_InvMngmnt
             // 
             // btnPartDelete
             // 
-            this.btnPartDelete.Location = new System.Drawing.Point(562, 645);
+            this.btnPartDelete.Enabled = false;
+            this.btnPartDelete.Location = new System.Drawing.Point(375, 419);
+            this.btnPartDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPartDelete.Name = "btnPartDelete";
-            this.btnPartDelete.Size = new System.Drawing.Size(75, 42);
+            this.btnPartDelete.Size = new System.Drawing.Size(50, 27);
             this.btnPartDelete.TabIndex = 11;
             this.btnPartDelete.Text = "Delete";
             this.btnPartDelete.UseVisualStyleBackColor = true;
@@ -172,9 +190,10 @@ namespace D968_InvMngmnt
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(1238, 705);
+            this.btnExit.Location = new System.Drawing.Point(825, 458);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 36);
+            this.btnExit.Size = new System.Drawing.Size(50, 23);
             this.btnExit.TabIndex = 12;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
@@ -182,9 +201,11 @@ namespace D968_InvMngmnt
             // 
             // btnProductDelete
             // 
-            this.btnProductDelete.Location = new System.Drawing.Point(1236, 645);
+            this.btnProductDelete.Enabled = false;
+            this.btnProductDelete.Location = new System.Drawing.Point(824, 419);
+            this.btnProductDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnProductDelete.Name = "btnProductDelete";
-            this.btnProductDelete.Size = new System.Drawing.Size(75, 42);
+            this.btnProductDelete.Size = new System.Drawing.Size(50, 27);
             this.btnProductDelete.TabIndex = 15;
             this.btnProductDelete.Text = "Delete";
             this.btnProductDelete.UseVisualStyleBackColor = true;
@@ -192,9 +213,11 @@ namespace D968_InvMngmnt
             // 
             // btnProductModify
             // 
-            this.btnProductModify.Location = new System.Drawing.Point(1131, 645);
+            this.btnProductModify.Enabled = false;
+            this.btnProductModify.Location = new System.Drawing.Point(754, 419);
+            this.btnProductModify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnProductModify.Name = "btnProductModify";
-            this.btnProductModify.Size = new System.Drawing.Size(75, 42);
+            this.btnProductModify.Size = new System.Drawing.Size(50, 27);
             this.btnProductModify.TabIndex = 14;
             this.btnProductModify.Text = "Modify";
             this.btnProductModify.UseVisualStyleBackColor = true;
@@ -202,9 +225,10 @@ namespace D968_InvMngmnt
             // 
             // btnProductAdd
             // 
-            this.btnProductAdd.Location = new System.Drawing.Point(1018, 645);
+            this.btnProductAdd.Location = new System.Drawing.Point(679, 419);
+            this.btnProductAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnProductAdd.Name = "btnProductAdd";
-            this.btnProductAdd.Size = new System.Drawing.Size(75, 42);
+            this.btnProductAdd.Size = new System.Drawing.Size(50, 27);
             this.btnProductAdd.TabIndex = 13;
             this.btnProductAdd.Text = "Add";
             this.btnProductAdd.UseVisualStyleBackColor = true;
@@ -212,9 +236,9 @@ namespace D968_InvMngmnt
             // 
             // InventoryManagementForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1357, 781);
+            this.ClientSize = new System.Drawing.Size(905, 508);
             this.Controls.Add(this.btnProductDelete);
             this.Controls.Add(this.btnProductModify);
             this.Controls.Add(this.btnProductAdd);
@@ -222,8 +246,8 @@ namespace D968_InvMngmnt
             this.Controls.Add(this.btnPartDelete);
             this.Controls.Add(this.btnPartModify);
             this.Controls.Add(this.btnPartAdd);
-            this.Controls.Add(this.ProductsDatagrid);
-            this.Controls.Add(this.PartsDatagrid);
+            this.Controls.Add(this.dtgProducts);
+            this.Controls.Add(this.dtgAllParts);
             this.Controls.Add(this.lblPageTitle);
             this.Controls.Add(this.lblProductsDetail);
             this.Controls.Add(this.lblPartsDetail);
@@ -231,12 +255,13 @@ namespace D968_InvMngmnt
             this.Controls.Add(this.txtSearchParts);
             this.Controls.Add(this.btnSearchProducts);
             this.Controls.Add(this.txtSearchProducts);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "InventoryManagementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory Management System";
             this.Load += new System.EventHandler(this.InventoryManagementForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.PartsDatagrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ProductsDatagrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgAllParts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,8 +276,8 @@ namespace D968_InvMngmnt
         private System.Windows.Forms.Label lblPartsDetail;
         private System.Windows.Forms.Label lblProductsDetail;
         private System.Windows.Forms.Label lblPageTitle;
-        private System.Windows.Forms.DataGridView PartsDatagrid;
-        private System.Windows.Forms.DataGridView ProductsDatagrid;
+        private System.Windows.Forms.DataGridView dtgAllParts;
+        private System.Windows.Forms.DataGridView dtgProducts;
         private System.Windows.Forms.Button btnPartAdd;
         private System.Windows.Forms.Button btnPartModify;
         private System.Windows.Forms.Button btnPartDelete;

@@ -115,5 +115,19 @@ namespace D968_InvMngmnt
                 }
             }
         }
+
+        private void AllParts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnAdd.Enabled = true;
+        }
+
+        private void AssociatedParts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtgAssociatedParts.RowCount > 0)
+            {
+                btnDelete.Enabled = true;
+            }
+
+        }
     }
 }

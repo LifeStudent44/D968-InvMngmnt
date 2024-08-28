@@ -54,9 +54,10 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btnCancel.Location = new System.Drawing.Point(430, 394);
+            this.btnCancel.Location = new System.Drawing.Point(287, 256);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 35);
+            this.btnCancel.Size = new System.Drawing.Size(50, 23);
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -65,104 +66,104 @@
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(317, 394);
+            this.btnSave.Location = new System.Drawing.Point(211, 256);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 35);
+            this.btnSave.Size = new System.Drawing.Size(50, 23);
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.SaveButton_Click);
-
+            // 
+            // txtCompany
+            // 
+            this.txtCompany.BackColor = System.Drawing.Color.White;
+            this.txtCompany.Enabled = false;
+            this.txtCompany.Location = new System.Drawing.Point(146, 220);
+            this.txtCompany.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.Size = new System.Drawing.Size(142, 20);
+            this.txtCompany.TabIndex = 7;
+            this.txtCompany.Visible = false;
+            this.txtCompany.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtMin
             // 
             this.txtMin.BackColor = System.Drawing.Color.White;
-            this.txtMin.Location = new System.Drawing.Point(426, 293);
+            this.txtMin.Location = new System.Drawing.Point(284, 190);
+            this.txtMin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMin.Name = "txtMin";
-            this.txtMin.Size = new System.Drawing.Size(79, 26);
+            this.txtMin.Size = new System.Drawing.Size(54, 20);
             this.txtMin.TabIndex = 6;
             this.txtMin.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtMax
             // 
             this.txtMax.BackColor = System.Drawing.Color.White;
-            this.txtMax.Location = new System.Drawing.Point(219, 293);
+            this.txtMax.Location = new System.Drawing.Point(146, 190);
+            this.txtMax.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMax.Name = "txtMax";
-            this.txtMax.Size = new System.Drawing.Size(84, 26);
+            this.txtMax.Size = new System.Drawing.Size(57, 20);
             this.txtMax.TabIndex = 5;
             this.txtMax.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtPrice
             // 
             this.txtPrice.BackColor = System.Drawing.Color.White;
-            this.txtPrice.Location = new System.Drawing.Point(219, 249);
+            this.txtPrice.Location = new System.Drawing.Point(146, 162);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(211, 26);
+            this.txtPrice.Size = new System.Drawing.Size(142, 20);
             this.txtPrice.TabIndex = 4;
             this.txtPrice.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtInStock
             // 
             this.txtInStock.BackColor = System.Drawing.Color.White;
-            this.txtInStock.Location = new System.Drawing.Point(219, 206);
+            this.txtInStock.Location = new System.Drawing.Point(146, 134);
+            this.txtInStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtInStock.Name = "txtInStock";
-            this.txtInStock.Size = new System.Drawing.Size(211, 26);
+            this.txtInStock.Size = new System.Drawing.Size(142, 20);
             this.txtInStock.TabIndex = 3;
             this.txtInStock.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtName
             // 
             this.txtName.BackColor = System.Drawing.Color.White;
-            this.txtName.Location = new System.Drawing.Point(219, 159);
+            this.txtName.Location = new System.Drawing.Point(146, 103);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(211, 26);
+            this.txtName.Size = new System.Drawing.Size(142, 20);
             this.txtName.TabIndex = 2;
             this.txtName.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtID
             // 
-            this.txtID.Location = new System.Drawing.Point(219, 115);
+            this.txtID.Enabled = false;
+            this.txtID.Location = new System.Drawing.Point(146, 75);
+            this.txtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(211, 26);
+            this.txtID.Size = new System.Drawing.Size(142, 20);
             this.txtID.TabIndex = 1;
             this.txtID.TextChanged += new System.EventHandler(this.TextBox_Leave);
-            // 
-            // txtCompany
-            // 
-            this.txtCompany.BackColor = System.Drawing.Color.White;
-            this.txtCompany.Enabled = false;
-            this.txtCompany.Location = new System.Drawing.Point(219, 339);
-            this.txtCompany.Name = "txtCompany";
-            this.txtCompany.Size = new System.Drawing.Size(211, 26);
-            this.txtCompany.TabIndex = 7;
-            this.txtCompany.Visible = false;
-            this.txtCompany.TextChanged += new System.EventHandler(this.TextBox_Leave);
-            // 
-            // txtMachine
-            // 
-            this.txtMachine.BackColor = System.Drawing.Color.White;
-            this.txtMachine.Enabled = false;
-            this.txtMachine.Location = new System.Drawing.Point(219, 342);
-            this.txtMachine.Name = "txtMachine";
-            this.txtMachine.Size = new System.Drawing.Size(211, 26);
-            this.txtMachine.TabIndex = 8;
-            this.txtMachine.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // lblMin
             // 
             this.lblMin.AutoSize = true;
-            this.lblMin.Location = new System.Drawing.Point(358, 299);
+            this.lblMin.Location = new System.Drawing.Point(239, 194);
+            this.lblMin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMin.Name = "lblMin";
-            this.lblMin.Size = new System.Drawing.Size(34, 20);
+            this.lblMin.Size = new System.Drawing.Size(24, 13);
             this.lblMin.TabIndex = 27;
             this.lblMin.Text = "Min";
             // 
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
-            this.lblCompany.Location = new System.Drawing.Point(115, 341);
+            this.lblCompany.Location = new System.Drawing.Point(77, 222);
+            this.lblCompany.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCompany.Name = "lblCompany";
-            this.lblCompany.Size = new System.Drawing.Size(76, 20);
+            this.lblCompany.Size = new System.Drawing.Size(51, 13);
             this.lblCompany.TabIndex = 26;
             this.lblCompany.Text = "Company";
             this.lblCompany.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -171,9 +172,10 @@
             // lblMax
             // 
             this.lblMax.AutoSize = true;
-            this.lblMax.Location = new System.Drawing.Point(168, 299);
+            this.lblMax.Location = new System.Drawing.Point(112, 194);
+            this.lblMax.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMax.Name = "lblMax";
-            this.lblMax.Size = new System.Drawing.Size(38, 20);
+            this.lblMax.Size = new System.Drawing.Size(27, 13);
             this.lblMax.TabIndex = 25;
             this.lblMax.Text = "Max";
             this.lblMax.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -181,9 +183,10 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(117, 249);
+            this.lblPrice.Location = new System.Drawing.Point(78, 162);
+            this.lblPrice.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPrice.Name = "lblPrice";
-            this.lblPrice.Size = new System.Drawing.Size(89, 20);
+            this.lblPrice.Size = new System.Drawing.Size(63, 13);
             this.lblPrice.TabIndex = 24;
             this.lblPrice.Text = "Price / Cost";
             this.lblPrice.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -191,9 +194,10 @@
             // lblInStock
             // 
             this.lblInStock.AutoSize = true;
-            this.lblInStock.Location = new System.Drawing.Point(132, 206);
+            this.lblInStock.Location = new System.Drawing.Point(88, 134);
+            this.lblInStock.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInStock.Name = "lblInStock";
-            this.lblInStock.Size = new System.Drawing.Size(74, 20);
+            this.lblInStock.Size = new System.Drawing.Size(51, 13);
             this.lblInStock.TabIndex = 23;
             this.lblInStock.Text = "Inventory";
             this.lblInStock.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -201,9 +205,10 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(155, 159);
+            this.lblName.Location = new System.Drawing.Point(103, 103);
+            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(51, 20);
+            this.lblName.Size = new System.Drawing.Size(35, 13);
             this.lblName.TabIndex = 22;
             this.lblName.Text = "Name";
             this.lblName.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -211,9 +216,10 @@
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(180, 112);
+            this.lblID.Location = new System.Drawing.Point(120, 73);
+            this.lblID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(26, 20);
+            this.lblID.Size = new System.Drawing.Size(18, 13);
             this.lblID.TabIndex = 21;
             this.lblID.Text = "ID";
             this.lblID.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -221,9 +227,10 @@
             // radOutsourced
             // 
             this.radOutsourced.AutoSize = true;
-            this.radOutsourced.Location = new System.Drawing.Point(442, 23);
+            this.radOutsourced.Location = new System.Drawing.Point(295, 15);
+            this.radOutsourced.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radOutsourced.Name = "radOutsourced";
-            this.radOutsourced.Size = new System.Drawing.Size(117, 24);
+            this.radOutsourced.Size = new System.Drawing.Size(80, 17);
             this.radOutsourced.TabIndex = 20;
             this.radOutsourced.TabStop = true;
             this.radOutsourced.Text = "Outsourced";
@@ -233,9 +240,10 @@
             // radInHouse
             // 
             this.radInHouse.AutoSize = true;
-            this.radInHouse.Location = new System.Drawing.Point(280, 23);
+            this.radInHouse.Location = new System.Drawing.Point(187, 15);
+            this.radInHouse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radInHouse.Name = "radInHouse";
-            this.radInHouse.Size = new System.Drawing.Size(100, 24);
+            this.radInHouse.Size = new System.Drawing.Size(68, 17);
             this.radInHouse.TabIndex = 19;
             this.radInHouse.TabStop = true;
             this.radInHouse.Text = "In-House";
@@ -245,19 +253,31 @@
             // lblFormTitle
             // 
             this.lblFormTitle.AutoSize = true;
-            this.lblFormTitle.Location = new System.Drawing.Point(29, 27);
+            this.lblFormTitle.Location = new System.Drawing.Point(19, 18);
+            this.lblFormTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFormTitle.Name = "lblFormTitle";
-            this.lblFormTitle.Size = new System.Drawing.Size(88, 20);
+            this.lblFormTitle.Size = new System.Drawing.Size(60, 13);
             this.lblFormTitle.TabIndex = 37;
             this.lblFormTitle.Text = "Modify Part";
-
+            // 
+            // txtMachine
+            // 
+            this.txtMachine.BackColor = System.Drawing.Color.White;
+            this.txtMachine.Enabled = false;
+            this.txtMachine.Location = new System.Drawing.Point(146, 222);
+            this.txtMachine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMachine.Name = "txtMachine";
+            this.txtMachine.Size = new System.Drawing.Size(142, 20);
+            this.txtMachine.TabIndex = 8;
+            this.txtMachine.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // lblMachine
             // 
             this.lblMachine.AutoSize = true;
-            this.lblMachine.Location = new System.Drawing.Point(110, 344);
+            this.lblMachine.Location = new System.Drawing.Point(73, 224);
+            this.lblMachine.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblMachine.Name = "lblMachine";
-            this.lblMachine.Size = new System.Drawing.Size(90, 20);
+            this.lblMachine.Size = new System.Drawing.Size(62, 13);
             this.lblMachine.TabIndex = 39;
             this.lblMachine.Text = "Machine ID";
             this.lblMachine.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -265,10 +285,10 @@
             // 
             // ModifyPartForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(652, 488);
+            this.ClientSize = new System.Drawing.Size(435, 317);
             this.Controls.Add(this.lblMachine);
             this.Controls.Add(this.txtMachine);
             this.Controls.Add(this.lblFormTitle);
@@ -290,6 +310,7 @@
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.radOutsourced);
             this.Controls.Add(this.radInHouse);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ModifyPartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modify Part";

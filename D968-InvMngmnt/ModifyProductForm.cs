@@ -139,7 +139,10 @@ namespace D968_InvMngmnt
         private void ModifyProductForm_Load(object sender, EventArgs e)
         {
             dtgAllParts.Rows[0].Selected = false;
-            dtgAssociatedParts.Rows[0].Selected = false;
+            if (dtgAssociatedParts.Rows.Count > 0)
+            {
+                dtgAssociatedParts.Rows[0].Selected = false;
+            }
         }
     }
 }

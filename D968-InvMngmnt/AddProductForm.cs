@@ -123,7 +123,11 @@ namespace D968_InvMngmnt
         private void AddProductForm_Load(object sender, EventArgs e)
         {
             dtgAllParts.Rows[0].Selected = false;
-            dtgAssociatedParts.Rows[0].Selected = false;
+            if (dtgAllParts.Rows.Count > 0)
+            {
+                dtgAssociatedParts.Rows[0].Selected = false;
+            }
+
         }
     }
 }

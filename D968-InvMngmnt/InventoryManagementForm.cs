@@ -20,14 +20,14 @@ namespace D968_InvMngmnt
         private void InventoryManagementForm_Load_Test_Data(object sender, EventArgs e)
         {
             
-            Part firstInhousePart = new InHouse("Inhouse part1", 1, 1, 1, 11, 1);
-            Part secondInhousePart = new InHouse("Inhouse part2", 2, 2, 2, 22, 2);
-            Part thirdInhousePart = new InHouse("Inhouse part3", 3, 3, 3, 33, 3);
-            Part fourthInhousePart = new InHouse("Inhouse part4", 4, 4, 4, 44, 4);
+            Part firstInhousePart = new InHouse("Inhouse part1", 11.11, 1, 1, 111, 11);
+            Part secondInhousePart = new InHouse("Inhouse part2", 22.22, 2, 2, 222, 22);
+            Part thirdInhousePart = new InHouse("Inhouse part3", 33.33, 3, 3, 333, 33);
+            Part fourthInhousePart = new InHouse("Inhouse part4", 44.44, 4, 4, 444, 44);
 
-            Part firstOutsourcedPart = new Outsourced("outsourced part1", 1, 1, 1, 11, "abc123");
-            Part secondOutsourcedPart = new Outsourced("outsourced part2", 2, 2, 2, 22, "def456");
-            Part thirdOutsourcedPart = new Outsourced("outsourced part3", 3, 3, 3, 33, "ghi789");
+            Part firstOutsourcedPart = new Outsourced("outsourced part1", 11.11, 1, 111, 11, "abc123");
+            Part secondOutsourcedPart = new Outsourced("outsourced part2", 22.22, 2, 222, 22, "def456");
+            Part thirdOutsourcedPart = new Outsourced("outsourced part3", 33.33, 3, 333, 33, "ghi789");
 
 
             this.inventory.AddPart(firstInhousePart);
@@ -42,6 +42,8 @@ namespace D968_InvMngmnt
 
             Product firstProduct = new Product("Product1", 11.11, 111, 1111, 11);
             Product secondProduct = new Product("Product2", 22.22, 222, 2222, 22);
+            secondProduct.AddAssociatedPart(secondInhousePart);
+            secondProduct.AddAssociatedPart(thirdOutsourcedPart);
             Product thirdProduct = new Product("Product3", 33.33, 333, 3333, 33);
             Product fourthProduct = new Product("Product4", 44.44, 444, 4444, 44);
             Product fifthProduct = new Product("Product5", 55.55, 555, 5555, 55);

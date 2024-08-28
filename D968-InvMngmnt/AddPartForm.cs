@@ -18,7 +18,7 @@ namespace D968_InvMngmnt
             {
                 if (control.GetType() == typeof(TextBox))
                 {
-                    if (string.IsNullOrEmpty(control.Text) && control.Name != "txtID" && control.Enabled == true)
+                    if (string.IsNullOrEmpty(control.Text) && control.Name != "txtId" && control.Name != "txtSearch")
                     {
                         control.BackColor = Color.LightCoral;
                         btnSave.Enabled = false;
@@ -32,11 +32,11 @@ namespace D968_InvMngmnt
             if (radInHouse.Checked)
             {
                 Part newPart = new InHouse(
-                    this.NameText.Text,
-                    Convert.ToDecimal(this.PriceText.Text),
-                    Convert.ToInt32(this.InStockText.Text),
-                    Convert.ToInt32(this.MinText.Text),
-                    Convert.ToInt32(this.MaxText.Text),
+                    this.txtName.Text,
+                    Convert.ToDouble(this.txtPrice.Text),
+                    Convert.ToInt32(this.txtInStock.Text),
+                    Convert.ToInt32(this.txtMin.Text),
+                    Convert.ToInt32(this.txtMax.Text),
                     Convert.ToInt32(this.txtMachine.Text)
                     );
                 this.addedPart = newPart;
@@ -45,11 +45,11 @@ namespace D968_InvMngmnt
             if (radOutsourced.Checked)
             {
                 Part newPart = new Outsourced(
-                    this.NameText.Text,
-                    Convert.ToDecimal(this.PriceText.Text),
-                    Convert.ToInt32(this.InStockText.Text),
-                    Convert.ToInt32(this.MinText.Text),
-                    Convert.ToInt32(this.MaxText.Text),
+                    this.txtName.Text,
+                    Convert.ToDouble(this.txtPrice.Text),
+                    Convert.ToInt32(this.txtInStock.Text),
+                    Convert.ToInt32(this.txtMin.Text),
+                    Convert.ToInt32(this.txtMax.Text),
                     this.txtCompany.Text
                     );
                 this.addedPart = newPart;
@@ -70,7 +70,7 @@ namespace D968_InvMngmnt
                     {
                         boxesFilled.Add(true);
                     }
-                    if (!string.IsNullOrEmpty(control.Text) && control.Name != "txtID" && control.Enabled == true)
+                    if (!string.IsNullOrEmpty(control.Text) && control.Name != "txtId" && control.Name != "txtSearch")
                     {
                         control.BackColor = Color.White;
                         boxesFilled.Add(true);
@@ -78,9 +78,37 @@ namespace D968_InvMngmnt
                 }
             }
 
-            if (boxesFilled.Count == textBoxCount - 1)
+            if (boxesFilled.Count == textBoxCount - 2)
             {
                 btnSave.Enabled = true;
+                if (Convert.ToInt32(txtMin.Text) >= Convert.ToInt32(txtInStock.Text))
+                {
+                    MessageBox.Show("The in-stock value must be greater than the min value.");
+                    this.txtInStock.BackColor = Color.Coral;
+                    this.txtMin.BackColor = Color.Coral;
+                    this.btnSave.Enabled = false;
+                }
+                else if (Convert.ToInt32(txtMax.Text) <= Convert.ToInt32(txtInStock.Text))
+                {
+                    MessageBox.Show("The in stock value must be less than the max value.");
+                    this.txtInStock.BackColor = Color.Coral;
+                    this.txtMax.BackColor = Color.Coral;
+                    this.btnSave.Enabled = false;
+                }
+                else if (Convert.ToInt32(txtInStock.Text) < 0 || Convert.ToInt32(txtMax.Text) < 0 || Convert.ToInt32(txtMin.Text) < 0 ||
+                    Convert.ToInt32(txtMachine.Text) < 0 || Convert.ToInt32(txtPrice.Text) < 0)
+                {
+                    MessageBox.Show("The price, in-stock, min, max, and machine-id values must be a positive number");
+                    this.btnSave.Enabled = false;
+                    foreach (Control control in this.Controls)
+                    {
+                        if (control.GetType() == typeof(TextBox) && Convert.ToInt32(control.Text) < 0)
+                        {
+                            control.BackColor = Color.Coral;
+                        }
+                    }
+
+                }
             }
         }
         private void RadioButton_Change(object sender, EventArgs e)

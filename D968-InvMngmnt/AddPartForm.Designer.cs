@@ -37,12 +37,12 @@
             this.lblInStock = new System.Windows.Forms.Label();
             this.lblMax = new System.Windows.Forms.Label();
             this.lblMin = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.NameText = new System.Windows.Forms.TextBox();
-            this.InStockText = new System.Windows.Forms.TextBox();
-            this.PriceText = new System.Windows.Forms.TextBox();
-            this.MaxText = new System.Windows.Forms.TextBox();
-            this.MinText = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtInStock = new System.Windows.Forms.TextBox();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtMax = new System.Windows.Forms.TextBox();
+            this.txtMin = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.lblMachine = new System.Windows.Forms.Label();
@@ -143,59 +143,79 @@
             this.lblMin.TabIndex = 9;
             this.lblMin.Text = "Min";
             // 
-            // txtID
+            // txtId
             // 
-            this.txtID.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(214, 114);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(211, 26);
-            this.txtID.TabIndex = 1;
+            this.txtId.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(214, 114);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(211, 26);
+            this.txtId.TabIndex = 1;
             // 
-            // NameText
+            // txtName
             // 
-            this.NameText.BackColor = System.Drawing.Color.White;
-            this.NameText.Location = new System.Drawing.Point(214, 158);
-            this.NameText.Name = "NameText";
-            this.NameText.Size = new System.Drawing.Size(211, 26);
-            this.NameText.TabIndex = 2;
-            this.NameText.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            this.txtName.BackColor = System.Drawing.Color.White;
+            this.txtName.Location = new System.Drawing.Point(214, 158);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(211, 26);
+            this.txtName.TabIndex = 2;
+            this.txtName.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
-            // InStockText
+            // txtInStock
             // 
-            this.InStockText.BackColor = System.Drawing.Color.White;
-            this.InStockText.Location = new System.Drawing.Point(214, 205);
-            this.InStockText.Name = "InStockText";
-            this.InStockText.Size = new System.Drawing.Size(211, 26);
-            this.InStockText.TabIndex = 3;
-            this.InStockText.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            this.txtInStock.BackColor = System.Drawing.Color.White;
+            this.txtInStock.Location = new System.Drawing.Point(214, 205);
+            this.txtInStock.Name = "txtInStock";
+            this.txtInStock.Size = new System.Drawing.Size(211, 26);
+            this.txtInStock.TabIndex = 3;
+            this.txtInStock.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
-            // PriceText
+            // txtPrice
             // 
-            this.PriceText.BackColor = System.Drawing.Color.White;
-            this.PriceText.Location = new System.Drawing.Point(214, 248);
-            this.PriceText.Name = "PriceText";
-            this.PriceText.Size = new System.Drawing.Size(211, 26);
-            this.PriceText.TabIndex = 4;
-            this.PriceText.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            this.txtPrice.BackColor = System.Drawing.Color.White;
+            this.txtPrice.Location = new System.Drawing.Point(214, 248);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(211, 26);
+            this.txtPrice.TabIndex = 4;
+            this.txtPrice.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
-            // MaxText
+            // txtMax
             // 
-            this.MaxText.BackColor = System.Drawing.Color.White;
-            this.MaxText.Location = new System.Drawing.Point(214, 292);
-            this.MaxText.Name = "MaxText";
-            this.MaxText.Size = new System.Drawing.Size(84, 26);
-            this.MaxText.TabIndex = 5;
-            this.MaxText.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            this.txtMax.BackColor = System.Drawing.Color.White;
+            this.txtMax.Location = new System.Drawing.Point(214, 292);
+            this.txtMax.Name = "txtMax";
+            this.txtMax.Size = new System.Drawing.Size(84, 26);
+            this.txtMax.TabIndex = 5;
+            this.txtMax.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
-            // MinText
+            // txtMin
             // 
-            this.MinText.BackColor = System.Drawing.Color.White;
-            this.MinText.Location = new System.Drawing.Point(421, 289);
-            this.MinText.Name = "MinText";
-            this.MinText.Size = new System.Drawing.Size(79, 26);
-            this.MinText.TabIndex = 6;
-            this.MinText.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            this.txtMin.BackColor = System.Drawing.Color.White;
+            this.txtMin.Location = new System.Drawing.Point(421, 289);
+            this.txtMin.Name = "txtMin";
+            this.txtMin.Size = new System.Drawing.Size(79, 26);
+            this.txtMin.TabIndex = 6;
+            this.txtMin.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            // 
+            // txtMachine
+            // 
+            this.txtMachine.BackColor = System.Drawing.Color.White;
+            this.txtMachine.Location = new System.Drawing.Point(214, 341);
+            this.txtMachine.Name = "txtMachine";
+            this.txtMachine.Size = new System.Drawing.Size(211, 26);
+            this.txtMachine.TabIndex = 42;
+            this.txtMachine.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            // 
+            // txtCompany
+            // 
+            this.txtCompany.BackColor = System.Drawing.Color.White;
+            this.txtCompany.Enabled = false;
+            this.txtCompany.Location = new System.Drawing.Point(214, 336);
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.Size = new System.Drawing.Size(211, 26);
+            this.txtCompany.TabIndex = 40;
+            this.txtCompany.Visible = false;
+            this.txtCompany.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // btnSave
             // 
@@ -229,26 +249,6 @@
             this.lblMachine.Text = "Machine ID";
             this.lblMachine.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // txtMachine
-            // 
-            this.txtMachine.BackColor = System.Drawing.Color.White;
-            this.txtMachine.Location = new System.Drawing.Point(214, 341);
-            this.txtMachine.Name = "txtMachine";
-            this.txtMachine.Size = new System.Drawing.Size(211, 26);
-            this.txtMachine.TabIndex = 42;
-            this.txtMachine.TextChanged += new System.EventHandler(this.TextBox_Leave);
-            // 
-            // txtCompany
-            // 
-            this.txtCompany.BackColor = System.Drawing.Color.White;
-            this.txtCompany.Enabled = false;
-            this.txtCompany.Location = new System.Drawing.Point(214, 336);
-            this.txtCompany.Name = "txtCompany";
-            this.txtCompany.Size = new System.Drawing.Size(211, 26);
-            this.txtCompany.TabIndex = 40;
-            this.txtCompany.Visible = false;
-            this.txtCompany.TextChanged += new System.EventHandler(this.TextBox_Leave);
-            // 
             // lblCompany
             // 
             this.lblCompany.AutoSize = true;
@@ -272,12 +272,12 @@
             this.Controls.Add(this.lblCompany);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.MinText);
-            this.Controls.Add(this.MaxText);
-            this.Controls.Add(this.PriceText);
-            this.Controls.Add(this.InStockText);
-            this.Controls.Add(this.NameText);
-            this.Controls.Add(this.txtID);
+            this.Controls.Add(this.txtMin);
+            this.Controls.Add(this.txtMax);
+            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.txtInStock);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.lblMin);
             this.Controls.Add(this.lblMax);
             this.Controls.Add(this.lblPrice);
@@ -306,12 +306,12 @@
         private System.Windows.Forms.Label lblInStock;
         private System.Windows.Forms.Label lblMax;
         private System.Windows.Forms.Label lblMin;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.TextBox NameText;
-        private System.Windows.Forms.TextBox InStockText;
-        private System.Windows.Forms.TextBox PriceText;
-        private System.Windows.Forms.TextBox MaxText;
-        private System.Windows.Forms.TextBox MinText;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtInStock;
+        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.TextBox txtMax;
+        private System.Windows.Forms.TextBox txtMin;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label lblMachine;

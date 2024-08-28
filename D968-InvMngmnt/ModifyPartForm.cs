@@ -113,7 +113,7 @@ namespace D968_InvMngmnt
                 this.modifiedPart = new Outsourced
                 (
                     txtName.Text,
-                    Convert.ToDecimal(txtPrice.Text),
+                    Convert.ToDouble(txtPrice.Text),
                     Convert.ToInt32(txtInStock.Text),
                     Convert.ToInt32(txtMax.Text),
                     Convert.ToInt32(txtMin.Text),
@@ -127,7 +127,7 @@ namespace D968_InvMngmnt
                 this.modifiedPart = new InHouse
                 (
                     txtName.Text,
-                    Convert.ToDecimal(txtPrice.Text),
+                    Convert.ToDouble(txtPrice.Text),
                     Convert.ToInt32(txtInStock.Text),
                     Convert.ToInt32(txtMax.Text),
                     Convert.ToInt32(txtMin.Text),

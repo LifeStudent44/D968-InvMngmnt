@@ -3,7 +3,7 @@
     public class Outsourced : Part
     {
         // Constructor
-        public Outsourced(string name, decimal price, int stock, int min, int max, string company) : base(name, price, stock, min, max, company)
+        public Outsourced(string name, double price, int stock, int min, int max, string company) : base(name, price, stock, min, max, company)
         {
             Name = name;
             Price = price;

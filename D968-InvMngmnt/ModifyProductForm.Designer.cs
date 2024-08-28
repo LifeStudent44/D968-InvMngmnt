@@ -180,6 +180,7 @@
             this.txtMin.Name = "txtMin";
             this.txtMin.Size = new System.Drawing.Size(79, 26);
             this.txtMin.TabIndex = 56;
+            this.txtMin.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtMax
             // 
@@ -188,6 +189,7 @@
             this.txtMax.Name = "txtMax";
             this.txtMax.Size = new System.Drawing.Size(84, 26);
             this.txtMax.TabIndex = 55;
+            this.txtMax.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtPrice
             // 
@@ -196,6 +198,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(211, 26);
             this.txtPrice.TabIndex = 54;
+            this.txtPrice.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtInStock
             // 
@@ -204,6 +207,7 @@
             this.txtInStock.Name = "txtInStock";
             this.txtInStock.Size = new System.Drawing.Size(211, 26);
             this.txtInStock.TabIndex = 53;
+            this.txtInStock.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtName
             // 
@@ -212,6 +216,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(211, 26);
             this.txtName.TabIndex = 52;
+            this.txtName.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtID
             // 

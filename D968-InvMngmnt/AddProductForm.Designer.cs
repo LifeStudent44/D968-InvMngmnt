@@ -35,7 +35,7 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtInStock = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.txtID = new System.Windows.Forms.TextBox();
+            this.txtId = new System.Windows.Forms.TextBox();
             this.lblMin = new System.Windows.Forms.Label();
             this.lblMax = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
@@ -83,7 +83,7 @@
             this.txtMin.Location = new System.Drawing.Point(289, 461);
             this.txtMin.Name = "txtMin";
             this.txtMin.Size = new System.Drawing.Size(79, 26);
-            this.txtMin.TabIndex = 31;
+            this.txtMin.TabIndex = 5;
             this.txtMin.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtMax
@@ -92,7 +92,7 @@
             this.txtMax.Location = new System.Drawing.Point(83, 458);
             this.txtMax.Name = "txtMax";
             this.txtMax.Size = new System.Drawing.Size(84, 26);
-            this.txtMax.TabIndex = 30;
+            this.txtMax.TabIndex = 4;
             this.txtMax.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtPrice
@@ -101,7 +101,7 @@
             this.txtPrice.Location = new System.Drawing.Point(128, 414);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(211, 26);
-            this.txtPrice.TabIndex = 29;
+            this.txtPrice.TabIndex = 3;
             this.txtPrice.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtInStock
@@ -110,7 +110,7 @@
             this.txtInStock.Location = new System.Drawing.Point(128, 371);
             this.txtInStock.Name = "txtInStock";
             this.txtInStock.Size = new System.Drawing.Size(211, 26);
-            this.txtInStock.TabIndex = 28;
+            this.txtInStock.TabIndex = 2;
             this.txtInStock.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtName
@@ -119,16 +119,16 @@
             this.txtName.Location = new System.Drawing.Point(128, 321);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(211, 26);
-            this.txtName.TabIndex = 27;
+            this.txtName.TabIndex = 1;
             this.txtName.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
-            // txtID
+            // txtId
             // 
-            this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(128, 280);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(211, 26);
-            this.txtID.TabIndex = 26;
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(128, 280);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(211, 26);
+            this.txtId.TabIndex = 26;
             // 
             // lblMin
             // 
@@ -307,7 +307,7 @@
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.txtInStock);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.txtID);
+            this.Controls.Add(this.txtId);
             this.Controls.Add(this.lblMin);
             this.Controls.Add(this.lblMax);
             this.Controls.Add(this.lblPrice);
@@ -333,7 +333,7 @@
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.TextBox txtInStock;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label lblMin;
         private System.Windows.Forms.Label lblMax;
         private System.Windows.Forms.Label lblPrice;

@@ -50,6 +50,10 @@ namespace D968_InvMngmnt
         {
             this.Products[id] = modifiedProduct;
         }
+        public void UpdatePart(int id, Part modifiedPart)
+        {
+            this.AllParts[id] = modifiedPart;
+        }
         public void AddPart(Part part)
         {
             if (part != null)
@@ -80,9 +84,6 @@ namespace D968_InvMngmnt
             }
             return null;
         }
-        public void UpdatePart(int id, Part modifiedPart)
-        {
-            this.AllParts[id] = modifiedPart;
-        }
+
     }
 }

@@ -1,9 +1,11 @@
-﻿namespace D968_InvMngmnt
+﻿using System.Threading;
+
+namespace D968_InvMngmnt
 {
     public abstract class Part
     {
-        private int id = 1;
-        public int PartID { get; set; }
+        static int part_id;
+        public int PartId { get; set; }
         public string Name { get; set; }
         public decimal Price { get; set; }
         public int InStock { get; set; }
@@ -16,7 +18,7 @@
         // Inhouse Constructor
         public Part(string name, decimal price, int stock, int min, int max, int machine)
         {
-            PartID = this.PartID++;
+            PartId = Interlocked.Increment(ref part_id);
             Name = name;
             Price = price;
             InStock = stock;
@@ -27,7 +29,7 @@
         // Company Constructor
         public Part(string name, decimal price, int stock, int min, int max, string company)
         {
-            PartID = this.PartID++;
+            PartId = Interlocked.Increment(ref part_id);
             Name = name;
             Price = price;
             InStock = stock;

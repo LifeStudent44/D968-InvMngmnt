@@ -7,28 +7,17 @@ namespace D968_InvMngmnt
 {
     public partial class AddPartForm : Form
     {
-        int nextInHouseId = 0;
-        int nextOutSourcedId = 0;
         public Part addedPart;
-        public AddPartForm(int nextInHouseId, int nextOutsourcedId)
+                
+        public AddPartForm()
         {
             InitializeComponent();
             radInHouse.Checked = true;
 
-            this.nextInHouseId = ++nextInHouseId;
-            this.nextOutSourcedId = ++nextOutsourcedId;
             foreach (Control control in this.Controls)
             {
                 if (control.GetType() == typeof(TextBox))
                 {
-                    if (control.Name == "txtID" && radInHouse.Checked)
-                    {
-                        control.Text = this.nextInHouseId.ToString();
-                    }
-                    if (control.Name == "txtID" && radOutsourced.Checked)
-                    {
-                        control.Text = this.nextOutSourcedId.ToString();
-                    }
                     if (string.IsNullOrEmpty(control.Text) && control.Name != "txtID" && control.Enabled == true)
                     {
                         control.BackColor = Color.LightCoral;
@@ -103,11 +92,11 @@ namespace D968_InvMngmnt
                 {
                     if (control.Name == "radInHouse")
                     {
-                        this.txtID.Text = this.nextInHouseId.ToString();
+                        this.txtID.Text = this.addedPart.PartId.ToString();
                     }
                     else if (control.Name == "radOutsourced")
                     {
-                        this.txtID.Text = this.nextOutSourcedId.ToString();
+                        this.txtID.Text = this.addedPart.PartId.ToString();
                     }
 
                 }

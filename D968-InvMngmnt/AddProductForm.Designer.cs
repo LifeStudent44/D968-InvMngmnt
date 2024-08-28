@@ -30,7 +30,6 @@
         {
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.txtMin = new System.Windows.Forms.TextBox();
             this.txtMax = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
@@ -38,7 +37,6 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.txtID = new System.Windows.Forms.TextBox();
             this.lblMin = new System.Windows.Forms.Label();
-            this.lblMachineID = new System.Windows.Forms.Label();
             this.lblMax = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblInStock = new System.Windows.Forms.Label();
@@ -79,14 +77,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(128, 501);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(211, 26);
-            this.textBox1.TabIndex = 32;
-            // 
             // txtMin
             // 
             this.txtMin.BackColor = System.Drawing.Color.White;
@@ -94,6 +84,7 @@
             this.txtMin.Name = "txtMin";
             this.txtMin.Size = new System.Drawing.Size(79, 26);
             this.txtMin.TabIndex = 31;
+            this.txtMin.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtMax
             // 
@@ -102,6 +93,7 @@
             this.txtMax.Name = "txtMax";
             this.txtMax.Size = new System.Drawing.Size(84, 26);
             this.txtMax.TabIndex = 30;
+            this.txtMax.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtPrice
             // 
@@ -110,6 +102,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(211, 26);
             this.txtPrice.TabIndex = 29;
+            this.txtPrice.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtInStock
             // 
@@ -118,6 +111,7 @@
             this.txtInStock.Name = "txtInStock";
             this.txtInStock.Size = new System.Drawing.Size(211, 26);
             this.txtInStock.TabIndex = 28;
+            this.txtInStock.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtName
             // 
@@ -126,9 +120,11 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(211, 26);
             this.txtName.TabIndex = 27;
+            this.txtName.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // txtID
             // 
+            this.txtID.Enabled = false;
             this.txtID.Location = new System.Drawing.Point(128, 280);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(211, 26);
@@ -142,16 +138,6 @@
             this.lblMin.Size = new System.Drawing.Size(34, 20);
             this.lblMin.TabIndex = 25;
             this.lblMin.Text = "Min";
-            // 
-            // lblMachineID
-            // 
-            this.lblMachineID.AutoSize = true;
-            this.lblMachineID.Location = new System.Drawing.Point(14, 507);
-            this.lblMachineID.Name = "lblMachineID";
-            this.lblMachineID.Size = new System.Drawing.Size(90, 20);
-            this.lblMachineID.TabIndex = 24;
-            this.lblMachineID.Text = "Machine ID";
-            this.lblMachineID.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblMax
             // 
@@ -261,7 +247,6 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(172, 26);
             this.txtSearch.TabIndex = 39;
-
             // 
             // lblAllParts
             // 
@@ -317,7 +302,6 @@
             this.Controls.Add(this.dtgAllParts);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtMin);
             this.Controls.Add(this.txtMax);
             this.Controls.Add(this.txtPrice);
@@ -325,7 +309,6 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.lblMin);
-            this.Controls.Add(this.lblMachineID);
             this.Controls.Add(this.lblMax);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblInStock);
@@ -345,7 +328,6 @@
 
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox txtMin;
         private System.Windows.Forms.TextBox txtMax;
         private System.Windows.Forms.TextBox txtPrice;
@@ -353,7 +335,6 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label lblMin;
-        private System.Windows.Forms.Label lblMachineID;
         private System.Windows.Forms.Label lblMax;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblInStock;

@@ -15,7 +15,7 @@ namespace D968_InvMngmnt
 
             CheckRadioButton(part);
 
-            this.txtID.Text = part.PartID.ToString();
+            this.txtID.Text = part.PartId.ToString();
             this.txtName.Text = part.Name;
             this.txtPrice.Text = part.Price.ToString();
             this.txtInStock.Text = part.InStock.ToString();
@@ -86,7 +86,7 @@ namespace D968_InvMngmnt
                     }
                 }
             }
-            if (textBoxCount == boxesFilled.Count)
+            if (boxesFilled.Count == textBoxCount - 1)
             {
                 btnSave.Enabled = true;
             }

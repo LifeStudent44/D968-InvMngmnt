@@ -1,23 +1,31 @@
 ﻿using System.ComponentModel;
+using System.IO.Ports;
+using System.Threading;
+using System.Xml.Schema;
 
 namespace D968_InvMngmnt
 {
     public class Product
     {
+        static int product_id;
         public BindingList<Part> AssociatedParts { get; private set; }
         public int ProductID { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
         public int InStock { get; set; }
+        public int Max { get; set; }
+        public int Min { get; set; }
 
         // Constructor
-        public Product(int id, string name, double price, int stock)
+        public Product(string name, double price, int stock, int max, int min)
         {
             AssociatedParts = new BindingList<Part>();
-            ProductID = id;
+            ProductID = Interlocked.Increment(ref product_id);
             Name = name;
             Price = price;
             InStock = stock;
+            Max = max;
+            Min = min;
 
         }
         public void AddAssociatedPart(Part associatedPart)
@@ -34,7 +42,7 @@ namespace D968_InvMngmnt
         {
             foreach (var part in AssociatedParts)
             {
-                if (part.PartID == id)
+                if (part.PartId == id)
                 {
                     return part;
                 }

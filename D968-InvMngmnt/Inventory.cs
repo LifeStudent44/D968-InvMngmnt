@@ -73,7 +73,7 @@ namespace D968_InvMngmnt
         {
             foreach (var part in AllParts)
             {
-                if (part.PartID == id)
+                if (part.PartId == id)
                 {
                     return part;
                 }

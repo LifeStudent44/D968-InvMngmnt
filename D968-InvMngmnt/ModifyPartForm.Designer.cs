@@ -72,17 +72,7 @@
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
-            // txtCompany
-            // 
-            this.txtCompany.BackColor = System.Drawing.Color.White;
-            this.txtCompany.Enabled = false;
-            this.txtCompany.Location = new System.Drawing.Point(219, 339);
-            this.txtCompany.Name = "txtCompany";
-            this.txtCompany.Size = new System.Drawing.Size(211, 26);
-            this.txtCompany.TabIndex = 7;
-            this.txtCompany.Visible = false;
-            this.txtCompany.TextChanged += new System.EventHandler(this.TextBox_Leave);
+
             // 
             // txtMin
             // 
@@ -136,6 +126,27 @@
             this.txtID.Size = new System.Drawing.Size(211, 26);
             this.txtID.TabIndex = 1;
             this.txtID.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            // 
+            // txtCompany
+            // 
+            this.txtCompany.BackColor = System.Drawing.Color.White;
+            this.txtCompany.Enabled = false;
+            this.txtCompany.Location = new System.Drawing.Point(219, 339);
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.Size = new System.Drawing.Size(211, 26);
+            this.txtCompany.TabIndex = 7;
+            this.txtCompany.Visible = false;
+            this.txtCompany.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            // 
+            // txtMachine
+            // 
+            this.txtMachine.BackColor = System.Drawing.Color.White;
+            this.txtMachine.Enabled = false;
+            this.txtMachine.Location = new System.Drawing.Point(219, 342);
+            this.txtMachine.Name = "txtMachine";
+            this.txtMachine.Size = new System.Drawing.Size(211, 26);
+            this.txtMachine.TabIndex = 8;
+            this.txtMachine.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
             // lblMin
             // 
@@ -239,15 +250,7 @@
             this.lblFormTitle.Size = new System.Drawing.Size(88, 20);
             this.lblFormTitle.TabIndex = 37;
             this.lblFormTitle.Text = "Modify Part";
-            // 
-            // txtMachine
-            // 
-            this.txtMachine.BackColor = System.Drawing.Color.White;
-            this.txtMachine.Enabled = false;
-            this.txtMachine.Location = new System.Drawing.Point(219, 342);
-            this.txtMachine.Name = "txtMachine";
-            this.txtMachine.Size = new System.Drawing.Size(211, 26);
-            this.txtMachine.TabIndex = 38;
+
             // 
             // lblMachine
             // 

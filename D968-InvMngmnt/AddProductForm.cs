@@ -19,7 +19,9 @@ namespace D968_InvMngmnt
         {
             InitializeComponent();
             dtgAllParts.DataSource = inventory.AllParts;
+            dtgAllParts.Rows[0].Selected = false;
             dtgAssociatedParts.DataSource = this.associatedParts;
+            dtgAssociatedParts.Rows[0].Selected = false;
 
             foreach (Control control in this.Controls)
             {

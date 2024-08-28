@@ -135,6 +135,7 @@ namespace D968_InvMngmnt
             this.dtgAllParts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgAllParts.Size = new System.Drawing.Size(405, 244);
             this.dtgAllParts.TabIndex = 3;
+            this.dtgAllParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AllPartsDataGrid_CellClick);
             // 
             // dtgProducts
             // 
@@ -152,6 +153,7 @@ namespace D968_InvMngmnt
             this.dtgProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgProducts.Size = new System.Drawing.Size(405, 244);
             this.dtgProducts.TabIndex = 4;
+            this.dtgProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductsDataGrid_CellClick);
             // 
             // btnPartAdd
             // 

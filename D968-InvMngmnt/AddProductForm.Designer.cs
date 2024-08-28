@@ -204,6 +204,7 @@
             this.dtgAllParts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgAllParts.Size = new System.Drawing.Size(567, 197);
             this.dtgAllParts.TabIndex = 35;
+            //this.dtgAllParts.CellClick += new System.EventHandler(this.PartsDataGrid_CellClick);
             // 
             // dtgAssociatedParts
             // 

@@ -15,7 +15,9 @@ namespace D968_InvMngmnt
         {
             InitializeComponent();
             dtgAllParts.DataSource = inventory.AllParts;
+            dtgAllParts.Rows[0].Selected = false;
             dtgAssociatedParts.DataSource = product.AssociatedParts;
+            dtgAssociatedParts.Rows[0].Selected = false;
             this.txtID.Text = product.ProductId.ToString();
             this.txtName.Text = product.Name;
             this.txtInStock.Text = product.InStock.ToString();
@@ -116,18 +118,18 @@ namespace D968_InvMngmnt
             }
         }
 
-        private void AllParts_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            btnAdd.Enabled = true;
-        }
-
-        private void AssociatedParts_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void AssociatedPartsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dtgAssociatedParts.RowCount > 0)
             {
                 btnDelete.Enabled = true;
             }
 
+        }
+
+        private void AllPartsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnAdd.Enabled = true;
         }
     }
 }

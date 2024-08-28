@@ -58,7 +58,7 @@
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(573, 384);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(50, 23);
             this.btnDelete.TabIndex = 68;
@@ -70,7 +70,7 @@
             // 
             this.btnAdd.Enabled = false;
             this.btnAdd.Location = new System.Drawing.Point(573, 198);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(50, 23);
             this.btnAdd.TabIndex = 67;
@@ -101,7 +101,7 @@
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(535, 17);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(116, 20);
             this.txtSearch.TabIndex = 64;
@@ -110,7 +110,7 @@
             // 
             this.btnSearch.Enabled = false;
             this.btnSearch.Location = new System.Drawing.Point(471, 14);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(50, 20);
             this.btnSearch.TabIndex = 63;
@@ -135,7 +135,7 @@
             this.dtgAssociatedParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgAssociatedParts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgAssociatedParts.Location = new System.Drawing.Point(271, 244);
-            this.dtgAssociatedParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgAssociatedParts.Margin = new System.Windows.Forms.Padding(2);
             this.dtgAssociatedParts.MultiSelect = false;
             this.dtgAssociatedParts.Name = "dtgAssociatedParts";
             this.dtgAssociatedParts.RowHeadersVisible = false;
@@ -144,7 +144,7 @@
             this.dtgAssociatedParts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgAssociatedParts.Size = new System.Drawing.Size(378, 128);
             this.dtgAssociatedParts.TabIndex = 61;
-            this.dtgAssociatedParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AssociatedParts_CellClick);
+            this.dtgAssociatedParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AssociatedPartsDataGrid_CellClick);
             // 
             // dtgAllParts
             // 
@@ -153,7 +153,7 @@
             this.dtgAllParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgAllParts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgAllParts.Location = new System.Drawing.Point(271, 58);
-            this.dtgAllParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgAllParts.Margin = new System.Windows.Forms.Padding(2);
             this.dtgAllParts.MultiSelect = false;
             this.dtgAllParts.Name = "dtgAllParts";
             this.dtgAllParts.RowHeadersVisible = false;
@@ -162,13 +162,13 @@
             this.dtgAllParts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgAllParts.Size = new System.Drawing.Size(378, 128);
             this.dtgAllParts.TabIndex = 60;
-            this.dtgAllParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AllParts_CellClick);
+            this.dtgAllParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AllPartsDataGrid_CellClick);
             // 
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(573, 418);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(50, 23);
             this.btnCancel.TabIndex = 59;
@@ -180,7 +180,7 @@
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.btnSave.Enabled = false;
             this.btnSave.Location = new System.Drawing.Point(497, 418);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(50, 23);
             this.btnSave.TabIndex = 58;
@@ -192,7 +192,7 @@
             // 
             this.txtMin.BackColor = System.Drawing.Color.White;
             this.txtMin.Location = new System.Drawing.Point(202, 287);
-            this.txtMin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMin.Margin = new System.Windows.Forms.Padding(2);
             this.txtMin.Name = "txtMin";
             this.txtMin.Size = new System.Drawing.Size(54, 20);
             this.txtMin.TabIndex = 5;
@@ -202,7 +202,7 @@
             // 
             this.txtMax.BackColor = System.Drawing.Color.White;
             this.txtMax.Location = new System.Drawing.Point(65, 285);
-            this.txtMax.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMax.Margin = new System.Windows.Forms.Padding(2);
             this.txtMax.Name = "txtMax";
             this.txtMax.Size = new System.Drawing.Size(57, 20);
             this.txtMax.TabIndex = 4;
@@ -212,7 +212,7 @@
             // 
             this.txtPrice.BackColor = System.Drawing.Color.White;
             this.txtPrice.Location = new System.Drawing.Point(95, 256);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(142, 20);
             this.txtPrice.TabIndex = 3;
@@ -222,7 +222,7 @@
             // 
             this.txtInStock.BackColor = System.Drawing.Color.White;
             this.txtInStock.Location = new System.Drawing.Point(95, 228);
-            this.txtInStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtInStock.Margin = new System.Windows.Forms.Padding(2);
             this.txtInStock.Name = "txtInStock";
             this.txtInStock.Size = new System.Drawing.Size(142, 20);
             this.txtInStock.TabIndex = 2;
@@ -232,7 +232,7 @@
             // 
             this.txtName.BackColor = System.Drawing.Color.White;
             this.txtName.Location = new System.Drawing.Point(95, 198);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(142, 20);
             this.txtName.TabIndex = 1;
@@ -242,7 +242,7 @@
             // 
             this.txtID.Enabled = false;
             this.txtID.Location = new System.Drawing.Point(95, 169);
-            this.txtID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtID.Margin = new System.Windows.Forms.Padding(2);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(142, 20);
             this.txtID.TabIndex = 51;
@@ -340,7 +340,7 @@
             this.Controls.Add(this.lblInStock);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblID);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ModifyProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modify Product";

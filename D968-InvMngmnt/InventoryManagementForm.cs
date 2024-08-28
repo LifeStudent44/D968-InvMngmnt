@@ -147,5 +147,22 @@ namespace D968_InvMngmnt
         {
             btnSearchProducts.Enabled = true;
         }
+
+        private void AllPartsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnPartModify.Enabled = true;
+            btnPartDelete.Enabled = true;
+            dtgProducts.Rows[0].Selected = false;
+            btnProductModify.Enabled = false;
+            btnProductDelete.Enabled = false;
+        }
+        private void ProductsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnProductModify.Enabled = true;
+            btnProductDelete.Enabled = true;
+            dtgAllParts.Rows[0].Selected = false;
+            btnPartModify.Enabled=false;
+            btnPartDelete.Enabled=false;
+        }
     }
 }

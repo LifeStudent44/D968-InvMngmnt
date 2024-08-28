@@ -35,7 +35,6 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblInStock = new System.Windows.Forms.Label();
-            this.lblMachineCompany = new System.Windows.Forms.Label();
             this.lblMax = new System.Windows.Forms.Label();
             this.lblMin = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
@@ -44,9 +43,12 @@
             this.PriceText = new System.Windows.Forms.TextBox();
             this.MaxText = new System.Windows.Forms.TextBox();
             this.MinText = new System.Windows.Forms.TextBox();
-            this.MachineCompanyText = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.lblMachine = new System.Windows.Forms.Label();
+            this.txtMachine = new System.Windows.Forms.TextBox();
+            this.txtCompany = new System.Windows.Forms.TextBox();
+            this.lblCompany = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // radInHouse
@@ -122,16 +124,6 @@
             this.lblInStock.Text = "Inventory";
             this.lblInStock.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblMachineCompany
-            // 
-            this.lblMachineCompany.AutoSize = true;
-            this.lblMachineCompany.Location = new System.Drawing.Point(82, 338);
-            this.lblMachineCompany.Name = "lblMachineCompany";
-            this.lblMachineCompany.Size = new System.Drawing.Size(90, 20);
-            this.lblMachineCompany.TabIndex = 8;
-            this.lblMachineCompany.Text = "Machine ID";
-            this.lblMachineCompany.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
             // lblMax
             // 
             this.lblMax.AutoSize = true;
@@ -205,15 +197,6 @@
             this.MinText.TabIndex = 6;
             this.MinText.TextChanged += new System.EventHandler(this.TextBox_Leave);
             // 
-            // MachineCompanyText
-            // 
-            this.MachineCompanyText.BackColor = System.Drawing.Color.White;
-            this.MachineCompanyText.Location = new System.Drawing.Point(214, 335);
-            this.MachineCompanyText.Name = "MachineCompanyText";
-            this.MachineCompanyText.Size = new System.Drawing.Size(211, 26);
-            this.MachineCompanyText.TabIndex = 7;
-            this.MachineCompanyText.TextChanged += new System.EventHandler(this.TextBox_Leave);
-            // 
             // btnSave
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.Yes;
@@ -236,15 +219,59 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
+            // lblMachine
+            // 
+            this.lblMachine.AutoSize = true;
+            this.lblMachine.Location = new System.Drawing.Point(111, 341);
+            this.lblMachine.Name = "lblMachine";
+            this.lblMachine.Size = new System.Drawing.Size(90, 20);
+            this.lblMachine.TabIndex = 43;
+            this.lblMachine.Text = "Machine ID";
+            this.lblMachine.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // txtMachine
+            // 
+            this.txtMachine.BackColor = System.Drawing.Color.White;
+            this.txtMachine.Location = new System.Drawing.Point(214, 347);
+            this.txtMachine.Name = "txtMachine";
+            this.txtMachine.Size = new System.Drawing.Size(211, 26);
+            this.txtMachine.TabIndex = 42;
+            this.txtMachine.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            // 
+            // txtCompany
+            // 
+            this.txtCompany.BackColor = System.Drawing.Color.White;
+            this.txtCompany.Enabled = false;
+            this.txtCompany.Location = new System.Drawing.Point(214, 336);
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.Size = new System.Drawing.Size(211, 26);
+            this.txtCompany.TabIndex = 40;
+            this.txtCompany.Visible = false;
+            this.txtCompany.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            // 
+            // lblCompany
+            // 
+            this.lblCompany.AutoSize = true;
+            this.lblCompany.Location = new System.Drawing.Point(125, 339);
+            this.lblCompany.Name = "lblCompany";
+            this.lblCompany.Size = new System.Drawing.Size(76, 20);
+            this.lblCompany.TabIndex = 41;
+            this.lblCompany.Text = "Company";
+            this.lblCompany.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblCompany.Visible = false;
+            // 
             // AddPartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(537, 487);
+            this.ClientSize = new System.Drawing.Size(574, 468);
+            this.Controls.Add(this.lblMachine);
+            this.Controls.Add(this.txtMachine);
+            this.Controls.Add(this.txtCompany);
+            this.Controls.Add(this.lblCompany);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.MachineCompanyText);
             this.Controls.Add(this.MinText);
             this.Controls.Add(this.MaxText);
             this.Controls.Add(this.PriceText);
@@ -252,7 +279,6 @@
             this.Controls.Add(this.NameText);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.lblMin);
-            this.Controls.Add(this.lblMachineCompany);
             this.Controls.Add(this.lblMax);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblInStock);
@@ -278,7 +304,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblInStock;
-        private System.Windows.Forms.Label lblMachineCompany;
         private System.Windows.Forms.Label lblMax;
         private System.Windows.Forms.Label lblMin;
         private System.Windows.Forms.TextBox txtID;
@@ -287,8 +312,11 @@
         private System.Windows.Forms.TextBox PriceText;
         private System.Windows.Forms.TextBox MaxText;
         private System.Windows.Forms.TextBox MinText;
-        private System.Windows.Forms.TextBox MachineCompanyText;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Label lblMachine;
+        private System.Windows.Forms.TextBox txtMachine;
+        private System.Windows.Forms.TextBox txtCompany;
+        private System.Windows.Forms.Label lblCompany;
     }
 }

@@ -21,7 +21,17 @@ namespace D968_InvMngmnt
             this.txtInStock.Text = part.InStock.ToString();
             this.txtMax.Text = part.Max.ToString();
             this.txtMin.Text = part.Min.ToString();
-            this.txtMachineCompany.Text = part.MachineCompany;
+            Type t = part.GetType();
+            if (t.Equals(typeof(InHouse)))
+            {
+                this.txtMachine.Enabled = true;
+                this.txtMachine.Text = part.Machine.ToString();
+                this.lblMachine.Visible = true;
+            }
+            if (t.Equals(typeof(Outsourced)))
+            {
+                this.txtMachine.Text = part.Company;
+            }
         }
         private void CheckRadioButton(Part part)
         {
@@ -39,11 +49,21 @@ namespace D968_InvMngmnt
         {
             if (radInHouse.Checked)
             {
-                lblMachineCompany.Text = "Machine ID";
+                lblMachine.Visible = true;
+                txtMachine.Visible = true;
+                txtMachine.Enabled = true;
+                lblCompany.Visible = false;
+                txtCompany.Visible = false;
+                txtCompany.Enabled = false;
             }
             else if (radOutsourced.Checked)
             {
-                lblMachineCompany.Text = "Company Name";
+                lblCompany.Visible = true;
+                txtCompany.Visible = true;
+                txtCompany.Enabled = true;
+                lblMachine.Visible = false;
+                txtMachine.Visible = false;
+                txtMachine.Enabled = false;
             }
         }
         private void TextBox_Leave(object sender, EventArgs e)
@@ -92,13 +112,12 @@ namespace D968_InvMngmnt
             {
                 this.modifiedPart = new Outsourced
                 (
-                    Convert.ToInt32(txtID.Text),
                     txtName.Text,
                     Convert.ToDecimal(txtPrice.Text),
                     Convert.ToInt32(txtInStock.Text),
                     Convert.ToInt32(txtMax.Text),
                     Convert.ToInt32(txtMin.Text),
-                    txtMachineCompany.Text
+                    txtCompany.Text
                 );
                 
                 this.DialogResult = DialogResult.OK;
@@ -107,13 +126,12 @@ namespace D968_InvMngmnt
             {
                 this.modifiedPart = new InHouse
                 (
-                    Convert.ToInt32(txtID.Text),
                     txtName.Text,
                     Convert.ToDecimal(txtPrice.Text),
                     Convert.ToInt32(txtInStock.Text),
                     Convert.ToInt32(txtMax.Text),
                     Convert.ToInt32(txtMin.Text),
-                    txtMachineCompany.Text
+                    Convert.ToInt32(txtMachine.Text)
                 );
                 this.DialogResult = DialogResult.OK;
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Data;
 using System.Windows.Forms;
 
 namespace D968_InvMngmnt
@@ -44,5 +45,6 @@ namespace D968_InvMngmnt
             var selectedPart = dtgAssociatedParts.SelectedRows[0].DataBoundItem as Part;
             this.associatedParts.Remove(selectedPart);
         }
+
     }
 }

@@ -44,5 +44,10 @@ namespace D968_InvMngmnt
             var selectedPart = dtgAssociatedParts.SelectedRows[0].DataBoundItem as Part;
             this.associatedParts.Remove(selectedPart);
         }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

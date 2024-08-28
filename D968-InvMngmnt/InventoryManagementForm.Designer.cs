@@ -71,6 +71,7 @@ namespace D968_InvMngmnt
             this.btnSearchParts.TabIndex = 3;
             this.btnSearchParts.Text = "Search";
             this.btnSearchParts.UseVisualStyleBackColor = true;
+            this.btnSearchParts.Click += new System.EventHandler(this.btnSearchParts_Click);
             // 
             // txtSearchParts
             // 
@@ -116,12 +117,12 @@ namespace D968_InvMngmnt
             this.PartsDatagrid.Location = new System.Drawing.Point(29, 246);
             this.PartsDatagrid.MultiSelect = false;
             this.PartsDatagrid.Name = "PartsDatagrid";
+            this.PartsDatagrid.RowHeadersVisible = false;
             this.PartsDatagrid.RowHeadersWidth = 62;
             this.PartsDatagrid.RowTemplate.Height = 28;
             this.PartsDatagrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.PartsDatagrid.Size = new System.Drawing.Size(608, 376);
             this.PartsDatagrid.TabIndex = 3;
-            this.PartsDatagrid.RowHeadersVisible = false;
             // 
             // ProductsDatagrid
             // 
@@ -132,12 +133,12 @@ namespace D968_InvMngmnt
             this.ProductsDatagrid.Location = new System.Drawing.Point(705, 246);
             this.ProductsDatagrid.MultiSelect = false;
             this.ProductsDatagrid.Name = "ProductsDatagrid";
+            this.ProductsDatagrid.RowHeadersVisible = false;
             this.ProductsDatagrid.RowHeadersWidth = 62;
             this.ProductsDatagrid.RowTemplate.Height = 28;
             this.ProductsDatagrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.ProductsDatagrid.Size = new System.Drawing.Size(608, 376);
             this.ProductsDatagrid.TabIndex = 4;
-            this.ProductsDatagrid.RowHeadersVisible = false;
             // 
             // btnPartAdd
             // 

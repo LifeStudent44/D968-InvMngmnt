@@ -20,7 +20,7 @@ namespace D968_InvMngmnt
         {
             if (product != null)
             {
-                Products.Add(product);
+                this.Products.Add(product);
             }
         }
 
@@ -29,7 +29,7 @@ namespace D968_InvMngmnt
             var product = LookupProduct(id);
             if (product != null)
             {
-                Products.Remove(product);
+                this.Products.Remove(product);
                 return true;
             }
             return false;
@@ -46,16 +46,15 @@ namespace D968_InvMngmnt
             }
             return null;
         }
-        public void UpdateProduct(int id, Product product)
+        public void UpdateProduct(int id, Product modifiedProduct)
         {
-            Product productToModify = this.LookupProduct(id);
-            productToModify = product;
+            this.Products[id] = modifiedProduct;
         }
         public void AddPart(Part part)
         {
             if (part != null)
             {
-                AllParts.Add(part);
+                this.AllParts.Add(part);
             }
         }
 
@@ -64,7 +63,7 @@ namespace D968_InvMngmnt
             var part = LookupPart(id);
             if (part != null)
             {
-                AllParts.Remove(part);
+                this.AllParts.Remove(this.AllParts[id]);
                 return true;
             }
             return false;
@@ -81,19 +80,9 @@ namespace D968_InvMngmnt
             }
             return null;
         }
-        public void UpdatePart(int id, Part part)
+        public void UpdatePart(int id, Part modifiedPart)
         {
-            Part partToModify = part;
-            foreach (Part partCheck in AllParts)
-            {
-                if (partCheck.Equals(partToModify))
-                    {
-                    AllParts.Remove(partCheck);
-                    AllParts.Add(partToModify);
-                    }                
-            }
-            //AllParts.Add(part);
-
+            this.AllParts[id] = modifiedPart;
         }
     }
 }

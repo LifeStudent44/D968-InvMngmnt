@@ -14,6 +14,7 @@ namespace D968_InvMngmnt
         {
             InitializeComponent();
             radInHouse.Checked = true;
+
             this.nextInHouseId = ++nextInHouseId;
             this.nextOutSourcedId = ++nextOutsourcedId;
             foreach (Control control in this.Controls)
@@ -24,7 +25,11 @@ namespace D968_InvMngmnt
                     {
                         control.Text = this.nextInHouseId.ToString();
                     }
-                    if (string.IsNullOrEmpty(control.Text) && control.Name != "txtID")
+                    if (control.Name == "txtID" && radOutsourced.Checked)
+                    {
+                        control.Text = this.nextOutSourcedId.ToString();
+                    }
+                    if (string.IsNullOrEmpty(control.Text) && control.Name != "txtID" && control.Enabled == true)
                     {
                         control.BackColor = Color.LightCoral;
                         btnSave.Enabled = false;
@@ -38,13 +43,12 @@ namespace D968_InvMngmnt
             if (radInHouse.Checked)
             {
                 Part newPart = new InHouse(
-                    Convert.ToInt32(this.txtID.Text),
                     this.NameText.Text,
                     Convert.ToDecimal(this.PriceText.Text),
                     Convert.ToInt32(this.InStockText.Text),
                     Convert.ToInt32(this.MinText.Text),
                     Convert.ToInt32(this.MaxText.Text),
-                    this.MachineCompanyText.Text
+                    Convert.ToInt32(this.txtMachine.Text)
                     );
                 this.addedPart = newPart;
                 this.DialogResult = DialogResult.OK;
@@ -52,13 +56,12 @@ namespace D968_InvMngmnt
             if (radOutsourced.Checked)
             {
                 Part newPart = new Outsourced(
-                    Convert.ToInt32(this.txtID.Text),
                     this.NameText.Text,
                     Convert.ToDecimal(this.PriceText.Text),
                     Convert.ToInt32(this.InStockText.Text),
                     Convert.ToInt32(this.MinText.Text),
                     Convert.ToInt32(this.MaxText.Text),
-                    this.MachineCompanyText.Text
+                    this.txtCompany.Text
                     );
                 this.addedPart = newPart;
                 this.DialogResult = DialogResult.OK;
@@ -78,14 +81,15 @@ namespace D968_InvMngmnt
                     {
                         boxesFilled.Add(true);
                     }
-                    if (!string.IsNullOrEmpty(control.Text) && control.Name != "txtID")
+                    if (!string.IsNullOrEmpty(control.Text) && control.Name != "txtID" && control.Enabled == true)
                     {
                         control.BackColor = Color.White;
                         boxesFilled.Add(true);
                     }
                 }
             }
-            if (textBoxCount == boxesFilled.Count)
+
+            if (boxesFilled.Count == textBoxCount - 1)
             {
                 btnSave.Enabled = true;
             }
@@ -115,13 +119,22 @@ namespace D968_InvMngmnt
         {
             if (radInHouse.Checked)
             {
-                lblMachineCompany.Text = "Machine ID";
+                lblMachine.Visible = true;
+                txtMachine.Visible = true;
+                txtMachine.Enabled = true;
+                lblCompany.Visible = false;
+                txtCompany.Visible = false;
+                txtCompany.Enabled = false;
             }
             else if (radOutsourced.Checked)
             {
-                lblMachineCompany.Text = "Company Name";
+                lblCompany.Visible = true;
+                txtCompany.Visible = true;
+                txtCompany.Enabled = true;
+                lblMachine.Visible = false;
+                txtMachine.Visible = false;
+                txtMachine.Enabled = false;
             }
         }
-
     }
 }

@@ -3,15 +3,14 @@
     public class Outsourced : Part
     {
         // Constructor
-        public Outsourced(int id, string name, decimal price, int stock, int min, int max, string machineCompany) : base(id, name, price, stock, min, max, machineCompany)
+        public Outsourced(string name, decimal price, int stock, int min, int max, string company) : base(name, price, stock, min, max, company)
         {
-            PartID = id;
             Name = name;
             Price = price;
             InStock = stock;
             Min = min;
             Max = max;
-            MachineCompany = machineCompany;
+            Company = company;
         }
     }
 }

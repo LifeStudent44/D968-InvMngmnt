@@ -212,12 +212,12 @@
             this.dtgAllParts.Location = new System.Drawing.Point(393, 109);
             this.dtgAllParts.MultiSelect = false;
             this.dtgAllParts.Name = "dtgAllParts";
+            this.dtgAllParts.RowHeadersVisible = false;
             this.dtgAllParts.RowHeadersWidth = 62;
             this.dtgAllParts.RowTemplate.Height = 28;
             this.dtgAllParts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgAllParts.Size = new System.Drawing.Size(567, 197);
             this.dtgAllParts.TabIndex = 35;
-            this.dtgAllParts.RowHeadersVisible = false;
             // 
             // dtgAssociatedParts
             // 
@@ -228,12 +228,12 @@
             this.dtgAssociatedParts.Location = new System.Drawing.Point(393, 396);
             this.dtgAssociatedParts.MultiSelect = false;
             this.dtgAssociatedParts.Name = "dtgAssociatedParts";
+            this.dtgAssociatedParts.RowHeadersVisible = false;
             this.dtgAssociatedParts.RowHeadersWidth = 62;
             this.dtgAssociatedParts.RowTemplate.Height = 28;
             this.dtgAssociatedParts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgAssociatedParts.Size = new System.Drawing.Size(567, 197);
             this.dtgAssociatedParts.TabIndex = 36;
-            this.dtgAssociatedParts.RowHeadersVisible = false;
             // 
             // lblFormTitle
             // 
@@ -255,10 +255,13 @@
             // 
             // txtSearch
             // 
+            this.txtSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.txtSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtSearch.Location = new System.Drawing.Point(788, 46);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(172, 26);
             this.txtSearch.TabIndex = 39;
+
             // 
             // lblAllParts
             // 

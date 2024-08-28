@@ -9,7 +9,7 @@ namespace D968_InvMngmnt
     {
         static int product_id;
         public BindingList<Part> AssociatedParts { get; private set; }
-        public int ProductID { get; set; }
+        public int ProductId { get; set; }
         public string Name { get; set; }
         public double Price { get; set; }
         public int InStock { get; set; }
@@ -20,7 +20,7 @@ namespace D968_InvMngmnt
         public Product(string name, double price, int stock, int max, int min)
         {
             AssociatedParts = new BindingList<Part>();
-            ProductID = Interlocked.Increment(ref product_id);
+            ProductId = Interlocked.Increment(ref product_id);
             Name = name;
             Price = price;
             InStock = stock;

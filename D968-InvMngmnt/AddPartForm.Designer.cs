@@ -232,7 +232,7 @@
             // txtMachine
             // 
             this.txtMachine.BackColor = System.Drawing.Color.White;
-            this.txtMachine.Location = new System.Drawing.Point(214, 347);
+            this.txtMachine.Location = new System.Drawing.Point(214, 341);
             this.txtMachine.Name = "txtMachine";
             this.txtMachine.Size = new System.Drawing.Size(211, 26);
             this.txtMachine.TabIndex = 42;

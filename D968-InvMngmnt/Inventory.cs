@@ -39,7 +39,7 @@ namespace D968_InvMngmnt
         {
             foreach (var product in Products)
             {
-                if (product.ProductID == id)
+                if (product.ProductId == id)
                 {
                     return product;
                 }
@@ -63,7 +63,7 @@ namespace D968_InvMngmnt
             var part = LookupPart(id);
             if (part != null)
             {
-                this.AllParts.Remove(this.AllParts[id]);
+                this.AllParts.Remove(part);
                 return true;
             }
             return false;

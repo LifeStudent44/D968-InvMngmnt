@@ -78,7 +78,7 @@ namespace D968_InvMngmnt
                 if (result == DialogResult.OK)
                 {
                     Product modifiedProduct = formModifyProduct.modifiedProduct;
-                    this.inventory.UpdateProduct(selectedProduct.ProductID, modifiedProduct);
+                    this.inventory.UpdateProduct(selectedProduct.ProductId, modifiedProduct);
                 }
             }
         }
@@ -125,7 +125,7 @@ namespace D968_InvMngmnt
         private void btnProductDelete_Click(object sender, EventArgs e)
         {
             var selectedProduct = ProductsDatagrid.SelectedRows[0].DataBoundItem as Product;
-            this.inventory.RemoveProduct(selectedProduct.ProductID);
+            this.inventory.RemoveProduct(selectedProduct.ProductId);
         }
 
         private void btnSearchParts_Click(object sender, EventArgs e)

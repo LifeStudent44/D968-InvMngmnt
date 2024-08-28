@@ -14,7 +14,7 @@ namespace D968_InvMngmnt
             InitializeComponent();
             dtgAllParts.DataSource = inventory.AllParts;
             dtgAssociatedParts.DataSource = associatedParts;
-            this.txtID.Text = product.ProductID.ToString();
+            this.txtID.Text = product.ProductId.ToString();
             this.txtName.Text = product.Name;
             this.txtInStock.Text = product.InStock.ToString();
             this.txtPrice.Text = product.Price.ToString();

@@ -85,23 +85,6 @@ namespace D968_InvMngmnt
         }
         private void RadioButton_Change(object sender, EventArgs e)
         {
-            // If the TextBox contains text, change its background color.
-            foreach (Control control in this.Controls)
-            {
-                if (control.GetType() == typeof(RadioButton))
-                {
-                    if (control.Name == "radInHouse")
-                    {
-                        this.txtID.Text = this.addedPart.PartId.ToString();
-                    }
-                    else if (control.Name == "radOutsourced")
-                    {
-                        this.txtID.Text = this.addedPart.PartId.ToString();
-                    }
-
-                }
-
-            }
             this.SwapLabel();
         }
         private void SwapLabel()

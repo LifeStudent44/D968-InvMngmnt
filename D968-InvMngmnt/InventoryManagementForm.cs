@@ -126,8 +126,13 @@ namespace D968_InvMngmnt
 
         private void btnPartDelete_Click(object sender, EventArgs e)
         {
-            var selectedPart = dtgAllParts.CurrentRow.DataBoundItem as Part;
-            this.inventory.RemovePart(selectedPart.PartId);
+            if (MessageBox.Show("Yes or no", "Delete this Part?",
+    MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                var selectedPart = dtgAllParts.CurrentRow.DataBoundItem as Part;
+                this.inventory.RemovePart(selectedPart.PartId);
+            }
+
         }
 
         private void btnProductDelete_Click(object sender, EventArgs e)
@@ -135,7 +140,11 @@ namespace D968_InvMngmnt
             var selectedProduct = dtgProducts.CurrentRow.DataBoundItem as Product;
             if (selectedProduct.AssociatedParts.Count == 0)
             {
-                this.inventory.RemoveProduct(selectedProduct.ProductId);
+                if (MessageBox.Show("Yes or no", "Delete this Product?",
+                    MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    this.inventory.RemoveProduct(selectedProduct.ProductId);
+                }
             }
             else
             {

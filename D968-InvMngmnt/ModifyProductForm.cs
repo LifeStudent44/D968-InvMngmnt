@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace D968_InvMngmnt
 {
@@ -53,9 +54,12 @@ namespace D968_InvMngmnt
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            var selectedPart = dtgAssociatedParts.SelectedRows[0].DataBoundItem as Part;
-            this.associatedParts.Remove(selectedPart);
-
+            if (MessageBox.Show("Yes or no", "Delete this associated part?",
+                MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                var selectedPart = dtgAssociatedParts.SelectedRows[0].DataBoundItem as Part;
+                this.associatedParts.Remove(selectedPart);
+            }
         }
 
         private bool Check_TextBox_For_Content()

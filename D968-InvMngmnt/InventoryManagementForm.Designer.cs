@@ -54,7 +54,9 @@ namespace D968_InvMngmnt
             this.txtSearchProducts.Name = "txtSearchProducts";
             this.txtSearchProducts.Size = new System.Drawing.Size(139, 20);
             this.txtSearchProducts.TabIndex = 2;
-            this.txtSearchProducts.TextChanged += new System.EventHandler(this.txtSearchProducts_TextChanged);
+            this.txtSearchProducts.TextChanged += new System.EventHandler(this.SearchProducts_TextChanged);
+            this.btnSearchProducts.Click += new System.EventHandler(this.SearchProducts_Click);
+            this.btnSearchProducts.LostFocus += new System.EventHandler(this.SearchProducts_LostFocus);
             // 
             // btnSearchProducts
             // 
@@ -77,7 +79,8 @@ namespace D968_InvMngmnt
             this.btnSearchParts.TabIndex = 3;
             this.btnSearchParts.Text = "Search";
             this.btnSearchParts.UseVisualStyleBackColor = true;
-            this.btnSearchParts.Click += new System.EventHandler(this.btnSearchParts_Click);
+            this.btnSearchParts.Click += new System.EventHandler(this.SearchParts_Click);
+            this.btnSearchParts.LostFocus += new System.EventHandler(this.SearchParts_LostFocus);
             // 
             // txtSearchParts
             // 
@@ -86,7 +89,8 @@ namespace D968_InvMngmnt
             this.txtSearchParts.Name = "txtSearchParts";
             this.txtSearchParts.Size = new System.Drawing.Size(139, 20);
             this.txtSearchParts.TabIndex = 1;
-            this.txtSearchParts.TextChanged += new System.EventHandler(this.txtSearchParts_TextChanged);
+            this.txtSearchParts.TextChanged += new System.EventHandler(this.SearchParts_TextChanged);
+            
             // 
             // lblPartsDetail
             // 

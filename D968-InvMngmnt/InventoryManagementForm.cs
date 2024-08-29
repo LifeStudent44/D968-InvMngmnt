@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+using System.ComponentModel;
 using System.Windows.Forms;
 
 namespace D968_InvMngmnt
@@ -133,19 +135,99 @@ namespace D968_InvMngmnt
             this.inventory.RemoveProduct(selectedProduct.ProductId);
         }
 
-        private void btnSearchParts_Click(object sender, EventArgs e)
+        private void SearchParts_Click(object sender, EventArgs e)
         {
+            BindingList<Part> TempList = new BindingList<Part>();
+            bool found = false;
+
+            if (txtSearchParts.Text != "")
+            {
+                for (int i = 0; i < inventory.AllParts.Count; i++)
+                {
+                    if (inventory.AllParts[i].Name.ToLower().Contains(txtSearchParts.Text.ToLower()))
+                    {
+                        TempList.Add(inventory.AllParts[i]);
+                        found = true;
+                    }
+                }
+                if (found)
+                {
+                    dtgAllParts.DataSource = TempList;
+                }
+            }
+            if (!found)
+            {
+                MessageBox.Show("Nothing found.");
+                dtgAllParts.DataSource = inventory.AllParts;
+
+            }
 
         }
-
-        private void txtSearchParts_TextChanged(object sender, EventArgs e)
+        private void SearchParts_LostFocus(object sender, EventArgs e)
         {
-            btnSearchParts.Enabled = true;
+            dtgAllParts.DataSource = inventory.AllParts;
+            dtgAllParts.Refresh();
+            txtSearchParts.Text = "";
+            btnSearchParts.Enabled = false;
         }
 
-        private void txtSearchProducts_TextChanged(object sender, EventArgs e)
+        private void SearchProducts_Click(object sender, EventArgs e)
         {
-            btnSearchProducts.Enabled = true;
+            BindingList<Product> TempList = new BindingList<Product>();
+            bool found = false;
+
+            if (txtSearchProducts.Text != "")
+            {
+                for (int i = 0; i < inventory.Products.Count; i++)
+                {
+                    if (inventory.Products[i].Name.ToLower().Contains(txtSearchProducts.Text.ToLower()))
+                    {
+                        TempList.Add(inventory.Products[i]);
+                        found = true;
+                    }
+                }
+                if (found)
+                {
+                    dtgProducts.DataSource = TempList;
+                }
+            }
+            if (!found)
+            {
+                MessageBox.Show("Nothing found.");
+                dtgProducts.DataSource = inventory.Products;
+
+            }
+
+        }
+        private void SearchProducts_LostFocus(object sender, EventArgs e)
+        {
+            dtgProducts.DataSource = inventory.Products;
+            dtgProducts.Refresh();
+            txtSearchProducts.Text = "";
+            btnSearchProducts.Enabled = false;
+        }
+        private void SearchParts_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearchParts.Text != "")
+            {
+                btnSearchParts.Enabled = true;
+            }
+            else
+            {
+                btnSearchParts.Enabled = false;
+            }
+        }
+
+        private void SearchProducts_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearchProducts.Text != "")
+            {
+                btnSearchProducts.Enabled = true;
+            }
+            else
+            {
+                btnSearchProducts.Enabled = false;
+            }
         }
 
         private void AllPartsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)

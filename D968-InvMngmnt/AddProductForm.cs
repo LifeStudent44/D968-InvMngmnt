@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Contexts;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -16,10 +17,12 @@ namespace D968_InvMngmnt
         public Product addedProduct;
 
         BindingList<Part> associatedParts = new BindingList<Part>();
+        BindingList<Part> allParts = new BindingList<Part>();
         public AddProductForm(Inventory inventory)
         {
             InitializeComponent();
-            dtgAllParts.DataSource = inventory.AllParts;
+            this.allParts = inventory.AllParts;
+            dtgAllParts.DataSource = this.allParts;
             dtgAssociatedParts.DataSource = this.associatedParts;
 
             foreach (Control control in this.Controls)
@@ -156,6 +159,58 @@ namespace D968_InvMngmnt
         private void AddProductForm_Load(object sender, EventArgs e)
         {
             dtgAllParts.CurrentRow.Selected = false;
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Search_Click(object sender, EventArgs e)
+        {
+            BindingList<Part> TempList = new BindingList<Part>();
+            bool found = false;
+
+            if (txtSearch.Text != "")
+            {
+                for (int i = 0; i < allParts.Count; i++)
+                {
+                    if (allParts[i].Name.ToLower().Contains(txtSearch.Text.ToLower()))
+                    {
+                        TempList.Add(allParts[i]);
+                        found = true;
+                    }
+                }
+                if (found)
+                {
+                    dtgAllParts.DataSource = TempList;
+                }
+            }
+            if (!found)
+            {
+                MessageBox.Show("Nothing found.");
+                dtgAllParts.DataSource = allParts;
+
+            }
+
+        }
+        private void Search_LostFocus(object sender, EventArgs e)
+        {
+            dtgAllParts.DataSource = allParts;
+            dtgAllParts.Refresh();
+            txtSearch.Text = "";
+            btnSearch.Enabled = false;
+        }
+        private void Search_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSearch.Text != "")
+            {
+                btnSearch.Enabled = true;
+            }
+            else
+            {
+                btnSearch.Enabled = false;
+            }
         }
     }
 }

@@ -59,7 +59,7 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(563, 431);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(50, 23);
             this.btnCancel.TabIndex = 34;
@@ -71,7 +71,7 @@
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.Yes;
             this.btnSave.Enabled = false;
             this.btnSave.Location = new System.Drawing.Point(488, 431);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(50, 23);
             this.btnSave.TabIndex = 33;
@@ -83,7 +83,7 @@
             // 
             this.txtMin.BackColor = System.Drawing.Color.White;
             this.txtMin.Location = new System.Drawing.Point(193, 300);
-            this.txtMin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMin.Margin = new System.Windows.Forms.Padding(2);
             this.txtMin.Name = "txtMin";
             this.txtMin.Size = new System.Drawing.Size(54, 20);
             this.txtMin.TabIndex = 5;
@@ -93,7 +93,7 @@
             // 
             this.txtMax.BackColor = System.Drawing.Color.White;
             this.txtMax.Location = new System.Drawing.Point(55, 298);
-            this.txtMax.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMax.Margin = new System.Windows.Forms.Padding(2);
             this.txtMax.Name = "txtMax";
             this.txtMax.Size = new System.Drawing.Size(57, 20);
             this.txtMax.TabIndex = 4;
@@ -103,7 +103,7 @@
             // 
             this.txtPrice.BackColor = System.Drawing.Color.White;
             this.txtPrice.Location = new System.Drawing.Point(85, 269);
-            this.txtPrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPrice.Margin = new System.Windows.Forms.Padding(2);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(142, 20);
             this.txtPrice.TabIndex = 3;
@@ -113,7 +113,7 @@
             // 
             this.txtInStock.BackColor = System.Drawing.Color.White;
             this.txtInStock.Location = new System.Drawing.Point(85, 241);
-            this.txtInStock.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtInStock.Margin = new System.Windows.Forms.Padding(2);
             this.txtInStock.Name = "txtInStock";
             this.txtInStock.Size = new System.Drawing.Size(142, 20);
             this.txtInStock.TabIndex = 2;
@@ -123,7 +123,7 @@
             // 
             this.txtName.BackColor = System.Drawing.Color.White;
             this.txtName.Location = new System.Drawing.Point(85, 209);
-            this.txtName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtName.Margin = new System.Windows.Forms.Padding(2);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(142, 20);
             this.txtName.TabIndex = 1;
@@ -133,7 +133,7 @@
             // 
             this.txtId.Enabled = false;
             this.txtId.Location = new System.Drawing.Point(85, 182);
-            this.txtId.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtId.Margin = new System.Windows.Forms.Padding(2);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(142, 20);
             this.txtId.TabIndex = 26;
@@ -210,7 +210,7 @@
             this.dtgAllParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgAllParts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgAllParts.Location = new System.Drawing.Point(262, 71);
-            this.dtgAllParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgAllParts.Margin = new System.Windows.Forms.Padding(2);
             this.dtgAllParts.MultiSelect = false;
             this.dtgAllParts.Name = "dtgAllParts";
             this.dtgAllParts.RowHeadersVisible = false;
@@ -227,7 +227,7 @@
             this.dtgAssociatedParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgAssociatedParts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgAssociatedParts.Location = new System.Drawing.Point(262, 257);
-            this.dtgAssociatedParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgAssociatedParts.Margin = new System.Windows.Forms.Padding(2);
             this.dtgAssociatedParts.MultiSelect = false;
             this.dtgAssociatedParts.Name = "dtgAssociatedParts";
             this.dtgAssociatedParts.RowHeadersVisible = false;
@@ -251,22 +251,25 @@
             // 
             this.btnSearch.Enabled = false;
             this.btnSearch.Location = new System.Drawing.Point(461, 27);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(50, 20);
             this.btnSearch.TabIndex = 38;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.Search_Click);
+            this.btnSearch.LostFocus += new System.EventHandler(this.Search_LostFocus);
             // 
             // txtSearch
             // 
             this.txtSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.txtSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtSearch.Location = new System.Drawing.Point(525, 30);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(116, 20);
             this.txtSearch.TabIndex = 39;
+            this.txtSearch.TextChanged += new System.EventHandler(this.Search_TextChanged);
             // 
             // lblAllParts
             // 
@@ -292,7 +295,7 @@
             // 
             this.btnAdd.Enabled = false;
             this.btnAdd.Location = new System.Drawing.Point(563, 211);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(50, 23);
             this.btnAdd.TabIndex = 42;
@@ -304,7 +307,7 @@
             // 
             this.btnDelete.Enabled = false;
             this.btnDelete.Location = new System.Drawing.Point(563, 397);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(50, 23);
             this.btnDelete.TabIndex = 43;
@@ -340,7 +343,7 @@
             this.Controls.Add(this.lblInStock);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblID);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddProductForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Product";

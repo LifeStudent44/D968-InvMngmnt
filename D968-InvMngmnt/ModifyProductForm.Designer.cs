@@ -105,6 +105,7 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(116, 20);
             this.txtSearch.TabIndex = 64;
+            this.txtSearch.TextChanged += new System.EventHandler(this.Search_TextChanged);
             // 
             // btnSearch
             // 
@@ -116,7 +117,8 @@
             this.btnSearch.TabIndex = 63;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearch.Click += new System.EventHandler(this.Search_Click);
+            this.btnSearch.LostFocus += new System.EventHandler(this.Search_LostFocus);
             // 
             // lblFormTitle
             // 
@@ -196,7 +198,7 @@
             this.txtMin.Name = "txtMin";
             this.txtMin.Size = new System.Drawing.Size(54, 20);
             this.txtMin.TabIndex = 5;
-            this.txtMin.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            this.txtMin.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // txtMax
             // 
@@ -206,7 +208,7 @@
             this.txtMax.Name = "txtMax";
             this.txtMax.Size = new System.Drawing.Size(57, 20);
             this.txtMax.TabIndex = 4;
-            this.txtMax.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            this.txtMax.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // txtPrice
             // 
@@ -216,7 +218,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(142, 20);
             this.txtPrice.TabIndex = 3;
-            this.txtPrice.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            this.txtPrice.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // txtInStock
             // 
@@ -226,7 +228,7 @@
             this.txtInStock.Name = "txtInStock";
             this.txtInStock.Size = new System.Drawing.Size(142, 20);
             this.txtInStock.TabIndex = 2;
-            this.txtInStock.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            this.txtInStock.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // txtName
             // 
@@ -236,7 +238,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(142, 20);
             this.txtName.TabIndex = 1;
-            this.txtName.TextChanged += new System.EventHandler(this.TextBox_Leave);
+            this.txtName.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // txtID
             // 

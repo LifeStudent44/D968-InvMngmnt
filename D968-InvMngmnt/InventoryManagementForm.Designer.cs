@@ -50,7 +50,7 @@ namespace D968_InvMngmnt
             // txtSearchProducts
             // 
             this.txtSearchProducts.Location = new System.Drawing.Point(737, 72);
-            this.txtSearchProducts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearchProducts.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearchProducts.Name = "txtSearchProducts";
             this.txtSearchProducts.Size = new System.Drawing.Size(139, 20);
             this.txtSearchProducts.TabIndex = 2;
@@ -60,7 +60,7 @@ namespace D968_InvMngmnt
             // 
             this.btnSearchProducts.Enabled = false;
             this.btnSearchProducts.Location = new System.Drawing.Point(645, 72);
-            this.btnSearchProducts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearchProducts.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearchProducts.Name = "btnSearchProducts";
             this.btnSearchProducts.Size = new System.Drawing.Size(61, 22);
             this.btnSearchProducts.TabIndex = 1;
@@ -71,7 +71,7 @@ namespace D968_InvMngmnt
             // 
             this.btnSearchParts.Enabled = false;
             this.btnSearchParts.Location = new System.Drawing.Point(206, 72);
-            this.btnSearchParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearchParts.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearchParts.Name = "btnSearchParts";
             this.btnSearchParts.Size = new System.Drawing.Size(61, 22);
             this.btnSearchParts.TabIndex = 3;
@@ -82,7 +82,7 @@ namespace D968_InvMngmnt
             // txtSearchParts
             // 
             this.txtSearchParts.Location = new System.Drawing.Point(287, 72);
-            this.txtSearchParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSearchParts.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearchParts.Name = "txtSearchParts";
             this.txtSearchParts.Size = new System.Drawing.Size(139, 20);
             this.txtSearchParts.TabIndex = 1;
@@ -126,7 +126,7 @@ namespace D968_InvMngmnt
             this.dtgAllParts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgAllParts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgAllParts.Location = new System.Drawing.Point(19, 160);
-            this.dtgAllParts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgAllParts.Margin = new System.Windows.Forms.Padding(2);
             this.dtgAllParts.MultiSelect = false;
             this.dtgAllParts.Name = "dtgAllParts";
             this.dtgAllParts.RowHeadersVisible = false;
@@ -144,7 +144,7 @@ namespace D968_InvMngmnt
             this.dtgProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgProducts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgProducts.Location = new System.Drawing.Point(470, 160);
-            this.dtgProducts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtgProducts.Margin = new System.Windows.Forms.Padding(2);
             this.dtgProducts.MultiSelect = false;
             this.dtgProducts.Name = "dtgProducts";
             this.dtgProducts.RowHeadersVisible = false;
@@ -158,7 +158,7 @@ namespace D968_InvMngmnt
             // btnPartAdd
             // 
             this.btnPartAdd.Location = new System.Drawing.Point(232, 419);
-            this.btnPartAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPartAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnPartAdd.Name = "btnPartAdd";
             this.btnPartAdd.Size = new System.Drawing.Size(50, 27);
             this.btnPartAdd.TabIndex = 9;
@@ -170,7 +170,7 @@ namespace D968_InvMngmnt
             // 
             this.btnPartModify.Enabled = false;
             this.btnPartModify.Location = new System.Drawing.Point(305, 419);
-            this.btnPartModify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPartModify.Margin = new System.Windows.Forms.Padding(2);
             this.btnPartModify.Name = "btnPartModify";
             this.btnPartModify.Size = new System.Drawing.Size(50, 27);
             this.btnPartModify.TabIndex = 10;
@@ -182,7 +182,7 @@ namespace D968_InvMngmnt
             // 
             this.btnPartDelete.Enabled = false;
             this.btnPartDelete.Location = new System.Drawing.Point(375, 419);
-            this.btnPartDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPartDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnPartDelete.Name = "btnPartDelete";
             this.btnPartDelete.Size = new System.Drawing.Size(50, 27);
             this.btnPartDelete.TabIndex = 11;
@@ -193,7 +193,7 @@ namespace D968_InvMngmnt
             // btnExit
             // 
             this.btnExit.Location = new System.Drawing.Point(825, 458);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(50, 23);
             this.btnExit.TabIndex = 12;
@@ -205,7 +205,7 @@ namespace D968_InvMngmnt
             // 
             this.btnProductDelete.Enabled = false;
             this.btnProductDelete.Location = new System.Drawing.Point(824, 419);
-            this.btnProductDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProductDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnProductDelete.Name = "btnProductDelete";
             this.btnProductDelete.Size = new System.Drawing.Size(50, 27);
             this.btnProductDelete.TabIndex = 15;
@@ -217,7 +217,7 @@ namespace D968_InvMngmnt
             // 
             this.btnProductModify.Enabled = false;
             this.btnProductModify.Location = new System.Drawing.Point(754, 419);
-            this.btnProductModify.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProductModify.Margin = new System.Windows.Forms.Padding(2);
             this.btnProductModify.Name = "btnProductModify";
             this.btnProductModify.Size = new System.Drawing.Size(50, 27);
             this.btnProductModify.TabIndex = 14;
@@ -228,7 +228,7 @@ namespace D968_InvMngmnt
             // btnProductAdd
             // 
             this.btnProductAdd.Location = new System.Drawing.Point(679, 419);
-            this.btnProductAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProductAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnProductAdd.Name = "btnProductAdd";
             this.btnProductAdd.Size = new System.Drawing.Size(50, 27);
             this.btnProductAdd.TabIndex = 13;
@@ -257,7 +257,7 @@ namespace D968_InvMngmnt
             this.Controls.Add(this.txtSearchParts);
             this.Controls.Add(this.btnSearchProducts);
             this.Controls.Add(this.txtSearchProducts);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "InventoryManagementForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inventory Management System";

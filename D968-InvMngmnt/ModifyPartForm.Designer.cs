@@ -314,7 +314,6 @@
             this.Name = "ModifyPartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modify Part";
-            this.Load += new System.EventHandler(this.ModifyPartForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

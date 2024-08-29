@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace D968_InvMngmnt
@@ -37,11 +38,7 @@ namespace D968_InvMngmnt
                 Convert.ToInt32(this.txtMax.Text),
                 Convert.ToInt32(this.txtMin.Text)
             );
-            foreach (DataGridViewRow row in dtgAssociatedParts.Rows)
-            {
-                Part part = row.DataBoundItem as Part;
-                newProduct.AddAssociatedPart(part);
-            }
+
             this.modifiedProduct = newProduct;
             this.DialogResult = DialogResult.OK;
         }
@@ -56,6 +53,7 @@ namespace D968_InvMngmnt
         {
             var selectedPart = dtgAssociatedParts.SelectedRows[0].DataBoundItem as Part;
             this.associatedParts.Remove(selectedPart);
+
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -63,7 +61,7 @@ namespace D968_InvMngmnt
             
         }
 
-        private void TextBox_Leave(object sender, EventArgs e)
+        private bool Check_TextBox_For_Content()
         {
             var textBoxCount = 0;
             var boxesFilled = new List<Boolean> { };
@@ -88,34 +86,68 @@ namespace D968_InvMngmnt
             if (boxesFilled.Count == textBoxCount - 1)
             {
                 btnSave.Enabled = true;
-                if (Convert.ToInt32(txtMin.Text) >= Convert.ToInt32(txtInStock.Text))
+                return true;
+            }
+            else
+            {
+                btnSave.Enabled = false;
+                return false;
+            }
+        }
+
+        private void Validate_Number_Inputs()
+        {
+            foreach (Control control in this.Controls)
+            {
+                string[] numberFields = { "txtInStock", "txtMin", "txtMax" };
+                if (control.GetType() == typeof(TextBox) && numberFields.Contains(control.Name))
                 {
-                    MessageBox.Show("The in-stock value must be greater than the min value.");
-                    this.txtInStock.BackColor = Color.Coral;
-                    this.txtMin.BackColor = Color.Coral;
-                    this.btnSave.Enabled = false;
-                }
-                else if (Convert.ToInt32(txtMax.Text) <= Convert.ToInt32(txtInStock.Text))
-                {
-                    MessageBox.Show("The in stock value must be less than the max value.");
-                    this.txtInStock.BackColor = Color.Coral;
-                    this.txtMax.BackColor = Color.Coral;
-                    this.btnSave.Enabled = false;
-                }
-                else if (Convert.ToInt32(txtInStock.Text) < 0 || Convert.ToInt32(txtMax.Text) < 0 || Convert.ToInt32(txtMin.Text) < 0 || Convert.ToDouble(txtPrice.Text) < 0)
-                {
-                    MessageBox.Show("The price, in-stock, min, max, and machine-id values must be a positive number");
-                    this.btnSave.Enabled = false;
-                    foreach (Control control in this.Controls)
+                    int n;
+                    if (!int.TryParse(control.Text, out n))
                     {
-                        if (control.GetType() == typeof(TextBox) && Convert.ToInt32(control.Text) < 0)
+                        MessageBox.Show("The in-stock, min, max, and price fields must be a number.");
+                        control.Update();
+
+                        if (Convert.ToInt32(txtMin.Text) >= Convert.ToInt32(txtInStock.Text))
                         {
-                            control.BackColor = Color.Coral;
+                            MessageBox.Show("The in-stock value must be greater than the min value.");
+                            this.txtInStock.BackColor = Color.Coral;
+                            this.txtMin.BackColor = Color.Coral;
+                            this.btnSave.Enabled = false;
+                        }
+                        else if (Convert.ToInt32(txtMax.Text) <= Convert.ToInt32(txtInStock.Text))
+                        {
+                            MessageBox.Show("The in stock value must be less than the max value.");
+                            this.txtInStock.BackColor = Color.Coral;
+                            this.txtMax.BackColor = Color.Coral;
+                            this.btnSave.Enabled = false;
+                        }
+                        else if (Convert.ToInt32(txtInStock.Text) < 0 || Convert.ToInt32(txtMax.Text) < 0 || Convert.ToInt32(txtMin.Text) < 0 || Convert.ToDouble(txtPrice.Text) < 0)
+                        {
+                            MessageBox.Show("The price, in-stock, min, max, and machine-id values must be a positive number");
+                            this.btnSave.Enabled = false;
+                            foreach (Control intControl in this.Controls)
+                            {
+                                if (intControl.GetType() == typeof(TextBox) && Convert.ToInt32(intControl.Text) < 0)
+                                {
+                                    intControl.BackColor = Color.Coral;
+                                }
+                            }
+
                         }
                     }
-
                 }
             }
+        }
+        private void TextBox_Leave(object sender, EventArgs e)
+        {
+            if (Check_TextBox_For_Content())
+            {
+                Validate_Number_Inputs();
+            }
+
+            
+
         }
 
         private void AssociatedPartsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -124,7 +156,11 @@ namespace D968_InvMngmnt
             {
                 btnDelete.Enabled = true;
             }
-            dtgAllParts.Rows[0].Selected = false;
+            if (dtgAllParts.CurrentRow != null)
+            {
+                dtgAllParts.CurrentRow.Selected = false;
+            }
+
             btnAdd.Enabled = false;
 
         }
@@ -132,16 +168,19 @@ namespace D968_InvMngmnt
         private void AllPartsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnAdd.Enabled = true;
-            dtgAssociatedParts.Rows[0].Selected = false;
+            if (dtgAssociatedParts.CurrentRow != null)
+            {
+                dtgAssociatedParts.CurrentRow.Selected = false;
+            }
             btnDelete.Enabled = false;
         }
 
         private void ModifyProductForm_Load(object sender, EventArgs e)
         {
-            dtgAllParts.Rows[0].Selected = false;
-            if (dtgAssociatedParts.Rows.Count > 0)
+            dtgAllParts.CurrentRow.Selected = false;
+            if (dtgAssociatedParts.CurrentRow != null)
             {
-                dtgAssociatedParts.Rows[0].Selected = false;
+                dtgAssociatedParts.CurrentRow.Selected = false;
             }
         }
     }

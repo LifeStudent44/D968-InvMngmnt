@@ -62,18 +62,7 @@ namespace D968_InvMngmnt
                 }
             }
         }
-        public void UpdatePart(int id, Part modifiedPart)
-        {
-            var part = LookupPart(id);
-            if(part != null)
-            {
-                part.Name = modifiedPart.Name;
-                part.InStock = modifiedPart.InStock;
-                part.Price = modifiedPart.Price;
-                part.Min = modifiedPart.Min;
-                part.Max = modifiedPart.Max;
-            }
-        }
+
         public void AddPart(Part part)
         {
             if (part != null)
@@ -105,5 +94,17 @@ namespace D968_InvMngmnt
             return null;
         }
 
+        public void UpdatePart(int id, Part modifiedPart)
+        {
+            var part = LookupPart(id);
+            if(part != null)
+            {
+                part.Name = modifiedPart.Name;
+                part.InStock = modifiedPart.InStock;
+                part.Price = modifiedPart.Price;
+                part.Min = modifiedPart.Min;
+                part.Max = modifiedPart.Max;
+            }
+        }
     }
 }

@@ -170,7 +170,7 @@ namespace D968_InvMngmnt
         {
             BindingList<Part> TempList = new BindingList<Part>();
             bool found = false;
-
+            int n;
             if (txtSearch.Text != "")
             {
                 for (int i = 0; i < allParts.Count; i++)
@@ -178,12 +178,18 @@ namespace D968_InvMngmnt
                     if (allParts[i].Name.ToLower().Contains(txtSearch.Text.ToLower()))
                     {
                         TempList.Add(allParts[i]);
+                        dtgAllParts.DataSource = TempList;
                         found = true;
                     }
-                }
-                if (found)
-                {
-                    dtgAllParts.DataSource = TempList;
+                    if (int.TryParse(txtSearch.Text, out n) && !TempList.Contains(allParts[i]))
+                    {
+                        if (allParts[i].PartId == Convert.ToInt32(txtSearch.Text))
+                        {
+                            TempList.Add(allParts[i]);
+                            dtgAllParts.DataSource = TempList;
+                            found = true;
+                        }
+                    }
                 }
             }
             if (!found)

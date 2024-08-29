@@ -58,11 +58,6 @@ namespace D968_InvMngmnt
 
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private bool Check_TextBox_For_Content()
         {
             var textBoxCount = 0;
@@ -186,7 +181,7 @@ namespace D968_InvMngmnt
         {
             BindingList<Part> TempList = new BindingList<Part>();
             bool found = false;
-
+            int n;
             if (txtSearch.Text != "")
             {
                 for (int i = 0; i < allParts.Count; i++)
@@ -196,10 +191,15 @@ namespace D968_InvMngmnt
                         TempList.Add(allParts[i]);
                         found = true;
                     }
-                }
-                if (found)
-                {
-                    dtgAllParts.DataSource = TempList;
+                    if (int.TryParse(txtSearch.Text, out n) && !TempList.Contains(allParts[i]))
+                    {
+                        if (allParts[i].PartId == Convert.ToInt32(txtSearch.Text))
+                        {
+                            TempList.Add(allParts[i]);
+                            dtgAllParts.DataSource = TempList;
+                            found = true;
+                        }
+                    }
                 }
             }
             if (!found)

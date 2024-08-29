@@ -32,9 +32,10 @@ namespace D968_InvMngmnt
         {
             AssociatedParts.Add(associatedPart);
         }
-        public bool RemoveAssociatedPart(Part associatedPart)
+        public bool RemoveAssociatedPart(int id)
         {
-            AssociatedParts.Remove(associatedPart);
+            Part part = this.LookupAssociatedPart(id);
+            AssociatedParts.Remove(part);
             return true;
         }
         public Part LookupAssociatedPart(int id)

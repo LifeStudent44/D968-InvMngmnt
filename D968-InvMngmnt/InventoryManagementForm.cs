@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.ComponentModel;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace D968_InvMngmnt
 {
@@ -132,14 +133,22 @@ namespace D968_InvMngmnt
         private void btnProductDelete_Click(object sender, EventArgs e)
         {
             var selectedProduct = dtgProducts.CurrentRow.DataBoundItem as Product;
-            this.inventory.RemoveProduct(selectedProduct.ProductId);
+            if (selectedProduct.AssociatedParts.Count == 0)
+            {
+                this.inventory.RemoveProduct(selectedProduct.ProductId);
+            }
+            else
+            {
+                MessageBox.Show("Product can not be removed if it contains associated parts.");
+                Console.WriteLine(selectedProduct.AssociatedParts.Count);
+            }
         }
 
         private void SearchParts_Click(object sender, EventArgs e)
         {
             BindingList<Part> TempList = new BindingList<Part>();
             bool found = false;
-
+            int n;
             if (txtSearchParts.Text != "")
             {
                 for (int i = 0; i < inventory.AllParts.Count; i++)
@@ -147,12 +156,18 @@ namespace D968_InvMngmnt
                     if (inventory.AllParts[i].Name.ToLower().Contains(txtSearchParts.Text.ToLower()))
                     {
                         TempList.Add(inventory.AllParts[i]);
+                        dtgAllParts.DataSource = TempList;
                         found = true;
                     }
-                }
-                if (found)
-                {
-                    dtgAllParts.DataSource = TempList;
+                    if (int.TryParse(txtSearchParts.Text, out n) && !TempList.Contains(inventory.AllParts[i]))
+                    {
+                        if (inventory.AllParts[i].PartId == Convert.ToInt32(txtSearchParts.Text))
+                        {
+                            TempList.Add(inventory.AllParts[i]);
+                            dtgAllParts.DataSource = TempList;
+                            found = true;
+                        }
+                    }
                 }
             }
             if (!found)
@@ -163,6 +178,7 @@ namespace D968_InvMngmnt
             }
 
         }
+
         private void SearchParts_LostFocus(object sender, EventArgs e)
         {
             dtgAllParts.DataSource = inventory.AllParts;
@@ -175,7 +191,7 @@ namespace D968_InvMngmnt
         {
             BindingList<Product> TempList = new BindingList<Product>();
             bool found = false;
-
+            int n;
             if (txtSearchProducts.Text != "")
             {
                 for (int i = 0; i < inventory.Products.Count; i++)
@@ -183,12 +199,18 @@ namespace D968_InvMngmnt
                     if (inventory.Products[i].Name.ToLower().Contains(txtSearchProducts.Text.ToLower()))
                     {
                         TempList.Add(inventory.Products[i]);
+                        dtgProducts.DataSource = TempList;
                         found = true;
                     }
-                }
-                if (found)
-                {
-                    dtgProducts.DataSource = TempList;
+                    if (int.TryParse(txtSearchProducts.Text, out n) && !TempList.Contains(inventory.Products[i]))
+                    {
+                        if (inventory.Products[i].ProductId == Convert.ToInt32(txtSearchProducts.Text))
+                        {
+                            TempList.Add(inventory.Products[i]);
+                            dtgProducts.DataSource = TempList;
+                            found = true;
+                        }
+                    }
                 }
             }
             if (!found)

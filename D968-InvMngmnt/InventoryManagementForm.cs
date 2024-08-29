@@ -32,7 +32,6 @@ namespace D968_InvMngmnt
             Part secondOutsourcedPart = new Outsourced("outsourced part2", 22.22, 222, 22, 2222, "Facebook");
             Part thirdOutsourcedPart = new Outsourced("outsourced part3", 33.33, 333, 33, 3333, "Amazon");
 
-
             this.inventory.AddPart(firstInhousePart);
             this.inventory.AddPart(secondInhousePart);
             this.inventory.AddPart(thirdInhousePart);
@@ -42,7 +41,8 @@ namespace D968_InvMngmnt
             this.inventory.AddPart(thirdOutsourcedPart);
 
             dtgAllParts.DataSource = inventory.AllParts;
-            dtgAllParts.CurrentRow.Selected = false;
+            dtgAllParts.CurrentRow.Selected = false; // In the main form this works in other form utilized the Forms Load event
+
 
             Product firstProduct = new Product("Product1", 11.11, 111, 1111, 11);
             Product secondProduct = new Product("Product2", 22.22, 222, 2222, 22);
@@ -63,6 +63,8 @@ namespace D968_InvMngmnt
             
         }
 
+        // Part & Product Add and Modify dialog boxes are shown inside a using statement, which allows for passing
+        // the addedPart, modifiedPart, addProduct, modifiedProduct in those forms back with the DialogResult.OK
         private void btnProductAdd_Click(object sender, EventArgs e)
         {
             using (AddProductForm formAddProduct = new AddProductForm(this.inventory))
@@ -76,7 +78,6 @@ namespace D968_InvMngmnt
                 }
             }
         }
-
         private void btnProductModify_Click(object sender, EventArgs e)
         {
             var selectedProduct = dtgProducts.CurrentRow.DataBoundItem as Product;
@@ -90,7 +91,6 @@ namespace D968_InvMngmnt
                 }
             }
         }
-
         private void btnPartAdd_Click(object sender, EventArgs e)
         {
             using (AddPartForm formAddPart = new AddPartForm())
@@ -104,7 +104,6 @@ namespace D968_InvMngmnt
                 }
             }
         }
-
         private void btnPartModify_Click(object sender, EventArgs e)
         {
             var selectedPart = dtgAllParts.CurrentRow.DataBoundItem as Part;
@@ -127,7 +126,7 @@ namespace D968_InvMngmnt
         private void btnPartDelete_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Yes or no", "Delete this Part?",
-    MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
             {
                 var selectedPart = dtgAllParts.CurrentRow.DataBoundItem as Part;
                 this.inventory.RemovePart(selectedPart.PartId);
@@ -135,6 +134,7 @@ namespace D968_InvMngmnt
 
         }
 
+        // Deletes a Product unless it has Associated Parts then informs user.
         private void btnProductDelete_Click(object sender, EventArgs e)
         {
             var selectedProduct = dtgProducts.CurrentRow.DataBoundItem as Product;
@@ -153,6 +153,9 @@ namespace D968_InvMngmnt
             }
         }
 
+        // Searching the appropriate datagrid for Parts || Products Name field that matches the value in our textbox
+        // If the search isn't found in the Name field it then checks the PartId or ProductId field
+        // when found the Part or Product is added to a temp databound list and used as the datasource until the button loses focus
         private void SearchParts_Click(object sender, EventArgs e)
         {
             BindingList<Part> TempList = new BindingList<Part>();
@@ -187,19 +190,11 @@ namespace D968_InvMngmnt
             }
 
         }
-
-        private void SearchParts_LostFocus(object sender, EventArgs e)
-        {
-            dtgAllParts.DataSource = inventory.AllParts;
-            dtgAllParts.Refresh();
-            txtSearchParts.Text = "";
-            btnSearchParts.Enabled = false;
-        }
-
         private void SearchProducts_Click(object sender, EventArgs e)
         {
             BindingList<Product> TempList = new BindingList<Product>();
-            bool found = false;
+            bool found = false; // variable used to display dialog box if nothing is found.
+            // variable used in the TryParse function as a placeholder for the result?
             int n;
             if (txtSearchProducts.Text != "")
             {
@@ -211,6 +206,7 @@ namespace D968_InvMngmnt
                         dtgProducts.DataSource = TempList;
                         found = true;
                     }
+
                     if (int.TryParse(txtSearchProducts.Text, out n) && !TempList.Contains(inventory.Products[i]))
                     {
                         if (inventory.Products[i].ProductId == Convert.ToInt32(txtSearchProducts.Text))
@@ -226,9 +222,16 @@ namespace D968_InvMngmnt
             {
                 MessageBox.Show("Nothing found.");
                 dtgProducts.DataSource = inventory.Products;
-
             }
+        }
 
+        // Search button focus actions resets datagrid and disables button
+        private void SearchParts_LostFocus(object sender, EventArgs e)
+        {
+            dtgAllParts.DataSource = inventory.AllParts;
+            dtgAllParts.Refresh();
+            txtSearchParts.Text = "";
+            btnSearchParts.Enabled = false;
         }
         private void SearchProducts_LostFocus(object sender, EventArgs e)
         {
@@ -237,6 +240,9 @@ namespace D968_InvMngmnt
             txtSearchProducts.Text = "";
             btnSearchProducts.Enabled = false;
         }
+
+
+        // Next two functions enable or disable the button if text present or missing
         private void SearchParts_TextChanged(object sender, EventArgs e)
         {
             if (txtSearchParts.Text != "")
@@ -261,6 +267,7 @@ namespace D968_InvMngmnt
             }
         }
 
+        // The next two enable/disable buttons and deselect datagrid that isn't currently being interacted with.
         private void AllPartsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnPartModify.Enabled = true;

@@ -38,6 +38,31 @@ namespace D968_InvMngmnt
             }
         }
 
+        private void AssociatedPartsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dtgAssociatedParts.RowCount > 0)
+            {
+                btnDelete.Enabled = true;
+            }
+            if (dtgAllParts.CurrentRow != null)
+            {
+                dtgAllParts.CurrentRow.Selected = false;
+            }
+
+            btnAdd.Enabled = false;
+
+        }
+
+        private void AllPartsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnAdd.Enabled = true;
+            if (dtgAssociatedParts.CurrentRow != null)
+            {
+                dtgAssociatedParts.CurrentRow.Selected = false;
+            }
+            btnDelete.Enabled = false;
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
 

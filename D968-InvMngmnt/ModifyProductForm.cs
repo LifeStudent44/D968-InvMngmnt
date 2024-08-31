@@ -193,6 +193,7 @@ namespace D968_InvMngmnt
                     if (allParts[i].Name.ToLower().Contains(txtSearch.Text.ToLower()))
                     {
                         TempList.Add(allParts[i]);
+                        dtgAllParts.DataSource = TempList;
                         found = true;
                     }
                     if (int.TryParse(txtSearch.Text, out n) && !TempList.Contains(allParts[i]))

@@ -9,8 +9,8 @@ namespace D968_InvMngmnt
         public string Name { get; set; }
         public double Price { get; set; }
         public int InStock { get; set; }
-        public int Min { get; set; }
         public int Max { get; set; }
+        public int Min { get; set; }
         public int Machine { get; set; }
         public string Company { get; set; }
 

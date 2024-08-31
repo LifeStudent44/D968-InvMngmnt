@@ -219,6 +219,7 @@
             this.dtgAllParts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgAllParts.Size = new System.Drawing.Size(378, 128);
             this.dtgAllParts.TabIndex = 35;
+            this.dtgAllParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AllPartsDataGrid_CellClick);
             // 
             // dtgAssociatedParts
             // 
@@ -236,6 +237,7 @@
             this.dtgAssociatedParts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgAssociatedParts.Size = new System.Drawing.Size(378, 128);
             this.dtgAssociatedParts.TabIndex = 36;
+            this.dtgAssociatedParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AssociatedPartsDataGrid_CellClick);
             // 
             // lblFormTitle
             // 

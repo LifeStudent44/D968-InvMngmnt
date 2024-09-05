@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.radInHouse = new System.Windows.Forms.RadioButton();
             this.radOutsourced = new System.Windows.Forms.RadioButton();
             this.lblFormTitle = new System.Windows.Forms.Label();
@@ -49,6 +50,8 @@
             this.txtMachine = new System.Windows.Forms.TextBox();
             this.txtCompany = new System.Windows.Forms.TextBox();
             this.lblCompany = new System.Windows.Forms.Label();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // radInHouse
@@ -74,6 +77,107 @@
             this.radOutsourced.Text = "Outsourced";
             this.radOutsourced.UseVisualStyleBackColor = true;
             this.radOutsourced.Click += new System.EventHandler(this.RadioButton_Change);
+
+            // 
+            // txtId
+            // 
+            this.txtId.BackColor = System.Drawing.SystemColors.Menu;
+            this.txtId.Enabled = false;
+            this.txtId.Location = new System.Drawing.Point(214, 114);
+            this.txtId.Name = "txtId";
+            this.txtId.Size = new System.Drawing.Size(211, 26);
+            this.txtId.TabIndex = 1;
+            // 
+            // txtName
+            // 
+            this.txtName.BackColor = System.Drawing.Color.White;
+            this.txtName.Location = new System.Drawing.Point(214, 158);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(211, 26);
+            this.txtName.TabIndex = 2;
+            this.txtName.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            // 
+            // txtInStock
+            // 
+            this.txtInStock.BackColor = System.Drawing.Color.White;
+            this.txtInStock.Location = new System.Drawing.Point(214, 205);
+            this.txtInStock.Name = "txtInStock";
+            this.txtInStock.Size = new System.Drawing.Size(211, 26);
+            this.txtInStock.TabIndex = 3;
+            this.txtInStock.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            this.txtInStock.Validating += new System.ComponentModel.CancelEventHandler(this.MinMax_Validating);
+            // 
+            // txtPrice
+            // 
+            this.txtPrice.BackColor = System.Drawing.Color.White;
+            this.txtPrice.Location = new System.Drawing.Point(214, 248);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(211, 26);
+            this.txtPrice.TabIndex = 4;
+            this.txtPrice.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            this.txtPrice.Validating += new System.ComponentModel.CancelEventHandler(this.DoublePrecision_Validation);
+            // 
+            // txtMax
+            // 
+            this.txtMax.BackColor = System.Drawing.Color.White;
+            this.txtMax.Location = new System.Drawing.Point(214, 292);
+            this.txtMax.Name = "txtMax";
+            this.txtMax.Size = new System.Drawing.Size(84, 26);
+            this.txtMax.TabIndex = 5;
+            this.txtMax.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            this.txtMax.Validating += new System.ComponentModel.CancelEventHandler(this.MinMax_Validating);
+            // 
+            // txtMin
+            // 
+            this.txtMin.BackColor = System.Drawing.Color.White;
+            this.txtMin.Location = new System.Drawing.Point(421, 289);
+            this.txtMin.Name = "txtMin";
+            this.txtMin.Size = new System.Drawing.Size(79, 26);
+            this.txtMin.TabIndex = 6;
+            this.txtMin.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            this.txtMin.Validating += new System.ComponentModel.CancelEventHandler(this.MinMax_Validating);
+            // 
+            // txtMachine
+            // 
+            this.txtMachine.BackColor = System.Drawing.Color.White;
+            this.txtMachine.Location = new System.Drawing.Point(214, 341);
+            this.txtMachine.Name = "txtMachine";
+            this.txtMachine.Size = new System.Drawing.Size(211, 26);
+            this.txtMachine.TabIndex = 42;
+            this.txtMachine.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            // 
+            // txtCompany
+            // 
+            this.txtCompany.BackColor = System.Drawing.Color.White;
+            this.txtCompany.Enabled = false;
+            this.txtCompany.Location = new System.Drawing.Point(214, 336);
+            this.txtCompany.Name = "txtCompany";
+            this.txtCompany.Size = new System.Drawing.Size(211, 26);
+            this.txtCompany.TabIndex = 40;
+            this.txtCompany.Visible = false;
+            this.txtCompany.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            // 
+            // btnSave
+            // 
+            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.btnSave.Enabled = false;
+            this.btnSave.Location = new System.Drawing.Point(312, 393);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 35);
+            this.btnSave.TabIndex = 8;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.SaveButton_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Yes;
+            this.btnCancel.Location = new System.Drawing.Point(425, 393);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 35);
+            this.btnCancel.TabIndex = 9;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // lblFormTitle
             // 
@@ -143,102 +247,6 @@
             this.lblMin.TabIndex = 9;
             this.lblMin.Text = "Min";
             // 
-            // txtId
-            // 
-            this.txtId.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(214, 114);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(211, 26);
-            this.txtId.TabIndex = 1;
-            // 
-            // txtName
-            // 
-            this.txtName.BackColor = System.Drawing.Color.White;
-            this.txtName.Location = new System.Drawing.Point(214, 158);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(211, 26);
-            this.txtName.TabIndex = 2;
-            this.txtName.TextChanged += new System.EventHandler(this.TextBox_Leave);
-            // 
-            // txtInStock
-            // 
-            this.txtInStock.BackColor = System.Drawing.Color.White;
-            this.txtInStock.Location = new System.Drawing.Point(214, 205);
-            this.txtInStock.Name = "txtInStock";
-            this.txtInStock.Size = new System.Drawing.Size(211, 26);
-            this.txtInStock.TabIndex = 3;
-            this.txtInStock.TextChanged += new System.EventHandler(this.TextBox_Leave);
-            // 
-            // txtPrice
-            // 
-            this.txtPrice.BackColor = System.Drawing.Color.White;
-            this.txtPrice.Location = new System.Drawing.Point(214, 248);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(211, 26);
-            this.txtPrice.TabIndex = 4;
-            this.txtPrice.TextChanged += new System.EventHandler(this.TextBox_Leave);
-            // 
-            // txtMax
-            // 
-            this.txtMax.BackColor = System.Drawing.Color.White;
-            this.txtMax.Location = new System.Drawing.Point(214, 292);
-            this.txtMax.Name = "txtMax";
-            this.txtMax.Size = new System.Drawing.Size(84, 26);
-            this.txtMax.TabIndex = 5;
-            this.txtMax.TextChanged += new System.EventHandler(this.TextBox_Leave);
-            // 
-            // txtMin
-            // 
-            this.txtMin.BackColor = System.Drawing.Color.White;
-            this.txtMin.Location = new System.Drawing.Point(421, 289);
-            this.txtMin.Name = "txtMin";
-            this.txtMin.Size = new System.Drawing.Size(79, 26);
-            this.txtMin.TabIndex = 6;
-            this.txtMin.TextChanged += new System.EventHandler(this.TextBox_Leave);
-            // 
-            // txtMachine
-            // 
-            this.txtMachine.BackColor = System.Drawing.Color.White;
-            this.txtMachine.Location = new System.Drawing.Point(214, 341);
-            this.txtMachine.Name = "txtMachine";
-            this.txtMachine.Size = new System.Drawing.Size(211, 26);
-            this.txtMachine.TabIndex = 42;
-            this.txtMachine.TextChanged += new System.EventHandler(this.TextBox_Leave);
-            // 
-            // txtCompany
-            // 
-            this.txtCompany.BackColor = System.Drawing.Color.White;
-            this.txtCompany.Enabled = false;
-            this.txtCompany.Location = new System.Drawing.Point(214, 336);
-            this.txtCompany.Name = "txtCompany";
-            this.txtCompany.Size = new System.Drawing.Size(211, 26);
-            this.txtCompany.TabIndex = 40;
-            this.txtCompany.Visible = false;
-            this.txtCompany.TextChanged += new System.EventHandler(this.TextBox_Leave);
-            // 
-            // btnSave
-            // 
-            this.btnSave.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(312, 393);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 35);
-            this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Yes;
-            this.btnCancel.Location = new System.Drawing.Point(425, 393);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 35);
-            this.btnCancel.TabIndex = 9;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            // 
             // lblMachine
             // 
             this.lblMachine.AutoSize = true;
@@ -248,6 +256,7 @@
             this.lblMachine.TabIndex = 43;
             this.lblMachine.Text = "Machine ID";
             this.lblMachine.TextAlign = System.Drawing.ContentAlignment.TopRight;
+
             // 
             // lblCompany
             // 
@@ -259,6 +268,10 @@
             this.lblCompany.Text = "Company";
             this.lblCompany.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.lblCompany.Visible = false;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // AddPartForm
             // 
@@ -290,6 +303,7 @@
             this.Name = "AddPartForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Part";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,5 +332,6 @@
         private System.Windows.Forms.TextBox txtMachine;
         private System.Windows.Forms.TextBox txtCompany;
         private System.Windows.Forms.Label lblCompany;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

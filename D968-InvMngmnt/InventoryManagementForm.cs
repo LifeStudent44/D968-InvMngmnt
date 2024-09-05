@@ -105,7 +105,7 @@ namespace D968_InvMngmnt
             }
         }
         private void btnPartModify_Click(object sender, EventArgs e)
-        {
+        { 
             var selectedPart = dtgAllParts.CurrentRow.DataBoundItem as Part;
             using (ModifyPartForm formModifyPart = new ModifyPartForm(selectedPart))
             {
@@ -123,6 +123,7 @@ namespace D968_InvMngmnt
             Application.Exit();
         }
 
+        // Deletes Part after dialog box confirmation
         private void btnPartDelete_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Yes or no", "Delete this Part?",
@@ -134,7 +135,8 @@ namespace D968_InvMngmnt
 
         }
 
-        // Deletes a Product unless it has Associated Parts then informs user.
+        // Deletes a Product after dialog box confirmation
+        // If it has Associated Parts then displays message regarding not deleting products with associated parts.
         private void btnProductDelete_Click(object sender, EventArgs e)
         {
             var selectedProduct = dtgProducts.CurrentRow.DataBoundItem as Product;
@@ -155,7 +157,9 @@ namespace D968_InvMngmnt
 
         // Searching the appropriate datagrid for Parts || Products Name field that matches the value in our textbox
         // If the search isn't found in the Name field it then checks the PartId or ProductId field
-        // when found the Part or Product is added to a temp databound list and used as the datasource until the button loses focus
+        // when found the Part or Product is added to a temp databound list and used as the datasource
+        // then enables modify and delete buttons allowing the first result to be edited or deleted
+        // results are reset when the search button loses focus
         private void SearchParts_Click(object sender, EventArgs e)
         {
             BindingList<Part> TempList = new BindingList<Part>();
@@ -170,6 +174,8 @@ namespace D968_InvMngmnt
                         TempList.Add(inventory.AllParts[i]);
                         dtgAllParts.DataSource = TempList;
                         found = true;
+                        btnPartModify.Enabled = true;
+                        btnPartDelete.Enabled = true;
                     }
                     if (int.TryParse(txtSearchParts.Text, out n) && !TempList.Contains(inventory.AllParts[i]))
                     {
@@ -178,6 +184,8 @@ namespace D968_InvMngmnt
                             TempList.Add(inventory.AllParts[i]);
                             dtgAllParts.DataSource = TempList;
                             found = true;
+                            btnPartModify.Enabled = true;
+                            btnPartDelete.Enabled = true;
                         }
                     }
                 }
@@ -190,6 +198,7 @@ namespace D968_InvMngmnt
             }
 
         }
+
         private void SearchProducts_Click(object sender, EventArgs e)
         {
             BindingList<Product> TempList = new BindingList<Product>();
@@ -205,6 +214,8 @@ namespace D968_InvMngmnt
                         TempList.Add(inventory.Products[i]);
                         dtgProducts.DataSource = TempList;
                         found = true;
+                        btnProductModify.Enabled = true;
+                        btnProductDelete.Enabled = true;
                     }
 
                     if (int.TryParse(txtSearchProducts.Text, out n) && !TempList.Contains(inventory.Products[i]))
@@ -214,6 +225,8 @@ namespace D968_InvMngmnt
                             TempList.Add(inventory.Products[i]);
                             dtgProducts.DataSource = TempList;
                             found = true;
+                            btnProductModify.Enabled = true;
+                            btnProductDelete.Enabled = true;
                         }
                     }
                 }
@@ -225,23 +238,6 @@ namespace D968_InvMngmnt
             }
         }
 
-        // Search button focus actions resets datagrid and disables button
-        private void SearchParts_LostFocus(object sender, EventArgs e)
-        {
-            dtgAllParts.DataSource = inventory.AllParts;
-            dtgAllParts.Refresh();
-            txtSearchParts.Text = "";
-            btnSearchParts.Enabled = false;
-        }
-        private void SearchProducts_LostFocus(object sender, EventArgs e)
-        {
-            dtgProducts.DataSource = inventory.Products;
-            dtgProducts.Refresh();
-            txtSearchProducts.Text = "";
-            btnSearchProducts.Enabled = false;
-        }
-
-
         // Next two functions enable or disable the button if text present or missing
         private void SearchParts_TextChanged(object sender, EventArgs e)
         {
@@ -251,6 +247,7 @@ namespace D968_InvMngmnt
             }
             else
             {
+                dtgAllParts.DataSource = inventory.AllParts;
                 btnSearchParts.Enabled = false;
             }
         }
@@ -263,6 +260,7 @@ namespace D968_InvMngmnt
             }
             else
             {
+                dtgProducts.DataSource = inventory.Products;
                 btnSearchProducts.Enabled = false;
             }
         }

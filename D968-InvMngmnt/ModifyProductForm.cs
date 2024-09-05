@@ -29,8 +29,218 @@ namespace D968_InvMngmnt
             this.txtMin.Text = product.Min.ToString();
             this.associatedParts = product.AssociatedParts;
 
+            TextBoxBackground();
+
         }
 
+        // Validation for Min, Max, InStock fields
+        private void MinMax_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (IsPositiveIntegerValue())
+            {
+                if (txtInStock.Text != "" && txtMin.Text != "")
+                {
+                    if (InstockLessThanMin())
+                    {
+                        MessageBox.Show("In-stock value is less than the minimum");
+                    }
+                }
+                if (txtInStock.Text != "" && txtMax.Text != "")
+                {
+                    if (InstockGreaterThanMax())
+                    {
+                        MessageBox.Show("In-stock value is more than the maximum");
+                    }
+                }
+                if (txtMin.Text != "" && txtMax.Text != "")
+                {
+                    if (MinLessThanMax())
+                    {
+                        MessageBox.Show("Min value must be less than Max value");
+                    }
+                }
+            }
+        }
+        // Validation event code for price field checks double precision value
+        private void DoublePrecision_Validation(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!IsDoublePrecision())
+            {
+                MessageBox.Show("Field must contain a positive numeric value");
+            }
+        }
+        // Validation event code for numberic fields
+        private void PositiveInteger_Validation(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (!IsPositiveIntegerValue())
+            {
+                MessageBox.Show("Field must contain a positive numeric value");
+            }
+        }
+        private bool IsDoublePrecision()
+        {
+            bool status = true;
+            double m;
+            if (!double.TryParse(txtPrice.Text, out m))
+            {
+                errorProvider.SetError(txtInStock, "In-stock field must be greater than Minimum field");
+                status = false;
+            }
+            else
+            {
+                errorProvider.SetError(txtInStock, "");
+            }
+            return status;
+        }
+        private bool IsPositiveIntegerValue()
+        {
+            bool status = true;
+            foreach (Control control in this.Controls)
+            {
+
+                string[] numericFields = { "txtInStock", "txtMin", "txtMax" };
+                if (!string.IsNullOrEmpty(control.Text) && control.GetType() == typeof(TextBox) && numericFields.Contains(control.Name))
+                {
+                    int n;
+                    double m;
+                    if (!int.TryParse(control.Text, out n) || !double.TryParse(control.Text, out m))
+                    {
+                        errorProvider.SetError(control, "Field must contain a numeric value");
+                        status = false;
+                    }
+                    else if (int.TryParse(control.Text, out n) || double.TryParse(control.Text, out m))
+                    {
+                        if (Convert.ToInt32(control.Text) < 0)
+                        {
+                            errorProvider.SetError(control, "Field must contain a positive value");
+                            status = false;
+                        }
+                        else if (Convert.ToDouble(control.Text) < 0.0)
+                        {
+                            errorProvider.SetError(control, "Field must contain a positive value");
+                            status = false;
+                        }
+                    }
+                }
+                else
+                {
+                    errorProvider.SetError(control, "");
+                }
+            }
+            return status;
+        }
+        private bool InstockLessThanMin()
+        {
+            bool status = false;
+            if (IsPositiveIntegerValue())
+            {
+                if (Convert.ToInt32(txtMin.Text) > Convert.ToInt32(txtInStock.Text))
+                {
+                    errorProvider.SetError(txtInStock, "In-stock field must be greater than Minimum field");
+                    this.txtInStock.BackColor = Color.LightCoral;
+                    this.txtMin.BackColor = Color.LightCoral;
+                    this.btnSave.Enabled = false;
+                    status = true;
+                }
+                else
+                {
+                    errorProvider.SetError(txtInStock, "");
+                }
+            }
+            return status;
+        }
+        private bool InstockGreaterThanMax()
+        {
+            bool status = false;
+            if (IsPositiveIntegerValue())
+            {
+                if (Convert.ToInt32(txtMax.Text) <= Convert.ToInt32(txtInStock.Text))
+                {
+                    errorProvider.SetError(txtInStock, "In-stock field must be less than Maximum field");
+                    this.txtInStock.BackColor = Color.LightCoral;
+                    this.txtMax.BackColor = Color.LightCoral;
+                    this.btnSave.Enabled = false;
+                    status = true;
+                }
+                else
+                {
+                    errorProvider.SetError(txtInStock, "");
+                }
+            }
+            return status;
+        }
+        private bool MinLessThanMax()
+        {
+            bool status = false;
+            if (IsPositiveIntegerValue())
+            {
+                if (Convert.ToInt32(txtMax.Text) < Convert.ToInt32(txtMin.Text))
+                {
+                    errorProvider.SetError(txtMin, "Min field must be less than Max field");
+                    this.txtMin.BackColor = Color.LightCoral;
+                    this.txtMax.BackColor = Color.LightCoral;
+                    this.btnSave.Enabled = false;
+                    status = true;
+                }
+            }
+            else
+            {
+                errorProvider.SetError(txtInStock, "");
+            }
+            return status;
+        }
+        private bool AreTextBoxesFilled()
+        {
+            bool status = true;
+            if (IsPositiveIntegerValue())
+            {
+                foreach (Control control in this.Controls)
+                {
+                    if (control.GetType() == typeof(TextBox) && control.Name != "txtId" && control.Name != "txtSearch")
+                    {
+                        if (string.IsNullOrEmpty(control.Text) && control.Visible == true)
+                        {
+                            status = false;
+                        }
+                    }
+                }
+            }
+            return status;
+        }
+
+        private void TextBox_Changed(object sender, EventArgs e)
+        {
+            TextBoxBackground();
+            if (AreTextBoxesFilled())
+            {
+                btnSave.Enabled = true;
+            }
+            else
+            {
+                btnSave.Enabled = false;
+            }
+        }
+        private void TextBoxBackground()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control.GetType() == typeof(TextBox))
+                {
+                    if (!string.IsNullOrEmpty(control.Text) && control.Name != "txtId" && control.Name != "txtSearch")
+                    {
+                        control.BackColor = Color.White;
+                    }
+                    else if (string.IsNullOrEmpty(control.Text) && control.Name != "txtId" && control.Name != "txtSearch")
+                    {
+                        control.BackColor = Color.LightCoral;
+                    }
+                    else if (control.Name == "txtId")
+                    {
+                        control.BackColor = Color.LightGray;
+                    }
+                }
+            }
+        }
         private void btnSave_Click(object sender, EventArgs e)
         {
 
@@ -45,109 +255,36 @@ namespace D968_InvMngmnt
             this.modifiedProduct = newProduct;
             this.DialogResult = DialogResult.OK;
         }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var selectedPart = dtgAllParts.SelectedRows[0].DataBoundItem as Part;
             this.associatedParts.Add(selectedPart);
+            btnDelete.Enabled = true;
+            this.dtgAllParts.CurrentRow.Selected = false;
+            this.dtgAssociatedParts.CurrentRow.Selected = false;
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Yes or no", "Delete this associated part?",
+            if (dtgAssociatedParts.CurrentRow.Selected)
+            {
+                if (MessageBox.Show("Yes or no", "Delete this associated part?",
                 MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-            {
-                var selectedPart = dtgAssociatedParts.SelectedRows[0].DataBoundItem as Part;
-                this.associatedParts.Remove(selectedPart);
-            }
-        }
-
-        private bool Check_TextBox_For_Content()
-        {
-            var textBoxCount = 0;
-            var boxesFilled = new List<Boolean> { };
-
-            foreach (Control control in this.Controls)
-            {
-                if (control.GetType() == typeof(TextBox))
                 {
-                    textBoxCount++;
-                    if (control.Name == "txtId")
+                    var selectedPart = dtgAssociatedParts.SelectedRows[0].DataBoundItem as Part;
+                    this.associatedParts.Remove(selectedPart);
+                    if (this.associatedParts.Count == 0)
                     {
-                        boxesFilled.Add(true);
+                        btnDelete.Enabled = false;
                     }
-                    if (!string.IsNullOrEmpty(control.Text) && control.Name != "txtId" && control.Name != "txtSearch")
-                    {
-                        control.BackColor = Color.White;
-                        boxesFilled.Add(true);
-                    }
+                    this.dtgAllParts.CurrentRow.Selected = false;
                 }
-            }
-
-            if (boxesFilled.Count == textBoxCount - 1)
-            {
-                btnSave.Enabled = true;
-                return true;
             }
             else
             {
-                btnSave.Enabled = false;
-                return false;
+                btnDelete.Enabled = false;
             }
         }
-
-        private void Validate_Number_Inputs()
-        {
-            foreach (Control control in this.Controls)
-            {
-                string[] numberFields = { "txtInStock", "txtMin", "txtMax" };
-                if (control.GetType() == typeof(TextBox) && numberFields.Contains(control.Name))
-                {
-                    int n;
-                    if (!int.TryParse(control.Text, out n))
-                    {
-                        MessageBox.Show("The in-stock, min, max, and price fields must be a number.");
-                        control.Update();
-
-                        if (Convert.ToInt32(txtMin.Text) >= Convert.ToInt32(txtInStock.Text))
-                        {
-                            MessageBox.Show("The in-stock value must be greater than the min value.");
-                            this.txtInStock.BackColor = Color.Coral;
-                            this.txtMin.BackColor = Color.Coral;
-                            this.btnSave.Enabled = false;
-                        }
-                        else if (Convert.ToInt32(txtMax.Text) <= Convert.ToInt32(txtInStock.Text))
-                        {
-                            MessageBox.Show("The in stock value must be less than the max value.");
-                            this.txtInStock.BackColor = Color.Coral;
-                            this.txtMax.BackColor = Color.Coral;
-                            this.btnSave.Enabled = false;
-                        }
-                        else if (Convert.ToInt32(txtInStock.Text) < 0 || Convert.ToInt32(txtMax.Text) < 0 || Convert.ToInt32(txtMin.Text) < 0 || Convert.ToDouble(txtPrice.Text) < 0)
-                        {
-                            MessageBox.Show("The price, in-stock, min, max, and machine-id values must be a positive number");
-                            this.btnSave.Enabled = false;
-                            foreach (Control intControl in this.Controls)
-                            {
-                                if (intControl.GetType() == typeof(TextBox) && Convert.ToInt32(intControl.Text) < 0)
-                                {
-                                    intControl.BackColor = Color.Coral;
-                                }
-                            }
-
-                        }
-                    }
-                }
-            }
-        }
-        private void TextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (Check_TextBox_For_Content())
-            {
-                Validate_Number_Inputs();
-            }
-        }
-
         private void AssociatedPartsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dtgAssociatedParts.RowCount > 0)
@@ -158,11 +295,8 @@ namespace D968_InvMngmnt
             {
                 dtgAllParts.CurrentRow.Selected = false;
             }
-
             btnAdd.Enabled = false;
-
         }
-
         private void AllPartsDataGrid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnAdd.Enabled = true;
@@ -215,13 +349,6 @@ namespace D968_InvMngmnt
             }
 
         }
-        private void Search_LostFocus(object sender, EventArgs e)
-        {
-            dtgAllParts.DataSource = allParts;
-            dtgAllParts.Refresh();
-            txtSearch.Text = "";
-            btnSearch.Enabled = false;
-        }
         private void Search_TextChanged(object sender, EventArgs e)
         {
             if (txtSearch.Text != "")
@@ -230,6 +357,7 @@ namespace D968_InvMngmnt
             }
             else
             {
+                dtgAllParts.DataSource = allParts;
                 btnSearch.Enabled = false;
             }
         }

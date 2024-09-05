@@ -11,12 +11,7 @@ namespace D968_InvMngmnt
         public int InStock { get; set; }
         public int Max { get; set; }
         public int Min { get; set; }
-        public int Machine { get; set; }
-        public string Company { get; set; }
-
-
-        // Inhouse Constructor
-        public Part(string name, double price, int stock, int min, int max, int machine)
+        public Part(string name, double price, int stock, int min, int max)
         {
             PartId = Interlocked.Increment(ref part_id);
             Name = name;
@@ -24,18 +19,6 @@ namespace D968_InvMngmnt
             InStock = stock;
             Min = min;
             Max = max;
-            Machine = machine;
-        }
-        // Company Constructor
-        public Part(string name, double price, int stock, int min, int max, string company)
-        {
-            PartId = Interlocked.Increment(ref part_id);
-            Name = name;
-            Price = price;
-            InStock = stock;
-            Min = min;
-            Max = max;
-            Company = company;
         }
     }
 }

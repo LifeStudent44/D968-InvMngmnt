@@ -65,9 +65,9 @@ namespace D968_InvMngmnt
                 }
                 if (txtMin.Text != "" && txtMax.Text != "")
                 {
-                    if (MinLessThanMax())
+                    if (MaxLessThanMin())
                     {
-                        MessageBox.Show("Min value must be less than Max value");
+                        MessageBox.Show("Max value can not be less than Min value");
                     }
                 }
             }
@@ -175,7 +175,7 @@ namespace D968_InvMngmnt
             return status;
         }
         // Checks that min value is less than max value
-        private bool MinLessThanMax()
+        private bool MaxLessThanMin()
         {
             bool status = false;
             if (Convert.ToInt32(txtMax.Text) < Convert.ToInt32(txtMin.Text))
@@ -210,7 +210,7 @@ namespace D968_InvMngmnt
         private bool ValidateForm()
         {
             bool status = false;
-            if (IsPositiveIntegerValue() && !InstockGreaterThanMax() && !InstockLessThanMin() && !MinLessThanMax() && AreTextBoxesFilled() && IsDoublePrecision())
+            if (IsPositiveIntegerValue() && !InstockGreaterThanMax() && !InstockLessThanMin() && !MaxLessThanMin() && AreTextBoxesFilled() && !IsDoublePrecision())
             {
                 status = true;
             }

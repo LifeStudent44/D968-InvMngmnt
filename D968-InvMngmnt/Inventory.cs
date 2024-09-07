@@ -71,9 +71,8 @@ namespace D968_InvMngmnt
             }
         }
 
-        public bool RemovePart(int id)
+        public bool DeletePart(Part part)
         {
-            var part = LookupPart(id);
             if (part != null)
             {
                 this.AllParts.Remove(part);
@@ -96,14 +95,17 @@ namespace D968_InvMngmnt
 
         public void UpdatePart(int id, Part modifiedPart)
         {
-            var part = LookupPart(id);
-            if(part != null)
+            if (id != null)
             {
-                part.Name = modifiedPart.Name;
-                part.InStock = modifiedPart.InStock;
-                part.Price = modifiedPart.Price;
-                part.Min = modifiedPart.Min;
-                part.Max = modifiedPart.Max;
+                var part = LookupPart(id);
+                if (part != null)
+                {
+                    part.Name = modifiedPart.Name;
+                    part.InStock = modifiedPart.InStock;
+                    part.Price = modifiedPart.Price;
+                    part.Min = modifiedPart.Min;
+                    part.Max = modifiedPart.Max;
+                }
             }
         }
     }

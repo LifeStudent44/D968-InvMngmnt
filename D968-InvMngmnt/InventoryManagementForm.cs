@@ -17,10 +17,10 @@ namespace D968_InvMngmnt
 
         private void InventoryManagementForm_Load(object sender, EventArgs e)
         {
-            InventoryManagementForm_Load_Test_Data(sender, e);
+            InventoryManagementForm_LoadSeedData(sender, e);
         }
 
-        private void InventoryManagementForm_Load_Test_Data(object sender, EventArgs e)
+        private void InventoryManagementForm_LoadSeedData(object sender, EventArgs e)
         {
             
             Part firstInhousePart = new InHouse("Inhouse part1", 11.11, 111, 1, 1111, 01);
@@ -44,13 +44,13 @@ namespace D968_InvMngmnt
             dtgAllParts.CurrentRow.Selected = false; // In the main form this works in other form utilized the Forms Load event
 
 
-            Product firstProduct = new Product("Product1", 11.11, 111, 1111, 11);
-            Product secondProduct = new Product("Product2", 22.22, 222, 2222, 22);
+            Product firstProduct = new Product("Product1", 11.11, 111, 11, 1111);
+            Product secondProduct = new Product("Product2", 22.22, 222, 22, 2222);
             secondProduct.AddAssociatedPart(secondInhousePart);
             secondProduct.AddAssociatedPart(thirdOutsourcedPart);
-            Product thirdProduct = new Product("Product3", 33.33, 333, 3333, 33);
-            Product fourthProduct = new Product("Product4", 44.44, 444, 4444, 44);
-            Product fifthProduct = new Product("Product5", 55.55, 555, 5555, 55);
+            Product thirdProduct = new Product("Product3", 33.33, 333, 33, 3333);
+            Product fourthProduct = new Product("Product4", 44.44, 444, 44, 4444);
+            Product fifthProduct = new Product("Product5", 55.55, 555, 55, 5555);
 
             this.inventory.AddProduct(firstProduct);
             this.inventory.AddProduct(secondProduct);
@@ -89,6 +89,7 @@ namespace D968_InvMngmnt
                     Product modifiedProduct = formModifyProduct.modifiedProduct;
                     this.inventory.UpdateProduct(selectedProduct.ProductId, modifiedProduct);
                 }
+                dtgProducts.Refresh();
             }
         }
         private void btnPartAdd_Click(object sender, EventArgs e)
@@ -115,6 +116,7 @@ namespace D968_InvMngmnt
                     Part modifiedPart = formModifyPart.modifiedPart;
                     this.inventory.UpdatePart(selectedPart.PartId, modifiedPart);
                 }
+                dtgAllParts.Refresh();
             } 
         }
 
@@ -130,7 +132,7 @@ namespace D968_InvMngmnt
                 MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
             {
                 var selectedPart = dtgAllParts.CurrentRow.DataBoundItem as Part;
-                this.inventory.RemovePart(selectedPart.PartId);
+                this.inventory.DeletePart(selectedPart);
             }
 
         }

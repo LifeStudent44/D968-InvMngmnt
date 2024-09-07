@@ -13,20 +13,20 @@ namespace D968_InvMngmnt
         public string Name { get; set; }
         public double Price { get; set; }
         public int InStock { get; set; }
-        public int Max { get; set; }
         public int Min { get; set; }
+        public int Max { get; set; }
+
 
         // Constructor
-        public Product(string name, double price, int stock, int max, int min)
+        public Product(string name, double price, int stock, int min, int max)
         {
             AssociatedParts = new BindingList<Part>();
             ProductId = Interlocked.Increment(ref product_id);
             Name = name;
             Price = price;
             InStock = stock;
-            Max = max;
             Min = min;
-
+            Max = max;
         }
         public void AddAssociatedPart(Part associatedPart)
         {

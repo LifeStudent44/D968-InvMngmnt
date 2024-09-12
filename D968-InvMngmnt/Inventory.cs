@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;  // For BindingList<T>
+﻿using System;
+using System.ComponentModel;  // For BindingList<T>
 
 namespace D968_InvMngmnt
 {
@@ -95,17 +96,36 @@ namespace D968_InvMngmnt
 
         public void UpdatePart(int id, Part modifiedPart)
         {
-            if (id != null)
+            Part part = LookupPart(id);
+            if (modifiedPart.GetType().Name == part.GetType().Name)
             {
-                var part = LookupPart(id);
-                if (part != null)
+                if (modifiedPart.GetType().Name == "InHouse")
                 {
-                    part.Name = modifiedPart.Name;
-                    part.InStock = modifiedPart.InStock;
-                    part.Price = modifiedPart.Price;
-                    part.Min = modifiedPart.Min;
-                    part.Max = modifiedPart.Max;
+                    InHouse partTyped = (InHouse)LookupPart(id);
+                    InHouse modifiedPartTyped = (InHouse)modifiedPart;
+                    partTyped.Name = modifiedPart.Name;
+                    partTyped.InStock = modifiedPart.InStock;
+                    partTyped.Price = modifiedPart.Price;
+                    partTyped.Min = modifiedPart.Min;
+                    partTyped.Max = modifiedPart.Max;
+                    partTyped.Machine = modifiedPartTyped.Machine;
                 }
+                else if (modifiedPart.GetType().Name == "Outsourced")
+                {
+                    Outsourced partTyped = (Outsourced)LookupPart(id);
+                    Outsourced modifiedPartTyped = (Outsourced)modifiedPart;
+                    partTyped.Name = modifiedPart.Name;
+                    partTyped.InStock = modifiedPart.InStock;
+                    partTyped.Price = modifiedPart.Price;
+                    partTyped.Min = modifiedPart.Min;
+                    partTyped.Max = modifiedPart.Max;
+                    partTyped.Company = modifiedPartTyped.Company;
+                }
+            }
+            else 
+            {
+                    this.DeletePart(part);
+                    this.AddPart(modifiedPart);
             }
         }
     }

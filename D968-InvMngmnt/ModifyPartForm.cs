@@ -10,10 +10,13 @@ namespace D968_InvMngmnt
     public partial class ModifyPartForm : Form
     {
         public Part modifiedPart;
+        private Part passedPart;
+        private bool convertPartType = false;
 
         public ModifyPartForm(Part part)
         {
             InitializeComponent();
+            this.passedPart = part;
 
             CheckRadioButton(part);
 
@@ -23,21 +26,25 @@ namespace D968_InvMngmnt
             this.txtInStock.Text = part.InStock.ToString();
             this.txtMax.Text = part.Max.ToString();
             this.txtMin.Text = part.Min.ToString();
-            Type t = part.GetType();
-            if (t.Equals(typeof(InHouse)))
+
+            if (part.GetType().Name == "InHouse")
             {
-                var inHousePart = (InHouse)part;
+                InHouse inHousePart = (InHouse)part;
                 this.txtCompany.Enabled = false;
                 this.txtMachine.Enabled = true;
+                this.txtCompany.Visible = false;
+                this.txtMachine.Visible = true;
                 this.txtMachine.Text = inHousePart.Machine.ToString();
                 this.lblCompany.Visible = false;
                 this.lblMachine.Visible = true;
             }
-            if (t.Equals(typeof(Outsourced)))
+            else if (part.GetType().Name == "Outsourced")
             {
-                var outsourcedPart = (Outsourced)part;
+                Outsourced outsourcedPart = (Outsourced)part;
                 this.txtCompany.Enabled = true;
                 this.txtMachine.Enabled = false;
+                this.txtCompany.Visible = true;
+                this.txtMachine.Visible = false;
                 this.txtCompany.Text = outsourcedPart.Company;
                 this.lblCompany.Visible = true;
                 this.lblMachine.Visible = false;
@@ -214,6 +221,8 @@ namespace D968_InvMngmnt
             }
             return status;
         }
+
+        // Calls boolean validation functions at save and displays results in console
         private bool ValidateForm()
         {
             bool status = false;
@@ -232,6 +241,8 @@ namespace D968_InvMngmnt
             }
             return status;
         }
+
+        // Enables/disables save button when the appropriate textboxes are filled
         private void TextBox_Changed(object sender, EventArgs e)
         {
             TextBoxBackground();
@@ -244,11 +255,43 @@ namespace D968_InvMngmnt
                 btnSave.Enabled = false;
             }
         }
-        private void RadioButton_Change(object sender, EventArgs e)
+        // Next two function attached to radio button clicks to display warning about changing type of part
+        private void RadioInHouse_Click(object sender, EventArgs e)
         {
             this.TextBox_Changed(sender, e);
             this.SwapLabel();
+            
+            if (passedPart.GetType().Name != radInHouse.Name)
+            {
+                if (MessageBox.Show("Yes or no", "Do you want to change the type of part?", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    this.convertPartType = true;   
+                }
+                else
+                {
+                    radInHouse.Checked = true;
+                }
+            }
         }
+        private void RadioOutsourced_Click(object sender, EventArgs e)
+        {
+            this.TextBox_Changed(sender, e);
+            this.SwapLabel();
+
+            if (passedPart.GetType().Name != radOutsourced.Name)
+            {
+                if (MessageBox.Show("Yes or no", "Do you want to change the type of part?", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                {
+                    this.convertPartType = true;
+                }
+                else
+                {
+                    radInHouse.Checked = true;
+                }
+            }
+        }
+
+        // Used to modify textbox background color of unfilled textboxes except ID and Search
         private void TextBoxBackground()
         {
             foreach (Control control in this.Controls)
@@ -266,18 +309,23 @@ namespace D968_InvMngmnt
                 }
             }
         }
+
+        // Used to check the appropriate radio button on loading
         private void CheckRadioButton(Part part)
         {
-            Type t = part.GetType();
-            if (t.Equals(typeof(InHouse)))
+            if (part.GetType().Name == "InHouse")
             {
                 radInHouse.Checked = true;
+                radOutsourced.Checked = false;
             }
-            else if (t.Equals(typeof(Outsourced)))
+            else if (part.GetType().Name == "Outsourced")
             {
                 radOutsourced.Checked = true;
+                radInHouse.Checked = false;
             }
         }
+
+        // Funciton to swap labels and enablement of Machine or Company as appropriate
         private void SwapLabel()
         {
             if (radInHouse.Checked)
@@ -300,6 +348,7 @@ namespace D968_InvMngmnt
             }
         }
 
+        // After passing validations checks radio button selection and assigns the appropriate part type with values from form.
         private void SaveButton_Click(object sender, EventArgs e)
         {
             if (ValidateForm())

@@ -18,8 +18,13 @@ namespace D968_InvMngmnt
         private void InventoryManagementForm_Load(object sender, EventArgs e)
         {
             InventoryManagementForm_LoadSeedData(sender, e);
+            dtgAllParts.DataSource = inventory.AllParts;
+            dtgAllParts.CurrentRow.Selected = false;
+            dtgProducts.DataSource = this.inventory.Products;
+            dtgProducts.CurrentRow.Selected = false;
         }
 
+        // Function loads seed data into datagrid
         private void InventoryManagementForm_LoadSeedData(object sender, EventArgs e)
         {
             
@@ -40,10 +45,6 @@ namespace D968_InvMngmnt
             this.inventory.AddPart(secondOutsourcedPart);
             this.inventory.AddPart(thirdOutsourcedPart);
 
-            dtgAllParts.DataSource = inventory.AllParts;
-            dtgAllParts.CurrentRow.Selected = false; // In the main form this works in other form utilized the Forms Load event
-
-
             Product firstProduct = new Product("Product1", 11.11, 111, 11, 1111);
             Product secondProduct = new Product("Product2", 22.22, 222, 22, 2222);
             secondProduct.AddAssociatedPart(secondInhousePart);
@@ -57,14 +58,42 @@ namespace D968_InvMngmnt
             this.inventory.AddProduct(thirdProduct);
             this.inventory.AddProduct(fourthProduct);
             this.inventory.AddProduct(fifthProduct);
-
-            dtgProducts.DataSource = this.inventory.Products;
-            dtgProducts.CurrentRow.Selected = false;
-            
         }
 
         // Part & Product Add and Modify dialog boxes are shown inside a using statement, which allows for passing
         // the addedPart, modifiedPart, addProduct, modifiedProduct in those forms back with the DialogResult.OK
+
+        private void btnPartAdd_Click(object sender, EventArgs e)
+        {
+            using (AddPartForm formAddPart = new AddPartForm())
+            {
+                var result = formAddPart.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    Part addedPart = formAddPart.addedPart;
+                    this.inventory.AddPart(addedPart);
+                }
+            }
+        }
+        private void btnPartModify_Click(object sender, EventArgs e)
+        {
+            var selectedPart = dtgAllParts.CurrentRow.DataBoundItem as Part;
+            using (ModifyPartForm formModifyPart = new ModifyPartForm(selectedPart))
+            {
+                var result = formModifyPart.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    Part modifiedPart = formModifyPart.modifiedPart;
+                    if(modifiedPart != null)
+                    {
+                        this.inventory.UpdatePart(selectedPart.PartId, modifiedPart);
+                    }
+                }
+                dtgAllParts.Refresh();
+            }
+        }
+
         private void btnProductAdd_Click(object sender, EventArgs e)
         {
             using (AddProductForm formAddProduct = new AddProductForm(this.inventory))
@@ -91,33 +120,6 @@ namespace D968_InvMngmnt
                 }
                 dtgProducts.Refresh();
             }
-        }
-        private void btnPartAdd_Click(object sender, EventArgs e)
-        {
-            using (AddPartForm formAddPart = new AddPartForm())
-            {
-                var result = formAddPart.ShowDialog();
-
-                if (result == DialogResult.OK)
-                {
-                    Part addedPart = formAddPart.addedPart;
-                    this.inventory.AddPart(addedPart);
-                }
-            }
-        }
-        private void btnPartModify_Click(object sender, EventArgs e)
-        { 
-            var selectedPart = dtgAllParts.CurrentRow.DataBoundItem as Part;
-            using (ModifyPartForm formModifyPart = new ModifyPartForm(selectedPart))
-            {
-                var result = formModifyPart.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    Part modifiedPart = formModifyPart.modifiedPart;
-                    this.inventory.UpdatePart(selectedPart.PartId, modifiedPart);
-                }
-                dtgAllParts.Refresh();
-            } 
         }
 
         private void btnExit_Click(object sender, EventArgs e)

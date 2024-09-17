@@ -83,6 +83,7 @@ namespace D968_InvMngmnt
                     {
                         errorProvider.SetError(control, "Field must contain a numeric value");
                         status = false;
+                        this.btnSave.Enabled = false;
                     }
                     else if (int.TryParse(control.Text, out n))
                     {
@@ -90,6 +91,7 @@ namespace D968_InvMngmnt
                         {
                             errorProvider.SetError(control, "Field must contain a positive value");
                             status = false;
+                            this.btnSave.Enabled = false;
                         }
                     }
                 }
@@ -111,6 +113,7 @@ namespace D968_InvMngmnt
                 {
                     errorProvider.SetError(txtPrice, "Price field must be a double precision number");
                     status = false;
+                    this.btnSave.Enabled = false;
                 }
                 else
                 {
@@ -119,66 +122,73 @@ namespace D968_InvMngmnt
             }
             return status;
         }
-        // Checks in-stock belov minimum
+        // Next 3 function validate InStock, Min, Max fields
         private bool InstockGreaterThanMin()
         {
             bool status = true;
-            if (Convert.ToInt32(txtMin.Text) >= Convert.ToInt32(txtInStock.Text))
+            if (IsPositiveInteger())
             {
-                errorProvider.SetError(txtInStock, "In-stock field must be greater than Minimum field");
-                errorProvider.SetError(txtMin, "In-stock field must be greater than Minimum field");
-                this.txtInStock.BackColor = Color.LightCoral;
-                this.txtMin.BackColor = Color.LightCoral;
-                this.btnSave.Enabled = false;
-                status = false;
-            }
-            else
-            {
-                errorProvider.SetError(txtInStock, "");
-                errorProvider.SetError(txtMin, "");
+                if (Convert.ToInt32(txtMin.Text) >= Convert.ToInt32(txtInStock.Text))
+                {
+                    errorProvider.SetError(txtInStock, "In-stock field must be greater than Minimum field");
+                    errorProvider.SetError(txtMin, "In-stock field must be greater than Minimum field");
+                    this.txtInStock.BackColor = Color.LightCoral;
+                    this.txtMin.BackColor = Color.LightCoral;
+                    this.btnSave.Enabled = false;
+                    status = false;
+                }
+                else
+                {
+                    errorProvider.SetError(txtInStock, "");
+                    errorProvider.SetError(txtMin, "");
+                }
                 status = true;
             }
             return status;
         }
-        // Checks that inventory isn't greater than max field
         private bool InstockLessThanMax()
         {
             bool status = true;
-            if (Convert.ToInt32(txtMax.Text) <= Convert.ToInt32(txtInStock.Text))
+            if (IsPositiveInteger())
             {
-                errorProvider.SetError(txtInStock, "In-stock field must be less than Maximum field");
-                errorProvider.SetError(txtMax, "In-stock field must be less than Maximum field");
-                this.txtInStock.BackColor = Color.LightCoral;
-                this.txtMax.BackColor = Color.LightCoral;
-                this.btnSave.Enabled = false;
-                status = false;
-            }
-            else
-            {
-                errorProvider.SetError(txtInStock, "");
-                errorProvider.SetError(txtMax, "");
-                status = true;
+                if (Convert.ToInt32(txtMax.Text) <= Convert.ToInt32(txtInStock.Text))
+                {
+                    errorProvider.SetError(txtInStock, "In-stock field must be less than Maximum field");
+                    errorProvider.SetError(txtMax, "In-stock field must be less than Maximum field");
+                    this.txtInStock.BackColor = Color.LightCoral;
+                    this.txtMax.BackColor = Color.LightCoral;
+                    this.btnSave.Enabled = false;
+                    status = false;
+                }
+                else
+                {
+                    errorProvider.SetError(txtInStock, "");
+                    errorProvider.SetError(txtMax, "");
+                    status = true;
+                }
             }
             return status;
         }
-        // Checks that min value is less than max value
         private bool MaxGreaterThanMin()
         {
             bool status = true;
-            if (Convert.ToInt32(txtMax.Text) < Convert.ToInt32(txtMin.Text))
+            if (IsPositiveInteger())
             {
-                errorProvider.SetError(txtMin, "Min field must be less than Max field");
-                errorProvider.SetError(txtMax, "Min field must be less than Max field");
-                this.txtMin.BackColor = Color.LightCoral;
-                this.txtMax.BackColor = Color.LightCoral;
-                this.btnSave.Enabled = false;
-                status = false;
-            }
-            else
-            {
-                errorProvider.SetError(txtInStock, "");
-                errorProvider.SetError(txtMax, "");
-                status = true;
+                if (Convert.ToInt32(txtMax.Text) < Convert.ToInt32(txtMin.Text))
+                {
+                    errorProvider.SetError(txtMin, "Min field must be less than Max field");
+                    errorProvider.SetError(txtMax, "Min field must be less than Max field");
+                    this.txtMin.BackColor = Color.LightCoral;
+                    this.txtMax.BackColor = Color.LightCoral;
+                    this.btnSave.Enabled = false;
+                    status = false;
+                }
+                else
+                {
+                    errorProvider.SetError(txtMin, "");
+                    errorProvider.SetError(txtMax, "");
+                    status = true;
+                }
             }
             return status;
         }
@@ -192,6 +202,7 @@ namespace D968_InvMngmnt
                     if (string.IsNullOrEmpty(control.Text) && control.Visible == true)
                     {
                         status = false;
+                        this.btnSave.Enabled = false;
                     }
                 }
             }
@@ -240,6 +251,7 @@ namespace D968_InvMngmnt
             }
             else
             {
+                this.btnSave.Enabled = false;
                 Console.WriteLine(IsPositiveInteger().ToString());
                 Console.WriteLine(InstockLessThanMax().ToString());
                 Console.WriteLine(InstockGreaterThanMin().ToString());

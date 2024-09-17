@@ -225,6 +225,7 @@
             this.txtMin.TabIndex = 5;
             this.txtMin.Tag = "Min";
             this.txtMin.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            this.txtMin.Validating += new System.ComponentModel.CancelEventHandler(this.PositiveInteger_Validation);
             this.txtMin.Validating += new System.ComponentModel.CancelEventHandler(this.MinMax_Validating);
             // 
             // txtMax
@@ -236,6 +237,7 @@
             this.txtMax.TabIndex = 4;
             this.txtMax.Tag = "Max";
             this.txtMax.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            this.txtMax.Validating += new System.ComponentModel.CancelEventHandler(this.PositiveInteger_Validation);
             this.txtMax.Validating += new System.ComponentModel.CancelEventHandler(this.MinMax_Validating);
             // 
             // txtPrice
@@ -258,6 +260,7 @@
             this.txtInStock.TabIndex = 2;
             this.txtInStock.Tag = "Inventory";
             this.txtInStock.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            this.txtInStock.Validating += new System.ComponentModel.CancelEventHandler(this.PositiveInteger_Validation);
             this.txtInStock.Validating += new System.ComponentModel.CancelEventHandler(this.MinMax_Validating);
             // 
             // txtName

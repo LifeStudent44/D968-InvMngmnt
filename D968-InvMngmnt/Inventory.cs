@@ -125,6 +125,7 @@ namespace D968_InvMngmnt
             }
             else 
             {
+
                 modifiedPart.SetPartId(part.PartId);
                 AllParts.Remove(part);
                 this.AddPart(modifiedPart);

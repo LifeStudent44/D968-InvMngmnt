@@ -98,6 +98,7 @@ namespace D968_InvMngmnt
             this.txtMin.Size = new System.Drawing.Size(79, 26);
             this.txtMin.TabIndex = 6;
             this.txtMin.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            this.txtMin.Validating += new System.ComponentModel.CancelEventHandler(this.PositiveInteger_Validation);
             this.txtMin.Validating += new System.ComponentModel.CancelEventHandler(this.MinMax_Validating);
             // 
             // txtMax
@@ -108,6 +109,7 @@ namespace D968_InvMngmnt
             this.txtMax.Size = new System.Drawing.Size(84, 26);
             this.txtMax.TabIndex = 5;
             this.txtMax.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            this.txtMax.Validating += new System.ComponentModel.CancelEventHandler(this.PositiveInteger_Validation);
             this.txtMax.Validating += new System.ComponentModel.CancelEventHandler(this.MinMax_Validating);
             // 
             // txtPrice
@@ -128,6 +130,7 @@ namespace D968_InvMngmnt
             this.txtInStock.Size = new System.Drawing.Size(211, 26);
             this.txtInStock.TabIndex = 3;
             this.txtInStock.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            this.txtInStock.Validating += new System.ComponentModel.CancelEventHandler(this.PositiveInteger_Validation);
             this.txtInStock.Validating += new System.ComponentModel.CancelEventHandler(this.MinMax_Validating);
             // 
             // txtName

@@ -27,8 +27,7 @@ namespace D968_InvMngmnt
         // Function loads seed data into datagrid
         private void InventoryManagementForm_LoadSeedData(object sender, EventArgs e)
         {
-            
-            Part firstInhousePart = new InHouse("Inhouse part1", 11.11, 111, 1, 1111, 01);
+            Part firstInhousePart = new InHouse("Inhouse part1", 11.11, 111, 1, 1111, 011);
             Part secondInhousePart = new InHouse("Inhouse part2", 22.22, 222, 2, 2222, 020);
             Part thirdInhousePart = new InHouse("Inhouse part3", 33.33, 333, 3, 3333, 3300);
             Part fourthInhousePart = new InHouse("Inhouse part4", 44.44, 444, 4, 4444, 4455);

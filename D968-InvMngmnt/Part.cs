@@ -1,11 +1,12 @@
-﻿using System.Threading;
+﻿using System.Diagnostics.Eventing.Reader;
+using System.Threading;
 
 namespace D968_InvMngmnt
 {
     public abstract class Part
     {
-        static int part_id;
-        public int PartId { get; set; }
+        public static int part_id;
+        public int PartId { get; private set; }
         public string Name { get; set; }
         public double Price { get; set; }
         public int InStock { get; set; }
@@ -19,6 +20,12 @@ namespace D968_InvMngmnt
             InStock = stock;
             Min = min;
             Max = max;
+        }
+
+        // Method sets the PartId to the value passed in.
+        public void SetPartId(int part_id)
+        {
+            this.PartId = part_id;
         }
     }
 }

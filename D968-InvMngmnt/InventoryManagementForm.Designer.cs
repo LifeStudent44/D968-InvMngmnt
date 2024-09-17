@@ -44,21 +44,21 @@ namespace D968_InvMngmnt
             this.btnProductDelete = new System.Windows.Forms.Button();
             this.btnProductModify = new System.Windows.Forms.Button();
             this.btnProductAdd = new System.Windows.Forms.Button();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.partBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inStockDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.partIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.inStockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.minDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.maxDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.partBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.partBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtgAllParts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgProducts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
@@ -110,7 +110,7 @@ namespace D968_InvMngmnt
             this.lblPartsDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPartsDetail.Location = new System.Drawing.Point(25, 162);
             this.lblPartsDetail.Name = "lblPartsDetail";
-            this.lblPartsDetail.Size = new System.Drawing.Size(110, 44);
+            this.lblPartsDetail.Size = new System.Drawing.Size(73, 29);
             this.lblPartsDetail.TabIndex = 4;
             this.lblPartsDetail.Text = "Parts";
             // 
@@ -120,7 +120,7 @@ namespace D968_InvMngmnt
             this.lblProductsDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblProductsDetail.Location = new System.Drawing.Point(953, 162);
             this.lblProductsDetail.Name = "lblProductsDetail";
-            this.lblProductsDetail.Size = new System.Drawing.Size(174, 44);
+            this.lblProductsDetail.Size = new System.Drawing.Size(116, 29);
             this.lblProductsDetail.TabIndex = 5;
             this.lblProductsDetail.Text = "Products";
             // 
@@ -130,7 +130,7 @@ namespace D968_InvMngmnt
             this.lblPageTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPageTitle.Location = new System.Drawing.Point(24, 26);
             this.lblPageTitle.Name = "lblPageTitle";
-            this.lblPageTitle.Size = new System.Drawing.Size(647, 48);
+            this.lblPageTitle.Size = new System.Drawing.Size(431, 32);
             this.lblPageTitle.TabIndex = 6;
             this.lblPageTitle.Text = "Inventory Management System";
             // 
@@ -138,6 +138,7 @@ namespace D968_InvMngmnt
             // 
             this.dtgAllParts.AllowUserToAddRows = false;
             this.dtgAllParts.AllowUserToDeleteRows = false;
+            this.dtgAllParts.AllowUserToOrderColumns = true;
             this.dtgAllParts.AllowUserToResizeColumns = false;
             this.dtgAllParts.AllowUserToResizeRows = false;
             this.dtgAllParts.AutoGenerateColumns = false;
@@ -167,6 +168,7 @@ namespace D968_InvMngmnt
             // 
             this.dtgProducts.AllowUserToAddRows = false;
             this.dtgProducts.AllowUserToDeleteRows = false;
+            this.dtgProducts.AllowUserToOrderColumns = true;
             this.dtgProducts.AllowUserToResizeColumns = false;
             this.dtgProducts.AllowUserToResizeRows = false;
             this.dtgProducts.AutoGenerateColumns = false;
@@ -266,18 +268,6 @@ namespace D968_InvMngmnt
             this.btnProductAdd.UseVisualStyleBackColor = true;
             this.btnProductAdd.Click += new System.EventHandler(this.btnProductAdd_Click);
             // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(D968_InvMngmnt.Product);
-            // 
-            // partBindingSource
-            // 
-            this.partBindingSource.DataSource = typeof(D968_InvMngmnt.Part);
-            // 
-            // partBindingSource1
-            // 
-            this.partBindingSource1.DataSource = typeof(D968_InvMngmnt.Part);
-            // 
             // productIdDataGridViewTextBoxColumn
             // 
             this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
@@ -320,12 +310,17 @@ namespace D968_InvMngmnt
             this.maxDataGridViewTextBoxColumn1.MinimumWidth = 8;
             this.maxDataGridViewTextBoxColumn1.Name = "maxDataGridViewTextBoxColumn1";
             // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(D968_InvMngmnt.Product);
+            // 
             // partIdDataGridViewTextBoxColumn
             // 
             this.partIdDataGridViewTextBoxColumn.DataPropertyName = "PartId";
             this.partIdDataGridViewTextBoxColumn.HeaderText = "PartId";
             this.partIdDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.partIdDataGridViewTextBoxColumn.Name = "partIdDataGridViewTextBoxColumn";
+            this.partIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn
             // 
@@ -362,11 +357,19 @@ namespace D968_InvMngmnt
             this.maxDataGridViewTextBoxColumn.MinimumWidth = 8;
             this.maxDataGridViewTextBoxColumn.Name = "maxDataGridViewTextBoxColumn";
             // 
+            // partBindingSource
+            // 
+            this.partBindingSource.DataSource = typeof(D968_InvMngmnt.Part);
+            // 
+            // partBindingSource1
+            // 
+            this.partBindingSource1.DataSource = typeof(D968_InvMngmnt.Part);
+            // 
             // InventoryManagementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1789, 839);
+            this.ClientSize = new System.Drawing.Size(1789, 791);
             this.Controls.Add(this.btnProductDelete);
             this.Controls.Add(this.btnProductModify);
             this.Controls.Add(this.btnProductAdd);

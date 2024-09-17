@@ -110,7 +110,8 @@ namespace D968_InvMngmnt
                     partTyped.Max = modifiedPart.Max;
                     partTyped.Machine = modifiedPartTyped.Machine;
                 }
-                else if (modifiedPart.GetType().Name == "Outsourced")
+
+                if (modifiedPart.GetType().Name == "Outsourced")
                 {
                     Outsourced partTyped = (Outsourced)LookupPart(id);
                     Outsourced modifiedPartTyped = (Outsourced)modifiedPart;
@@ -124,8 +125,9 @@ namespace D968_InvMngmnt
             }
             else 
             {
-                    this.DeletePart(part);
-                    this.AddPart(modifiedPart);
+                modifiedPart.SetPartId(part.PartId);
+                AllParts.Remove(part);
+                this.AddPart(modifiedPart);
             }
         }
     }

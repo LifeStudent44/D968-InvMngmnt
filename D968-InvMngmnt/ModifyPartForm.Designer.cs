@@ -262,6 +262,7 @@ namespace D968_InvMngmnt
             this.txtMachine.Size = new System.Drawing.Size(211, 26);
             this.txtMachine.TabIndex = 8;
             this.txtMachine.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            this.txtMachine.Validating += new System.ComponentModel.CancelEventHandler(this.PositiveInteger_Validation);
             // 
             // lblMachine
             // 

@@ -81,7 +81,7 @@ namespace D968_InvMngmnt
             foreach (Control control in this.Controls)
             {
 
-                string[] numericFields = { "txtInStock", "txtMin", "txtMax" };
+                string[] numericFields = { "txtInStock", "txtMin", "txtMax", "txtMachine" };
                 if (!string.IsNullOrEmpty(control.Text) && control.GetType() == typeof(TextBox) && numericFields.Contains(control.Name))
                 {
                     int n;
@@ -91,19 +91,16 @@ namespace D968_InvMngmnt
                         status = false;
                         this.btnSave.Enabled = false;
                     }
-                    else if (int.TryParse(control.Text, out n))
+                    else if (int.TryParse(control.Text, out n) && Convert.ToInt32(control.Text) < 0)
                     {
-                        if (Convert.ToInt32(control.Text) < 0)
-                        {
-                            errorProvider.SetError(control, "Field must contain a positive value");
-                            status = false;
-                            this.btnSave.Enabled = false;
-                        }
+                        errorProvider.SetError(control, "Field must contain a positive value");
+                        status = false;
+                        this.btnSave.Enabled = false;
                     }
-                }
-                else
-                {
-                    errorProvider.SetError(control, "");
+                    else
+                    {
+                        errorProvider.SetError(control, "");
+                    }
                 }
             }
             return status;
@@ -129,12 +126,13 @@ namespace D968_InvMngmnt
         }
 
         // Next 3 function validate InStock, Min, Max fields
+        // Checks in-stock below minimum
         private bool InstockGreaterThanMin()
         {
             bool status = true;
             if (IsPositiveInteger())
             {
-                if (Convert.ToInt32(txtMin.Text) >= Convert.ToInt32(txtInStock.Text))
+                if (Convert.ToInt32(txtInStock.Text) < Convert.ToInt32(txtMin.Text))
                 {
                     errorProvider.SetError(txtInStock, "In-stock field must be greater than Minimum field");
                     errorProvider.SetError(txtMin, "In-stock field must be greater than Minimum field");
@@ -152,12 +150,13 @@ namespace D968_InvMngmnt
             }
             return status;
         }
+        // Checks that inventory isn't greater than max field
         private bool InstockLessThanMax()
         {
             bool status = true;
             if (IsPositiveInteger())
             {
-                if (Convert.ToInt32(txtMax.Text) <= Convert.ToInt32(txtInStock.Text))
+                if (Convert.ToInt32(txtInStock.Text) > Convert.ToInt32(txtMax.Text))
                 {
                     errorProvider.SetError(txtInStock, "In-stock field must be less than Maximum field");
                     errorProvider.SetError(txtMax, "In-stock field must be less than Maximum field");
@@ -233,10 +232,11 @@ namespace D968_InvMngmnt
             }
             return status;
         }
+        // Enables/disables save button when the appropriate textboxes are filled
         private void TextBox_Changed(object sender, EventArgs e)
         {
             TextBoxBackground();
-            if (AreTextBoxesFilled())
+            if (AreTextBoxesFilled() && IsPositiveInteger() && IsDoublePrecision())
             {
                 btnSave.Enabled = true;
             }

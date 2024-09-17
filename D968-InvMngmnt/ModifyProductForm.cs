@@ -126,12 +126,13 @@ namespace D968_InvMngmnt
             return status;
         }
         // Next 3 function validate InStock, Min, Max fields
+        // Checks in-stock below minimum
         private bool InstockGreaterThanMin()
         {
             bool status = true;
             if (IsPositiveInteger())
             {
-                if (Convert.ToInt32(txtMin.Text) >= Convert.ToInt32(txtInStock.Text))
+                if (Convert.ToInt32(txtInStock.Text) < Convert.ToInt32(txtMin.Text))
                 {
                     errorProvider.SetError(txtInStock, "In-stock field must be greater than Minimum field");
                     errorProvider.SetError(txtMin, "In-stock field must be greater than Minimum field");
@@ -149,12 +150,13 @@ namespace D968_InvMngmnt
             }
             return status;
         }
+        // Checks that inventory isn't greater than max field
         private bool InstockLessThanMax()
         {
             bool status = true;
             if (IsPositiveInteger())
             {
-                if (Convert.ToInt32(txtMax.Text) <= Convert.ToInt32(txtInStock.Text))
+                if (Convert.ToInt32(txtInStock.Text) > Convert.ToInt32(txtMax.Text))
                 {
                     errorProvider.SetError(txtInStock, "In-stock field must be less than Maximum field");
                     errorProvider.SetError(txtMax, "In-stock field must be less than Maximum field");
@@ -214,7 +216,7 @@ namespace D968_InvMngmnt
         private void TextBox_Changed(object sender, EventArgs e)
         {
             TextBoxBackground();
-            if (AreTextBoxesFilled())
+            if (AreTextBoxesFilled() && IsPositiveInteger() && IsDoublePrecision())
             {
                 btnSave.Enabled = true;
             }

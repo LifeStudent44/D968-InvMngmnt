@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;  // For BindingList<T>
+﻿using System.ComponentModel;  // For BindingList<T>
 
 namespace D968_InvMngmnt
 {
